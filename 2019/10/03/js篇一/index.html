@@ -1,0 +1,1129 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.jpg">
+  <link rel="icon" href="/img/favicon.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Zhchn">
+  <meta name="keywords" content="前端,博客,JavaScript,html,html5,css,css3,vue">
+  
+    <meta name="description" content="本篇为js基础笔记,记录下来主要用于复习,巩固。包括以下内容：JavaScript书写位置、注释、输出输入语句、变量和赋值、标识符、变量的数据类型、变量的数据转换、其他进制的数字、运算符、流程控制语句和循环语句。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js基础篇一">
+<meta property="og:url" content="https://zhswchn.github.io/2019/10/03/js%E7%AF%87%E4%B8%80/index.html">
+<meta property="og:site_name" content="Zhchn">
+<meta property="og:description" content="本篇为js基础笔记,记录下来主要用于复习,巩固。包括以下内容：JavaScript书写位置、注释、输出输入语句、变量和赋值、标识符、变量的数据类型、变量的数据转换、其他进制的数字、运算符、流程控制语句和循环语句。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2019/11/02/N4hFlYaEL8DQvZS.jpg">
+<meta property="article:published_time" content="2019-10-03T09:32:56.000Z">
+<meta property="article:modified_time" content="2021-03-07T13:27:11.080Z">
+<meta property="article:author" content="Zhchn">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.loli.net/2019/11/02/N4hFlYaEL8DQvZS.jpg">
+  
+  
+  
+  <title>js基础篇一 - Zhchn</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhswchn.github.io","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>ZhouSWchn的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="js基础篇一"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2019-10-03 17:32" pubdate>
+          2019年10月3日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          12k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          96 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">js基础篇一</h1>
+            
+            <div class="markdown-body">
+              
+              <p>本篇为js基础笔记,记录下来主要用于复习,巩固。包括以下内容：JavaScript书写位置、注释、输出输入语句、变量和赋值、标识符、变量的数据类型、变量的数据转换、其他进制的数字、运算符、流程控制语句和循环语句。</p>
+<span id="more"></span>
+
+<h2 id="JavaScript书写位置"><a href="#JavaScript书写位置" class="headerlink" title="JavaScript书写位置"></a>JavaScript书写位置</h2><p><strong>行内式</strong></p>
+<p>写在<code>&lt;body&gt;</code>标签里</p>
+<pre><code class="hljs">&lt;!-- 行内式js --&gt;
+&lt;input type=&quot;button&quot; value=&quot;点我&quot; onclick=&quot;alert(&#39;你好&#39;)&quot;&gt;
+</code></pre>
+<p><strong>内嵌式</strong></p>
+<p>写在<code>&lt;body&gt;</code>标签里</p>
+<pre><code class="hljs">&lt;!-- 内嵌式 --&gt;
+&lt;script&gt;
+    alert(&#39;你好&#39;);
+&lt;/script&gt;
+</code></pre>
+<p><strong>外链式</strong></p>
+<p>引入外部JavaScript文件,写在<code>&lt;body&gt;</code>标签里放到body标签里，可以和内嵌的js代码并列</p>
+<pre><code class="hljs">&lt;!-- 外部式 --&gt;
+&lt;script src=&quot;js/my.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>单行注释：</p>
+<pre><code class="hljs">// 我是注释
+</code></pre>
+<p>多行注释：</p>
+<pre><code class="hljs">/*
+多行注释1
+多行注释2
+*/
+</code></pre>
+<h2 id="输入输出语句"><a href="#输入输出语句" class="headerlink" title="输入输出语句"></a>输入输出语句</h2><pre><code class="hljs">// 输入框
+prompt(&#39;输入框&#39;);
+//弹出框
+alert(&#39;弹出警示框&#39;);
+//控制台输出
+console.log(&#39;调试程序,测试用的&#39;);
+</code></pre>
+<p><strong>alert和prompt的区别：</strong></p>
+<pre><code class="hljs">alert(&quot;从前有座山&quot;);                //直接使用，不需要变量
+var a = prompt(&quot;请输入一个数字&quot;);   // 必须用一个变量，来接收用户输入的值
+</code></pre>
+<h2 id="变量和赋值"><a href="#变量和赋值" class="headerlink" title="变量和赋值"></a>变量和赋值</h2><p>“字面量”即<strong>常量</strong>，是固定值，不可改变。看见什么，它就是什么。</p>
+<p>简单的字面量有2种：数字、字符串(字符串要加引号)。</p>
+<p><strong>变量</strong>：变量可以用来保存字面量，而且变量的值可以任意改变。</p>
+<p>在js中使用<code>var</code>关键字来声明一个变量:</p>
+<pre><code class="hljs">var a = 100;
+</code></pre>
+<p>等号表示<strong>赋值</strong>，将等号右边的值，赋给左边的变量。</p>
+<pre><code class="hljs">a = b;
+</code></pre>
+<p>把b的值赋给a，b不变。</p>
+<p>将等号右边的值，赋给左边的变量；等号右边的变量，值不变。</p>
+<p>变量要先定义，才能使用。</p>
+<pre><code class="hljs">var a = 100;    //定义，并且赋值100
+</code></pre>
+<h3 id="变量语法拓展"><a href="#变量语法拓展" class="headerlink" title="变量语法拓展"></a>变量语法拓展</h3><p>更新变量：变量重新赋值后，之前的值会被覆盖:</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">var</span> myname = <span class="hljs-string">&#x27;22&#x27;</span>;<br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(myname); <span class="hljs-comment">// 22</span><br>myname = <span class="hljs-string">&#x27;33&#x27;</span>;<br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(myname); <span class="hljs-comment">// 33</span><br></code></pre></td></tr></table></figure>
+
+<p>声明多个变量,用逗号隔开,最后1个还是用分号:</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">var age</span> = 18,<br>    address = <span class="hljs-string">&#x27;bbb&#x27;</span>,<br>    gz = 2233;<br></code></pre></td></tr></table></figure>
+
+<p>特殊情况:</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-comment">//只声明不赋值，结果是undefined未定义</span><br><span class="hljs-keyword">var</span> sex;<br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(sex); <span class="hljs-comment">// undefined</span><br><span class="hljs-comment">//不声明不赋值直接使用会报错</span><br><span class="hljs-comment">//console.log(asa);</span><br><span class="hljs-comment">//不声明直接赋值使用,是全局变量,能够显示，但不提倡</span><br>qq = <span class="hljs-number">100</span>;<br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(qq);<br></code></pre></td></tr></table></figure>
+<h3 id="变量的命名规范"><a href="#变量的命名规范" class="headerlink" title="变量的命名规范"></a>变量的命名规范</h3><p>变量名有命名规范：只能由英语字母、数字、下划线、美元符号$构成，且不能以数字开头，并且不能是JavaScript保留字。<br>保留字(reserved word)，指在高级语言中已经定义过的字，使用者不能再将这些字作为变量名或过程名使用。</p>
+<p>大写字母是可以使用的，并且大小写敏感。也就是说A和a是两个变量。</p>
+<p><strong>总结:</strong></p>
+<p>  1.建议用驼峰命名规则：第一个单词以小写字母开始；从第二个单词开始以后的每个单词的首字母都采用大写字母</p>
+<p>  2.变量命名必须以字母或是下标符号”_”或者”$”为开头。</p>
+<p>  3.变量名长度不能超过255个字符。</p>
+<p>  4.变量名中不允许使用空格，首个字不能为数字。</p>
+<p>  5.不用使用脚本语言中保留的<strong>关键字</strong>及<strong>保留字</strong>作为变量名。</p>
+<p>  6.变量名区分大小写(javascript是区分大小写的语言)。</p>
+<p>  7.汉语可以作为变量名。但是不建议使用，因为 low。 </p>
+<h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><p><strong>标识符</strong>：在JS中所有的可以由我们<strong>自主命名</strong>的都可以称之为标识符。</p>
+<p>例如：变量名、函数名、属性名都是属于标识符。</p>
+<p><strong>标识符的命名规则</strong>和变量的命令规则是一样的。看上面一段就可以了。</p>
+<p>重点要注意的是：标识符不能使用脚本语言中保留的<strong>关键字</strong>及<strong>保留字</strong>。</p>
+<h2 id="变量数据类型"><a href="#变量数据类型" class="headerlink" title="变量数据类型"></a>变量数据类型</h2><p>变量里面能够存储数字、字符串等。变量会自动的根据存储内容的类型不同，来决定自己的类型。</p>
+<ul>
+<li><strong>基本数据类型（值类型）</strong>：也叫 简单数据类型 <code>String</code> 字符串、<code>Number</code> 数值、<code>Boolean</code> 布尔值、<code>Null</code> 空值、<code>Undefined</code> 未定义。</li>
+<li><strong>引用数据类型（引用类型）</strong>： 也叫 复杂数据类型 <code>Object</code> 对象。</li>
+</ul>
+<p>注意：内置对象<code>function、Array、Date、RegExp、Error</code>等都是属于<code>Object</code>类型。也就是说，除了那五种基本数据类型之外，其他的，都称之为<code> Object</code>类型。</p>
+<p><strong>数据类型之间最大的区别</strong>：</p>
+<ul>
+<li>基本数据类型：参数赋值的时候，传数值。</li>
+<li>引用数据类型：参数赋值的时候，传地址（修改的同一片内存空间）。</li>
+</ul>
+<p>简单数据类型: 是存放在栈里面,里面直接开辟一个空间存放的是值<br>复杂数据类型: 首先在栈里面存放地址(0x11accb这样的十六进制) 然后这个地址指向堆里面的数据</p>
+<h3 id="字符串：String"><a href="#字符串：String" class="headerlink" title="字符串：String"></a>字符串：String</h3><p>（1）在JS中，字符串需要使用引号引起来。使用双引号或单引号都可以，但是不要混着用。比如下面这样写是不可以的：</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs axapta"><span class="hljs-built_in">var</span> <span class="hljs-built_in">str</span> = `hello<span class="hljs-string">&quot;;</span><br></code></pre></td></tr></table></figure>
+
+<p>（2）引号不能嵌套：双引号里不能再放双引号，单引号里不能再放单引号。但是单引号里可以嵌套双引号。</p>
+<p>（3）<strong>转义字符</strong>：在字符串中我们可以使用<code>\</code>作为转义字符，当表示一些特殊符号时可以使用<code>\</code> 进行转义。</p>
+<ul>
+<li><code>\&quot;</code> 表示 <code>&quot;</code></li>
+<li><code>\&#39;</code> 表示 <code>&#39;</code></li>
+<li><code>\n</code> 表示换行</li>
+<li><code>\r</code> 表示回车</li>
+<li><code>\t</code> 表示制表符</li>
+<li><code>\b</code> 表示空格</li>
+<li><code>\\</code> 表示<code>\</code></li>
+</ul>
+<h4 id="typeof-运算符"><a href="#typeof-运算符" class="headerlink" title="typeof 运算符"></a>typeof 运算符</h4><p><code>typeof()</code>表示“<strong>获取变量的类型</strong>”，返回的是小写，语法为：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs actionscript"><span class="hljs-keyword">typeof</span> 变量<br></code></pre></td></tr></table></figure>
+
+<p><strong>返回结果</strong>：</p>
+<ul>
+<li><code>typeof 数值</code>的返回结果：number</li>
+<li><code>typeof 字符串</code>的返回结果：string</li>
+<li><code>typeof 布尔型</code>的返回结果：boolean</li>
+<li><code>typeof undefined</code>的返回结果：undefined</li>
+<li><code>typeof null</code>的返回结果：object</li>
+</ul>
+<p>在JavaScript中，只要是数，就是 number 数值型的。无论整浮、浮点数（即小数）、无论大小、无论正负，都是 number 类型的。</p>
+<p><strong>注意:</strong><br>prompt取的值是字符型的</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">var</span> age = prompt(<span class="hljs-string">&#x27;输入年龄&#x27;</span>);<br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">typeof</span> age); <span class="hljs-comment">//string</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="数值型：Number"><a href="#数值型：Number" class="headerlink" title="数值型：Number"></a>数值型：Number</h3><p>在JS中所有的数值都是Number类型，包括整数和浮点数（小数）。</p>
+<p><strong>数值范围：</strong></p>
+<p>由于内存的限制，ECMAScript 并不能保存世界上所有的数值。</p>
+<ul>
+<li>最大值：<code>Number.MAX_VALUE</code>，这个值为： 1.7976931348623157e+308</li>
+<li>最小值：<code>Number.MIN_VALUE</code>，这个值为： 5e-324</li>
+</ul>
+<p>如果使用Number表示的变量超过了最大值，则会返回Infinity。</p>
+<ul>
+<li>无穷大（正无穷）：Infinity</li>
+<li>无穷小（负无穷）：-Infinity</li>
+</ul>
+<p>注意：<code>typeof Infinity</code>的返回结果是number。</p>
+<p><strong>NaN和isNaN()函数：</strong></p>
+<p>（1）NaN：是一个特殊的数字，表示Not a Number，非数值。比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;abc&quot;</span> / <span class="hljs-number">18</span>);  <span class="hljs-comment">//结果是NaN</span><br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;abc&quot;</span> * <span class="hljs-string">&quot;abcd&quot;</span>); <span class="hljs-comment">//按理说，字符串相乘是没有结果的，但如果你非要让JS去算，它就一定会给你一个结果。结果是NaN</span><br></code></pre></td></tr></table></figure>
+
+<p>注意：<code>typeof NaN</code>的返回结果是number。</p>
+<p>Undefined和任何数值计算的结果为NaN。NaN 与任何值都不相等，包括 NaN 本身。</p>
+<p>（2）isNaN() :任何不能被转换为数值的值，都会让这个函数返回 true。</p>
+<p>  isNaN可以判断是否非数字，并返回一个值，是,返回false 不是,返回true</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">isNaN</span>(<span class="hljs-title class_">NaN</span>);<span class="hljs-comment">// true</span><br><span class="hljs-built_in">isNaN</span>(<span class="hljs-string">&quot;blue&quot;</span>); <span class="hljs-comment">// true</span><br><span class="hljs-built_in">isNaN</span>(<span class="hljs-number">123</span>); <span class="hljs-comment">// false</span><br><br></code></pre></td></tr></table></figure>
+
+<p><strong>浮点数的运算</strong>：</p>
+<p>在JS中，整数的运算<strong>基本</strong>可以保证精确；但是<strong>小数的运算，可能会得到一个不精确的结果</strong>。所以，千万不要使用JS进行对精确度要求比较高的运算。</p>
+<p>如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> a = <span class="hljs-number">0.1</span> + <span class="hljs-number">0.2</span>;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);  <span class="hljs-comment">//打印结果：0.30000000000000004</span><br></code></pre></td></tr></table></figure>
+
+<p>上方代码中，打印结果并不是0.3，而是0.30000000000000004。</p>
+<p>我们知道，所有的运算都要转换成二进制去计算，然而，二进制是无法精确表示1/10的。因此存在小数的计算不精确的问题。</p>
+<h3 id="布尔值：Boolean"><a href="#布尔值：Boolean" class="headerlink" title="布尔值：Boolean"></a>布尔值：Boolean</h3><p>true 和 fase。主要用来做逻辑判断。</p>
+<p>布尔值直接使用就可以了，千万不要加上引号。</p>
+<h3 id="null和undefined"><a href="#null和undefined" class="headerlink" title="null和undefined"></a>null和undefined</h3><h4 id="null：空值"><a href="#null：空值" class="headerlink" title="null：空值"></a><code>null</code>：空值</h4><p>专门用来表示一个为空的<strong>对象</strong>（例如：<code>var a = null</code>）。注意，专门用来表示<strong>空对象</strong>。</p>
+<ul>
+<li><p>Null类型的值只有一个，就是null。比如：<code>var a = null</code>。</p>
+</li>
+<li><p>使用 typeof 检查一个null值时，会返回object。</p>
+</li>
+</ul>
+<h4 id="undefined：未定义"><a href="#undefined：未定义" class="headerlink" title="undefined：未定义"></a><code>undefined</code>：未定义</h4><p><strong>声明</strong>了一个变量，但是没有<strong>赋值</strong>（例如：<code>var a;</code>），此时它的值就是undefined。</p>
+<ul>
+<li>Undefined类型的值只有一个，就是undefind</li>
+<li>使用 type of 检查一个undefined时，会返回undefined。</li>
+</ul>
+<p>null和undefined有最大的相似性。看看null == undefined的结果(true)也就更加能说明这点。</p>
+<p>但是null === undefined的结果(false)。它们虽然相似，但还是有区别的，其中一个区别是：和数字运算时，10 + null结果为：10；10 + undefined结果为：NaN。</p>
+<ul>
+<li>任何数据类型和undefined运算都是NaN;</li>
+<li>任何值和null运算，null可看做0运算。</li>
+</ul>
+<h3 id="连字符和加号的区别"><a href="#连字符和加号的区别" class="headerlink" title="连字符和加号的区别"></a>连字符和加号的区别</h3><p>键盘上的<code>+</code>可能是连字符，也可能是数字的加号。如下：</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&quot;a&quot;</span> + <span class="hljs-string">&quot;啊&quot;</span> + <span class="hljs-string">&quot;3&quot;</span>);	<span class="hljs-comment">//连字符，</span><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&quot;a+啊+3&quot;</span>);			<span class="hljs-comment">//原样输出</span><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-number">1</span>+<span class="hljs-number">2</span>+<span class="hljs-number">3</span>);				<span class="hljs-comment">//输出6</span><br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">a</span>啊<span class="hljs-number">3</span><br><span class="hljs-attribute">a</span>+啊+<span class="hljs-number">3</span><br><span class="hljs-attribute">6</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>总结</strong>：如果加号两边<strong>都是</strong>数值，此时是加。否则，就是连字符（用来连接字符串）。</p>
+<h3 id="隐式转换"><a href="#隐式转换" class="headerlink" title="隐式转换"></a>隐式转换</h3><p>我们知道，<code>&quot;2&quot;+1</code>得到的结果其实是字符串，但是<code>&quot;2&quot;-1</code>得到的结果却是数值1，这是因为计算机自动帮我们进行了“<strong>隐式转换</strong>”。</p>
+<p>也就是说，<code>-</code>、<code>*</code>、<code>/</code>、`%``这几个符号会自动进行隐式转换。</p>
+<p>虽然程序可以对<code>-</code>、<code>*</code>、<code>/</code>、<code>%</code>这几个符号自动进行“隐式转换”；但是最好自己完成转换，方便程序的可读性。</p>
+<h2 id="变量数据类型转换"><a href="#变量数据类型转换" class="headerlink" title="变量数据类型转换"></a>变量数据类型转换</h2><h3 id="转换为数字型"><a href="#转换为数字型" class="headerlink" title="转换为数字型"></a>转换为数字型</h3><ol>
+<li><p>parseInt(变量)字符型转换为数字型,只能是整数</p>
+<pre><code class="hljs"> var age = prompt(&#39;输入年龄&#39;)
+ console.log(parseInt(age));
+ //值要以数字开头才能识别,否则输出NaN &#39;asd123&#39;输出是NaN
+ console.log(parseInt(&#39;3.14&#39;)); // 3 只能取整数
+ console.log(parseInt(&#39;120px&#39;)); // 120 会去掉单位取整
+</code></pre>
+</li>
+<li><p>parseFloat可以取小数 值必须以数字开头</p>
+<pre><code class="hljs"> console.log(parseFloat(&#39;3.14&#39;)); //3.14
+ console.log(parseFloat(&#39;120px&#39;)); //120
+</code></pre>
+</li>
+<li><p>Number(变量)</p>
+<pre><code class="hljs"> var str = &#39;123&#39;;
+ console.log(Number(str));
+ console.log(Number(&#39;12&#39;));
+</code></pre>
+</li>
+</ol>
+<p><strong>情况一：字符串 –&gt; 数字</strong></p>
+<ul>
+<li>1.如果字符串中是纯数字，则直接将其转换为数字。</li>
+<li>2.如果字符串中有非数字的内容，则转换为NaN。（此处可以看到Number()函数的局限性）</li>
+<li>3.如果字符串是一个空串或者是一个全是空格的字符串，则转换为0。</li>
+</ul>
+<p><strong>情况二：布尔 –&gt; 数字</strong></p>
+<ul>
+<li>true 转成 1</li>
+<li>false 转成 0</li>
+</ul>
+<p><strong>情况三：null –&gt; 数字</strong></p>
+<ul>
+<li>结果为：0</li>
+</ul>
+<p><strong>情况四：undefined –&gt; 数字</strong></p>
+<ul>
+<li>结果为：NaN</li>
+</ul>
+<ol start="4">
+<li><p>算数运算 - * / 隐式转换</p>
+<pre><code class="hljs"> console.log(&#39;12&#39; - 0); // 12
+ console.log(&#39;123&#39; - &#39;120&#39;); // 3
+ console.log(&#39;123&#39; * 1); // 123
+</code></pre>
+</li>
+</ol>
+<h3 id="转换为字符串型"><a href="#转换为字符串型" class="headerlink" title="转换为字符串型"></a>转换为字符串型</h3><p>1.数字型转换为字符串型 变量.toString</p>
+<pre><code class="hljs">    var num = 10,
+        str = num.toString();
+    console.log(num); //数字型
+    console.log(str); //字符串型
+    console.log(typeof str); // string
+</code></pre>
+<p>【重要】该方法<strong>不会影响到原变量</strong>，它会将转换的结果返回。当然我们还可以直接写成<code>num = num.toString()</code>，这样的话，就是直接修改原变量。</p>
+<p>注意：null和undefined这两个值没有toString()方法，所以它们不能用方法二。如果调用，会报错。</p>
+<p>另外，Number类型的变量，在调用toString()时，可以在方法中传递一个整数作为参数。此时它将会把数字转换为指定的进制，如果不指定则默认转换为10进制。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> a = <span class="hljs-number">255</span>;<br><br><span class="hljs-comment">//对于Number调用toString()时可以在方法中传递一个整数作为参数</span><br><span class="hljs-comment">//此时它将会把数字转换为指定的进制,如果不指定则默认转换为10进制</span><br>a = a.<span class="hljs-title function_">toString</span>(<span class="hljs-number">2</span>);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);        <span class="hljs-comment">// 11111111</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-keyword">typeof</span> a); <span class="hljs-comment">// string</span><br></code></pre></td></tr></table></figure>
+
+<p>2.数字型强制转换为字符串</p>
+<pre><code class="hljs">    console.log(String(num));
+</code></pre>
+<p>3.(隐式转换) 拼接字符串实现转换效果</p>
+<pre><code class="hljs">    console.log(num + &#39;&#39;);
+</code></pre>
+<h3 id="转换为布尔型"><a href="#转换为布尔型" class="headerlink" title="转换为布尔型"></a>转换为布尔型</h3><p>将其他的数据类型转换为Boolean，可以使用Boolean()函数。</p>
+<ul>
+<li>情况一：数字 –&gt; 布尔。除了0和NaN，其余的都是true。</li>
+<li>情况二：字符串 —&gt; 布尔。除了空串，其余的都是true。</li>
+<li>情况三：null和undefined都会转换为false。</li>
+<li>情况四：对象也会转换为true。</li>
+</ul>
+<p>Boolean() 空值,否定值都会转换为false</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">Boolean</span>(<span class="hljs-string">&#x27;&#x27;</span>)); <span class="hljs-comment">//false</span><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">Boolean</span>(<span class="hljs-number">0</span>)); <span class="hljs-comment">//false</span><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">Boolean</span>(<span class="hljs-literal">NaN</span>)); <span class="hljs-comment">//false</span><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">Boolean</span>(<span class="hljs-literal">null</span>)); <span class="hljs-comment">//false</span><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">Boolean</span>(<span class="hljs-literal">undefined</span>)); <span class="hljs-comment">//false</span><br><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">Boolean</span>(<span class="hljs-string">&#x27;12&#x27;</span>)); <span class="hljs-comment">//true</span><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">Boolean</span>(<span class="hljs-number">12</span>)); <span class="hljs-comment">//true</span><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">Boolean</span>(<span class="hljs-string">&#x27;十二&#x27;</span>)); <span class="hljs-comment">//true</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="其他进制的数字"><a href="#其他进制的数字" class="headerlink" title="其他进制的数字"></a>其他进制的数字</h2><ul>
+<li>16进制的数字，以<code>0x</code>开头</li>
+<li>8进制的数字，以<code>0</code>开头</li>
+<li>2进制的数字，<code>0b</code>开头（不是所有的浏览器都支持：chrome和火狐支持，IE不支持）</li>
+</ul>
+<p>比如<code>070</code>这个字符串，如果我调用parseInt()转成数字时，有些浏览器会当成8进制解析，有些会当成10进制解析。</p>
+<p>所以，比较建议的做法是：可以在parseInt()中传递第二个参数，来指定数字的进制。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">a = <span class="hljs-string">&quot;070&quot;</span>;<br><br>a = <span class="hljs-built_in">parseInt</span>(a,<span class="hljs-number">10</span>); <span class="hljs-comment">//转换成十进制</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h3><p>加<code>+</code>,减<code>-</code>,乘<code>*</code>,除<code>/</code>,取余<code>%</code></p>
+<pre><code class="hljs">    console.log(4 % 2); // 0
+    console.log(5 % 3); // 2
+    console.log(3 % 5); // 3
+</code></pre>
+<p><strong>算数运算符的运算规则</strong></p>
+<p>（1）先算乘除、后算加减。</p>
+<p>（2）小括号：能够影响计算顺序，且可以嵌套。没有中括号、没有大括号，只有小括号。</p>
+<p>（3）百分号：取余。只关心余数。</p>
+<p>（4）当对非Number类型的值进行运算（包括<code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>）时，会将这些值转换为Number然后再运算。（注：<code>字符串 + Number</code>、<code>字符串 + 字符串</code>是特例，）</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">result1</span> = <span class="hljs-literal">true</span> + <span class="hljs-number">1</span><span class="hljs-comment">;  // 2 = 1+ 1</span><br><br><span class="hljs-attr">result2</span> = <span class="hljs-literal">true</span> + <span class="hljs-literal">false</span><span class="hljs-comment">; // 1 = 1+ 0</span><br><br><span class="hljs-attr">result3</span> = <span class="hljs-number">1</span> + null<span class="hljs-comment">; // 1 = 1+ 0</span><br><br><span class="hljs-attr">result4</span> = <span class="hljs-number">100</span> - <span class="hljs-string">&#x27;1&#x27;</span> // <span class="hljs-number">99</span><br></code></pre></td></tr></table></figure>
+
+<p>（5）任何值和NaN做运算的结果都是NaN。</p>
+<p>（6）任何的值和字符串做加法运算，都会先转换为字符串，然后再做拼串操作。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"> <span class="hljs-attribute">result1</span> = <span class="hljs-number">1</span> + <span class="hljs-number">2</span> + &#x27;<span class="hljs-number">3</span>&#x27;  // <span class="hljs-number">33</span><br><br><span class="hljs-attribute">result2</span> = &#x27;<span class="hljs-number">1</span>&#x27; + <span class="hljs-number">2</span> + <span class="hljs-number">3</span>; // <span class="hljs-number">123</span><br></code></pre></td></tr></table></figure>
+
+<p>利用这一特性可以将一个任意的数据类型转换为String<br><code>c = c + &quot;&quot;</code> 等价于 <code>c = String(c)</code>。</p>
+<p>（7）任何值做<code>-</code>、<code>*</code>、<code>/</code>运算时都会自动转换为Number。</p>
+<p>利用这一特点，可以将一个值<code>-0</code>、<code>*1</code>、<code>/1</code>来将其转换为Number。</p>
+<h3 id="一元运算符"><a href="#一元运算符" class="headerlink" title="一元运算符"></a>一元运算符</h3><p>一元运算符，只需要一个操作数。</p>
+<p>常见的一元运算符如下。</p>
+<p><strong>正号 <code>+</code></strong></p>
+<p>（1）正号不会对数字产生任何影响。比如说，<code>2</code>和<code>+2</code>是一样的。</p>
+<p><strong>typeof</strong></p>
+<p>typeof就是典型的一元运算符，因为后面只跟一个操作数。</p>
+<p>（2）我们可以对一个其他的数据类型使用<code>+</code>，来将其转换为number【小技巧】。比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> a = <span class="hljs-literal">true</span>;<br>a = +a;   <span class="hljs-comment">// 注意这行代码的一元运算符操作</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;a：&#x27;</span> + a);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-keyword">typeof</span> a);<br><br><span class="hljs-keyword">var</span> b = <span class="hljs-string">&#x27;18&#x27;</span>;<br>b = +b;   <span class="hljs-comment">// 注意这行代码的一元运算符操作</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;b：&#x27;</span> + b);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-keyword">typeof</span> b);<br></code></pre></td></tr></table></figure>
+
+<h3 id="自增和自减"><a href="#自增和自减" class="headerlink" title="自增和自减"></a>自增和自减</h3><p>自减跟自增原理相同</p>
+<p>自增分成两种：<code>a++</code>和<code>++a</code>。</p>
+<p>（1）对于一个变量自增以后，原变量的值会<strong>立即</strong>自增1。也就是说，无论是 <code>a++</code> 还是<code>++a</code>，都会立即使原变量的值自增1。</p>
+<p>（2）<strong>我们要注意的是</strong>：<code>a</code>是变量，而<code>a++</code>和<code>++a</code>是<strong>表达式</strong>。</p>
+<p>那这两种自增，有啥区别呢？区别是：<code>a++</code> 和 <code>++a</code>的值不同：（也就是说，表达式的值不同）</p>
+<ul>
+<li><code>a++</code>的值等于原变量的值（a自增前的值）</li>
+<li><code>++a</code>的值等于新值 （a自增后的值）</li>
+</ul>
+<p>例子:</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">var</span> n1=<span class="hljs-number">10</span>;<br><span class="hljs-keyword">var</span> n2=<span class="hljs-number">20</span>;<br><br><span class="hljs-keyword">var</span> n = n1++; <span class="hljs-comment">//n1 = 11  n1++ = 10</span><br><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&#x27;n=&#x27;</span>+n);  <span class="hljs-comment">// 10</span><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&#x27;n1=&#x27;</span>+n1); <span class="hljs-comment">//11</span><br><br>n = ++n1 <span class="hljs-comment">//n1 = 12  ++n1 =12</span><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&#x27;n=&#x27;</span>+n); <span class="hljs-comment">//12</span><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&#x27;n1=&#x27;</span>+n1); <span class="hljs-comment">//12</span><br><br>n = n2--;<span class="hljs-comment">// n2=19 n2--=20</span><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&#x27;n=&#x27;</span>+n); <span class="hljs-comment">//20</span><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&#x27;n2=&#x27;</span>+n2); <span class="hljs-comment">//19</span><br><br>n = --n2; <span class="hljs-comment">//n2=18 --n2 = 18</span><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&#x27;n=&#x27;</span>+n); <span class="hljs-comment">//18</span><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&#x27;n2=&#x27;</span>+n2); <span class="hljs-comment">//18</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><p>逻辑运算符有三个：</p>
+<ul>
+<li><code>&amp;&amp;</code>      与（且）：两个都为真，结果才为真。</li>
+<li><code>||</code>    或：只要有一个是真，结果就是真。</li>
+<li><code>!</code>    非：对一个布尔值进行取反。</li>
+</ul>
+<p><strong>注意事项</strong></p>
+<p>（1）能参与逻辑运算的，都是布尔值。</p>
+<p>（2）JS中的<code>&amp;&amp;</code>属于<strong>短路</strong>的与，如果第一个值为false，则不会看第二个值。</p>
+<p>（3）JS中的<code>||</code>属于<strong>短路</strong>的或，如果第一个值为true，则不会看第二个值。</p>
+<p>（4）如果对<strong>非布尔值</strong>进行逻辑运算，则会<strong>先将其转换为布尔值</strong>，然后再操作。</p>
+<p>对非布尔值进行<code>!</code>操作之后，返回结果为布尔值:</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">var</span> a = <span class="hljs-number">10</span>;<br>   a = !a;<br><br>   <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(a);  <span class="hljs-comment">// false</span><br>   <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">typeof</span> a); <span class="hljs-comment">// boolean</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="非布尔值的与或运算-短路运算"><a href="#非布尔值的与或运算-短路运算" class="headerlink" title="非布尔值的与或运算(短路运算)"></a>非布尔值的与或运算(短路运算)</h4><p>非布尔值进行<strong>与或运算</strong>时，会先将其转换为布尔值，然后再运算，但返回结果是<strong>原值</strong>。比如说：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> result = <span class="hljs-number">5</span> &amp;&amp; <span class="hljs-number">6</span>; <span class="hljs-comment">// 运算过程：true &amp;&amp; true;</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;result：&#x27;</span> + result); <span class="hljs-comment">// 打印结果：6（也就是说最后面的那个值。）</span><br></code></pre></td></tr></table></figure>
+<p><strong>与(&amp;&amp;)运算</strong>的返回结果：（以两个非布尔值的运算为例）</p>
+<ul>
+<li>如果第一个值为true，则必然返回第二个值（所以说，如果所有的值都为true，则返回的是最后一个值）</li>
+<li>如果第一个值为false，则直接返回第一个值</li>
+</ul>
+<p><strong>或(||)运算</strong>的返回结果：（以两个非布尔值的运算为例）</p>
+<ul>
+<li>如果第一个值为true，则直接返回第一个值</li>
+<li>如果第一个值为false，则返回第二个值</li>
+</ul>
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><p>可以将符号右侧的值赋值给符号左侧的变量。</p>
+<p>举例：</p>
+<ul>
+<li><code>+=</code>。a += 5 等价于 a = a + 5</li>
+<li><code>-=</code>。a -= 5 等价于 a = a - 5</li>
+<li><code>*=</code>。a *= 5 等价于 a = a * 5</li>
+<li><code>/=</code>。a /= 5 等价于 a = a / 5</li>
+<li><code>%=</code>。a %= 5 等价于 a = a % 5</li>
+</ul>
+<h3 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h3><p>通过关系运算符可以比较两个值之间的大小关系，如果关系成立它会返回true，如果关系不成立则返回false。</p>
+<p><strong>关系运算符，得到的结果都是布尔值：要么是true，要么是false</strong>。</p>
+<blockquote>
+<p>   大于号<br>    &lt;    小于号<br>=     大于或等于<br>    &lt;=  小于或等于<br>    ==     等于<br>    === 全等于<br>    !=    不等于<br>    !== 不全等于</p>
+</blockquote>
+<p>（1）对于非数值进行比较时，会将其转换为数字然后再比较。</p>
+<p>（2）特殊情况：如果符号两侧的值都是字符串时，<strong>不会</strong>将其转换为数字进行比较。比较两个字符串时，比较的是字符串的<strong>Unicode编码</strong>。</p>
+<p>比较字符编码时，是一位一位进行比较。如果两位一样，则比较下一位，所以借用它可以来对英文进行排序。</p>
+<p>PS：所以说，当你尝试去比较<code>&quot;123&quot;</code>和<code>&quot;56&quot;</code>这两个字符串时，你会发现，字符串”56”竟然比字符串”123”要大。也就是说，下面这样代码的打印结果，其实是true</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 比较两个字符串时，比较的是字符串的字符编码，所以可能会得到不可预期的结果</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;56&quot;</span> &gt; <span class="hljs-string">&quot;123&quot;</span>);  <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>因此</strong>：当我们在比较两个字符串型的数字时，<strong>一定一定要先转型</strong>，比如 <code>parseInt()</code>。</p>
+<p>（3）任何值和NaN做任何比较都是false。</p>
+<p><code>==</code>符会将不同类型的东西，<strong>转为相同类型</strong>进行比较</p>
+<p><code>===</code><strong>全等不会做类型转换</strong>必须是值跟数据类型都相同才全等</p>
+<h3 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h3><p>三元运算符也叫条件运算符。</p>
+<pre><code class="hljs">// 一元表达式: ++num 
+// 二元表达式: 3 + 5
+// 三元表达式: ? :
+// 语法结构: 条件表达式 ? 表达式1 : 表达式2
+// 条件表达式结果为真,返回表达式1的值,为假返回表达式2的值
+</code></pre>
+<h3 id="运算符的优先级"><a href="#运算符的优先级" class="headerlink" title="运算符的优先级"></a>运算符的优先级</h3><p>运算符的优先级如下：（越往上，优先级越高）</p>
+<ul>
+<li><p><code>.</code>、<code>[]</code>、<code>new</code></p>
+</li>
+<li><p>()</p>
+</li>
+<li><p>++、–</p>
+</li>
+<li><p><code>!</code>、<code>~</code>、<code>+</code>（单目）、<code>-</code>（单目）、<code>typeof</code>、<code>void</code>、<code>delete</code></p>
+</li>
+<li><p><code>%</code>、<code>*</code>、<code>/</code></p>
+</li>
+<li><p><code>+</code>（双目）、<code>-</code>（双目）</p>
+</li>
+<li><p><code>&lt;&lt;</code>、<code>&gt;&gt;</code>、<code>&gt;&gt;&gt;</code></p>
+</li>
+<li><p><code>&lt;</code>、<code>&lt;=</code>、<code>&gt;</code>、<code>&gt;=</code></p>
+</li>
+<li><p><code>==</code>、<code>!==</code>、<code>===</code></p>
+</li>
+<li><p><code>&amp;</code></p>
+</li>
+<li><p><code>^</code></p>
+</li>
+<li><p><code>|</code></p>
+</li>
+<li><p><code>&amp;&amp;</code></p>
+</li>
+<li><p><code>||</code></p>
+</li>
+<li><p><code>?:</code></p>
+</li>
+<li><p><code>=</code>、<code>+=</code>、<code>-=</code>、<code>*=</code>、<code>/=</code>、<code>%=</code>、<code>&lt;&lt;=</code>、<code>&gt;&gt;=</code>、<code>&gt;&gt;&gt;=</code>、<code>&amp;=</code>、<code>^=</code>、<code>|=</code></p>
+</li>
+<li><p><code>,</code></p>
+</li>
+</ul>
+<h2 id="流程控制语句"><a href="#流程控制语句" class="headerlink" title="流程控制语句"></a>流程控制语句</h2><h3 id="顺序结构"><a href="#顺序结构" class="headerlink" title="顺序结构"></a>顺序结构</h3><p>按照代码的先后顺序，依次执行。</p>
+<h3 id="选择结构"><a href="#选择结构" class="headerlink" title="选择结构"></a>选择结构</h3><h4 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h4><p><strong>if语句只执行其中一个</strong></p>
+<p>1、条件判断语句</p>
+<p>条件成立才执行。如果条件不成立，那就什么都不做</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-keyword">if</span> (条件表达式) &#123;<br>		<span class="hljs-regexp">//</span> 执行语句 条件为真就执行<br>	&#125;<br></code></pre></td></tr></table></figure>
+
+<p>2、条件分支语句</p>
+<p>如果 条件表达式为真,那么执行语句1  else否则  执行语句2</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-keyword">if</span> (条件表达式) &#123;<br>		<span class="hljs-regexp">//</span> 执行语句<span class="hljs-number">1</span><br><br>	&#125; <span class="hljs-keyword">else</span> &#123;<br>		<span class="hljs-regexp">//</span> 执行语句<span class="hljs-number">2</span><br><br>	&#125;<br></code></pre></td></tr></table></figure>
+
+<p>3、多分支的if语句</p>
+<p>多分支语句 多选 1 的过程<br>满足条件表达式1,就执行语句1 执行后退出整个if 分支语句<br>不满足条件表达式1,就判断条件表达式2,满足就执行语句2,以此类推<br>如果都不成立,则执行else里最后的语句        </p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-keyword">if</span> (条件表达式<span class="hljs-number">1</span>) &#123;<br>          <span class="hljs-regexp">//</span>语句<span class="hljs-number">1</span>;<br>      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (条件表达式<span class="hljs-number">2</span>) &#123;<br>          <span class="hljs-regexp">//</span>语句<span class="hljs-number">2</span>;<br>      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (条件表达式<span class="hljs-number">3</span>) &#123;<br>          <span class="hljs-regexp">//</span>语句<span class="hljs-number">3</span>;<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>          <span class="hljs-regexp">//</span>最后的语句;<br>      &#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h3><p>（1）首先，计算出表达式的值，和case依次比较，一旦有对应的值，就会执行相应的语句，在执行的过程中，遇到break就会结束。</p>
+<p>（2）然后，如果所有的case都和表达式的值不匹配，就会执行default语句体部分。</p>
+<p>（3）表达式的值和case的值必须全等 ,值和数据类型一致才可以</p>
+<p>（4）没有break不会退出switch 而是继续执行下一个case（case穿透）</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs actionscript"><span class="hljs-keyword">switch</span> (表达式) &#123;<br>          <span class="hljs-keyword">case</span> value1:<br>              执行语句<span class="hljs-number">1</span>;<br>              <span class="hljs-keyword">break</span>;<br>          <span class="hljs-keyword">case</span> value2:<br>              执行语句<span class="hljs-number">2</span>;<br>              <span class="hljs-keyword">break</span>;<br>          <span class="hljs-keyword">case</span> value3:<br>              执行语句<span class="hljs-number">3</span>;<br>              <span class="hljs-keyword">break</span>;<br>          <span class="hljs-keyword">default</span>:<br>              执行最后的语句;<br>      &#125;<br></code></pre></td></tr></table></figure>
+
+<p>switch适合固定的值,效率更高一次判断 直接执行<br>if else适合判断范围的,效率低一些,需要判断多次</p>
+<h2 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h2><h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">for</span><span class="hljs-params">(<span class="hljs-number">1</span>初始化表达式; <span class="hljs-number">2</span>条件表达式; <span class="hljs-number">4</span>更新表达式)</span></span>&#123;<br>		<span class="hljs-number">3</span>语句...<br>	&#125;<br></code></pre></td></tr></table></figure>
+
+<p>1执行初始化表达式，初始化变量（初始化表达式只会执行一次）</p>
+<p>2执行条件表达式，判断是否执行循环：</p>
+<ul>
+<li>如果为true，则执行循环3</li>
+<li>如果为false，终止循环</li>
+</ul>
+<p>4执行更新表达式，更新表达式执行完毕继续重复2</p>
+<p><strong>双重for循环</strong></p>
+<p>可以把里面的循环看作是外面循环的语句<br>外层循环1 次,里面循环全部</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">3</span>; i++) &#123;<br>    <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&#x27;外面循环第&#x27;</span> + i + <span class="hljs-string">&#x27;次&#x27;</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> j = <span class="hljs-number">1</span>; j &lt;= <span class="hljs-number">3</span>; j++) &#123;<br>        <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&#x27;里面循环第&#x27;</span> + j + <span class="hljs-string">&#x27;次&#x27;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h3><p>当表达式为true时,执行循环体,否则退出循环</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-keyword">while</span> (条件表达式) &#123;<br>    <span class="hljs-regexp">//</span>循环体<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="do…while循环"><a href="#do…while循环" class="headerlink" title="do…while循环"></a>do…while循环</h4><p>先执行一次循环体,  再去判断表达式,  do while至少会执行1次</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-keyword">do</span> &#123;<br>循环体    <span class="hljs-regexp">//</span> 条件表达式为true时重复执行<br>&#125; <span class="hljs-keyword">while</span> (条件表达式);<br></code></pre></td></tr></table></figure>
+
+<h3 id="break-和-continue"><a href="#break-和-continue" class="headerlink" title="break 和 continue"></a>break 和 continue</h3><h4 id="break"><a href="#break" class="headerlink" title="break"></a>break</h4><ul>
+<li>break可以用来退出switch语句或<strong>整个</strong>循环语句（循环语句包括for、while。不包括if。if里不能用 break 和 continue，否则会报错）。</li>
+<li>break会立即终止离它<strong>最近</strong>的那个循环语句。</li>
+<li>可以为循环语句创建一个label，来标识当前的循环（格式：label:循环语句）。使用break语句时，可以在break后跟着一个label，这样break将会结束指定的循环，而不是最近的。</li>
+</ul>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs arcade">   outer:<br>   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++) &#123;<br>       <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&quot;外层循环 i 的值：&quot;</span> + i)<br>       <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">5</span>; j++) &#123;<br>           <span class="hljs-keyword">break</span> outer; <span class="hljs-comment">// 直接跳出outer所在的外层循环（outer是自定义的label）</span><br>           <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&quot;内层循环 j 的值:&quot;</span> + j);<br>       &#125;<br>   &#125;<br><br><span class="hljs-comment">// 打印结果:外层循环 i 的值：0</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h4><ul>
+<li>continue可以用来跳过<strong>当次</strong>循环。</li>
+<li>同样，continue默认只会离他<strong>最近</strong>的循环起作用。</li>
+</ul>
+<script src="https://utteranc.es/client.js"
+        repo="birpg/blog"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JavaScript/" class="category-chain-item">JavaScript</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/JavaScript/">#JavaScript</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>js基础篇一</div>
+      <div>https://zhswchn.github.io/2019/10/03/js篇一/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Zhchn</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2019年10月3日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/10/05/js%E7%AF%87%E4%BA%8C/" title="js基础篇二">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">js基础篇二</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/10/02/css%E7%AF%87-%E5%9B%9B/" title="css篇-四">
+                        <span class="hidden-mobile">css篇-四</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

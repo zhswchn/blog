@@ -1,0 +1,880 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.jpg">
+  <link rel="icon" href="/img/favicon.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Zhchn">
+  <meta name="keywords" content="前端,博客,JavaScript,html,html5,css,css3,vue">
+  
+    <meta name="description" content="本篇为BOM笔记,记录下来主要用于复习,巩固。包括以下内容：BOM概述、页面加载事件、回调函数、2种定时器和停止定时器、this指向问题、单线程机制、location对象、navigator对象、history对象。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js-BOM篇">
+<meta property="og:url" content="https://zhswchn.github.io/2019/10/16/js-BOM%E7%AF%87/index.html">
+<meta property="og:site_name" content="Zhchn">
+<meta property="og:description" content="本篇为BOM笔记,记录下来主要用于复习,巩固。包括以下内容：BOM概述、页面加载事件、回调函数、2种定时器和停止定时器、this指向问题、单线程机制、location对象、navigator对象、history对象。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2019/11/02/6jHIpUtsCTl5vcw.png">
+<meta property="article:published_time" content="2019-10-16T12:57:37.000Z">
+<meta property="article:modified_time" content="2021-03-07T13:26:17.278Z">
+<meta property="article:author" content="Zhchn">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="BOM">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.loli.net/2019/11/02/6jHIpUtsCTl5vcw.png">
+  
+  
+  
+  <title>js-BOM篇 - Zhchn</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhswchn.github.io","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>ZhouSWchn的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="js-BOM篇"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2019-10-16 20:57" pubdate>
+          2019年10月16日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          62 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">js-BOM篇</h1>
+            
+            <div class="markdown-body">
+              
+              <p>本篇为BOM笔记,记录下来主要用于复习,巩固。包括以下内容：BOM概述、页面加载事件、回调函数、2种定时器和停止定时器、this指向问题、单线程机制、location对象、navigator对象、history对象。</p>
+<span id="more"></span>
+<h2 id="BOM概述"><a href="#BOM概述" class="headerlink" title="BOM概述"></a>BOM概述</h2><p>BOM是浏览器对象模型,它提供独立于内容而与浏览器窗口进行交互的对象,其核心对象是window.</p>
+<p>BOM由一系列相关的对象构成，并且每个对象都提供了很多方法与属性。</p>
+<p>BOM缺乏标准， JavaScript语法的标准化组织是ECMA，DOM的标准化组织是W3C，BOM最初是 Netscape浏览器标准的一部分。</p>
+<table>
+<thead>
+<tr>
+<th>DOM</th>
+<th>BOM</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>文档对象模型</td>
+<td>浏览器对象模型</td>
+</tr>
+<tr>
+<td>把「文档」当做一个「对象」来看待</td>
+<td>把「浏览器」当做一个「对象」来看待</td>
+</tr>
+<tr>
+<td>DOM的顶级对象是 document</td>
+<td>BOM的顶级对象是 window</td>
+</tr>
+<tr>
+<td>DOM主要学习的是操作页面元素</td>
+<td>BOM学习的是浏览器窗口交互的一些对象</td>
+</tr>
+<tr>
+<td>DOM是W3C标准规范</td>
+<td>BOM是浏览器厂商在各自浏览器上定义的，兼容性较差</td>
+</tr>
+</tbody></table>
+<h2 id="页面加载事件"><a href="#页面加载事件" class="headerlink" title="页面加载事件"></a>页面加载事件</h2><p>window.onload是窗口（页面）加载事件,当文档内容完全加载完成会触发该事件（包括图像、脚本文件、CSS文件等），就调用的处理函数。</p>
+<p>注意：</p>
+<ol>
+<li><p>有了 window.onload就可以把jS代码写到页面元素的上方，因为 onload是等页面内容全部加载完毕再去执行处理函数。</p>
+</li>
+<li><p>window. onload传统注册事件方式只能写一次，如果有多个，会以最后一个 window. onload为准。</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">window</span>.<span class="hljs-property">onload</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>           <span class="hljs-keyword">var</span> btn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;button&#x27;</span>);<br>           btn.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>               <span class="hljs-title function_">alert</span>(<span class="hljs-number">233</span>);<br>           &#125;)<br>       &#125;<br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>如果使用 addEventListener则没有限制。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">window</span>, <span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;load&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>           <span class="hljs-title function_">alert</span>(<span class="hljs-number">22</span>);<br>       &#125;)<br></code></pre></td></tr></table></figure>
+
+<p><code>load</code> 等页面加载完毕运行,包含页面DOM元素 图片 flash css等等</p>
+<p><code>DOMContentLoaded</code> 是DOM加载完毕就运行,不包含图片 flash css等等就可以执行,加载速度比load快一些</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;DOMContentLoaded&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>           <span class="hljs-title function_">alert</span>(<span class="hljs-number">33</span>);<br>       &#125;)<br></code></pre></td></tr></table></figure>
+
+<h2 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h2><p><code>setTimeout()</code>这个调用函数我们也称为回调函数 callback</p>
+<p>普通函数是按照代码顺序直接调用</p>
+<p>而这个函数，需要等待时间，时间到了才去调用这个函数，因此称为回调函数。</p>
+<p>简单理解：回调，就是回头调用的意思。上一件事千完，再回头再调用这个函数</p>
+<p><code>element.onclick= function()&#123;&#125;</code>或者<code> element.addEventListener(&quot;click&quot;，fn)</code>里面的函数也是回调函数</p>
+<h2 id="serTimeout定时器"><a href="#serTimeout定时器" class="headerlink" title="serTimeout定时器"></a>serTimeout定时器</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">window</span>.<span class="hljs-title function_">serTimeout</span>(调用函数,[延时毫秒数]); <span class="hljs-comment">// 单位是毫秒,可以省略,省略为0</span><br><span class="hljs-built_in">setTimeout</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;&#125;, <span class="hljs-number">200</span>)<br></code></pre></td></tr></table></figure>
+
+<p>调用函数可以直接写函数,还可以写 <strong>函数名</strong> 或者** ‘函数名()’**</p>
+<p>页面中可能有很多定时器,一般给定时器加标识符(名字)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">callback</span>(<span class="hljs-params"></span>) &#123;<br>           <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;时间到&#x27;</span>);<br><br>       &#125;<br>       <span class="hljs-keyword">var</span> time1 = <span class="hljs-built_in">setTimeout</span>(callback, <span class="hljs-number">3000</span>);<br>       <span class="hljs-keyword">var</span> time2 = <span class="hljs-built_in">setTimeout</span>(callback, <span class="hljs-number">5000</span>);<br>       <span class="hljs-comment">// setTimeout(&#x27;callback()&#x27;,3000);  不提倡加引号这个写法</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="setInterval定时器"><a href="#setInterval定时器" class="headerlink" title="setInterval定时器"></a>setInterval定时器</h2><p>语法:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">window</span>.<span class="hljs-built_in">setInterval</span>(调用函数,延时时间);<br></code></pre></td></tr></table></figure>
+<p><code>setTimeout</code> 延时到了,就去调用这个回调函数,只调用一次,就结束<br><code>setInterval</code> 每隔这个延时时间,就去调用这个回调函数,会调用很多次,反复调用这个函数</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs arcade">setInterval(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>            <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&#x27;继续输出&#x27;</span>);<br>        &#125;, <span class="hljs-number">1000</span>);<br></code></pre></td></tr></table></figure>
+
+<h2 id="停止定时器"><a href="#停止定时器" class="headerlink" title="停止定时器"></a>停止定时器</h2><p>window 可以省略,里面的参实就是定时器的标识符</p>
+<p><strong>clearTimeout</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">window</span>.<span class="hljs-built_in">clearTimeout</span>(timeoutID)<br><br></code></pre></td></tr></table></figure>
+<p>代码案例:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> btn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;button&#x27;</span>);<br>       <span class="hljs-keyword">var</span> timer = <span class="hljs-built_in">setTimeout</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>           <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;boom!&#x27;</span>);<br><br>       &#125;, <span class="hljs-number">5000</span>)<br>       btn.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>           <span class="hljs-built_in">clearTimeout</span>(timer); <span class="hljs-comment">// 点击按钮停止定时器</span><br>       &#125;);<br></code></pre></td></tr></table></figure>
+
+<p><strong>clearInterval</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">window</span>.<span class="hljs-built_in">clearInterval</span>(timeoutID)<br></code></pre></td></tr></table></figure>
+
+<p>代码案例:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;begin&quot;</span>&gt;</span>开启定时器<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;stop&quot;</span>&gt;</span>停止定时器<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">        <span class="hljs-keyword">var</span> begin = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.begin&#x27;</span>);</span><br><span class="language-javascript">        <span class="hljs-keyword">var</span> stop = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.stop&#x27;</span>);</span><br><span class="language-javascript">        <span class="hljs-keyword">var</span> timer = <span class="hljs-literal">null</span>; <span class="hljs-comment">// 全局变量</span></span><br><span class="language-javascript">        begin.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">            timer = <span class="hljs-built_in">setInterval</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">                <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;你好&#x27;</span>);</span><br><span class="language-javascript"></span><br><span class="language-javascript">            &#125;, <span class="hljs-number">1000</span>);</span><br><span class="language-javascript">        &#125;)</span><br><span class="language-javascript">        stop.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">            <span class="hljs-built_in">clearInterval</span>(timer); <span class="hljs-comment">// 停止定时器</span></span><br><span class="language-javascript">        &#125;)</span><br><span class="language-javascript">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="this指向问题"><a href="#this指向问题" class="headerlink" title="this指向问题"></a>this指向问题</h2><ol>
+<li>在全局作用域或者以函数的形式调用时， this永远都是window。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>); <span class="hljs-comment">// window</span><br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">fn</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>); <span class="hljs-comment">// window</span><br>&#125;<br><span class="hljs-variable language_">window</span>.<span class="hljs-title function_">fn</span>(); <span class="hljs-comment">// window可省略</span><br><br><span class="hljs-variable language_">window</span>.<span class="hljs-built_in">setTimeout</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123; <span class="hljs-comment">// window可省略</span><br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>);<br>&#125;, <span class="hljs-number">1000</span>)<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>以方法的形式调用时， this是调用方法的那个对象 </li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> o = &#123;<br>    <span class="hljs-attr">sayHi</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>); <span class="hljs-comment">// 指向 o 这个对象</span><br>    &#125;<br>&#125;<br>o.<span class="hljs-title function_">sayHi</span>();<br><br><span class="hljs-keyword">var</span> btn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;button&#x27;</span>);<br>btn.<span class="hljs-property">onclick</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>); <span class="hljs-comment">// 指向btn这个按钮对象</span><br>&#125;<br>btn.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>); <span class="hljs-comment">// 指向btn这个按钮对象</span><br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>以构造函数的形式调用时， this是新创建的那个对象 </li>
+</ol>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">function Fun() &#123;<br>    console.log(<span class="hljs-keyword">this</span>); <span class="hljs-comment">// 指向fun 实例对象</span><br>&#125;<br><span class="hljs-keyword">var</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> = new <span class="hljs-title">Fun</span><span class="hljs-params">()</span></span>;<br></code></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>使用call和apply调用时， this是指定的那个对象</li>
+</ol>
+<h2 id="单线程机制"><a href="#单线程机制" class="headerlink" title="单线程机制"></a>单线程机制</h2><p>JavaScript语言的一大特点就是单线程，也就是说，同一个时间只能做一件事。这是因为 Javascript这门脚本语言诞生的使命所致— JavaScript是为处理页面中用户的交互，以及操作DOM而诞生的。</p>
+<p>比如我们对某个DOM元素进行添加和删除操作，不能同时进行。应该先进行添加，之后再删除<br>单线程就意味着，所有任务需要排队，前一个任务结束，才会执行后一个任务。这样所导致的问题是：如果jS执行的时间过长，这样就会造成页面的渲染不连贯，导致页面渲染加载阻塞的感觉。<br>为了解决这个问题，利用多核CPU的计算能力，HTM5提出 Web Worker标准，允许 JavaScript脚本创建多个线程。于是，jS中出现了<strong>同步</strong>和<strong>异步</strong></p>
+<p><strong>同步：</strong></p>
+<p>前一个任务结束后再执行后一个任务，程序的执行顺序与任务的排列顺序是一致的、同步的。比如做饭的同步做法：我们要烧水煮饭，等水开了（10分钟之后），再去切菜，炒菜。</p>
+<p><strong>异步：</strong></p>
+<p>你在做一件事情时，因为这件事情会花费很长时间，在做这件事的同时，你还可以去处理其他事情。比如做饭的异步做法，我们在烧水的同时，利用这10分钟，去切菜，炒菜。</p>
+<p>js的异步是通过回调函数实现的,一般有以下三种类型:</p>
+<ul>
+<li>普通事件:<code>click</code> <code>resize</code></li>
+<li>资源加载:<code>load</code> <code>error</code></li>
+<li>定时器</li>
+</ul>
+<p><strong>js执行机制：</strong></p>
+<ol>
+<li>先执行执行栈中的同步任务。</li>
+<li>异步任务（回调函数）放入任务队列中</li>
+<li>一旦执行栈中的所有同步任务执行完毕，系统就会按次序读取任务队列中的异步任务，于是被读取的异步任务结束等待状态，进入执行栈，开始执行。</li>
+</ol>
+<h2 id="location对象"><a href="#location对象" class="headerlink" title="location对象"></a>location对象</h2><p>window对象给我们提供了一个 location属性用于获取或设置窗体的URL，并且可以用于解析URL.因为这个属性返回的是一个对象，所以我们将这个属性也称为 location对象</p>
+<p><strong>URL:</strong><br>统一资源定位符(Uniform Resource locator，URL)是互联网上标准资源的地址。互联网上的每个文件都有<br>一个唯的URL，它包含的信息指出文件的位置以及浏览器应该怎么处理它。</p>
+<h3 id="获取URL参数"><a href="#获取URL参数" class="headerlink" title="获取URL参数"></a>获取URL参数</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stata">&lt;<span class="hljs-keyword">form</span> action=<span class="hljs-string">&quot;index.html&quot;</span>&gt;<br>        用户名: &lt;<span class="hljs-keyword">input</span> <span class="hljs-keyword">type</span>=<span class="hljs-string">&quot;text&quot;</span> name=<span class="hljs-string">&quot;uname&quot;</span>&gt;<br>        &lt;<span class="hljs-keyword">input</span> <span class="hljs-keyword">type</span>=<span class="hljs-string">&quot;submit&quot;</span> value=<span class="hljs-string">&quot;登录&quot;</span>&gt;<br>&lt;/<span class="hljs-keyword">form</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li>传过来的是: ?uname=输入的字符,先去掉问号<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">var params = <span class="hljs-keyword">location</span>.<span class="hljs-keyword">search</span>.substr(<span class="hljs-number">1</span>);<br></code></pre></td></tr></table></figure></li>
+<li>利用 = 把字符分割成数组<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-keyword">var</span> arr = params.split(<span class="hljs-string">&#x27;=&#x27;</span>);<br><span class="hljs-keyword">var</span> div = <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">&#x27;div&#x27;</span>);<br></code></pre></td></tr></table></figure></li>
+<li>把数据写入div中<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">div.innerHTML</span> = arr[<span class="hljs-number">1</span>] + <span class="hljs-string">&#x27;欢迎你&#x27;</span><span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="location对象的属性"><a href="#location对象的属性" class="headerlink" title="location对象的属性"></a>location对象的属性</h3><ul>
+<li><p><strong>href</strong>：跳转</p>
+</li>
+<li><p>hash   返回url中#后面的内容，包含#</p>
+</li>
+<li><p>host    主机名，包括端口</p>
+</li>
+<li><p>hostname   主机名</p>
+</li>
+<li><p>pathname     url中的路径部分</p>
+</li>
+<li><p>protocol    协议 一般是http、https</p>
+</li>
+<li><p>search         查询字符串</p>
+</li>
+</ul>
+<p>代码案例:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>点击跳转到B站<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">    <span class="hljs-keyword">var</span> btn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;button&#x27;</span>);</span><br><span class="language-javascript">    <span class="hljs-keyword">var</span> div = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;div&#x27;</span>);</span><br><span class="language-javascript">    btn.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">        location.<span class="hljs-property">href</span> = <span class="hljs-string">&#x27;https://www.bilibili.com/&#x27;</span>;</span><br><span class="language-javascript">    &#125;);</span><br><span class="language-javascript">    </span><br><span class="language-javascript">    <span class="hljs-comment">// 5秒后自动跳转到百度</span></span><br><span class="language-javascript">    <span class="hljs-keyword">var</span> timer = <span class="hljs-number">5</span>;</span><br><span class="language-javascript">    <span class="hljs-title function_">jump</span>(); <span class="hljs-comment">// 先调用一次,避免页面刷新后的1秒不显示</span></span><br><span class="language-javascript">    <span class="hljs-built_in">setInterval</span>(jump, <span class="hljs-number">1000</span>);</span><br><span class="language-javascript">    <span class="hljs-keyword">function</span> <span class="hljs-title function_">jump</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">        <span class="hljs-keyword">if</span> (timer == <span class="hljs-number">0</span>) &#123;</span><br><span class="language-javascript">            location.<span class="hljs-property">href</span> = <span class="hljs-string">&#x27;http://www.baidu.com&#x27;</span>;</span><br><span class="language-javascript">        &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="language-javascript">            div.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27;您将在&#x27;</span> + timer + <span class="hljs-string">&#x27;秒后跳转到百度&#x27;</span>;</span><br><span class="language-javascript">            timer--;</span><br><span class="language-javascript">        &#125;</span><br><span class="language-javascript">    &#125;</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="location常见方法"><a href="#location常见方法" class="headerlink" title="location常见方法"></a>location常见方法</h3><ul>
+<li><code>location.assign()</code>：改变浏览器地址栏的地址，并记录到历史中</li>
+</ul>
+<p>设置<code>location.href</code>  就会调用assign()。一般使用<code>location.href</code> 进行页面之间的跳转。</p>
+<ul>
+<li><p><code>location.replace()</code>：替换浏览器地址栏的地址，不会记录到历史中</p>
+</li>
+<li><p><code>location.reload()</code>：重新加载</p>
+</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>点击<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">    <span class="hljs-keyword">var</span> btn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;button&#x27;</span>);</span><br><span class="language-javascript">    btn.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">        <span class="hljs-comment">// 记录浏览历史,可以实现后退功能</span></span><br><span class="language-javascript">        <span class="hljs-comment">// location.assign(&#x27;http://www.baidu.com&#x27;);</span></span><br><span class="language-javascript">        <span class="hljs-comment">// 不记录浏览历史,不可以实现后退功能            </span></span><br><span class="language-javascript">        <span class="hljs-comment">// location.replace(&#x27;http://www.baidu.com&#x27;);</span></span><br><span class="language-javascript">        <span class="hljs-comment">// 刷新 参数为true则强制刷新</span></span><br><span class="language-javascript">        location.<span class="hljs-title function_">reload</span>(<span class="hljs-literal">true</span>);</span><br><span class="language-javascript">    &#125;)</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h2 id="navigator对象"><a href="#navigator对象" class="headerlink" title="navigator对象"></a>navigator对象</h2><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs coq">// 判断用户使用哪个终端打开页面,实现跳转 <br>      // 一般服务端来做这个功能<br>      <span class="hljs-keyword">if</span> ((navigator.userAgent.<span class="hljs-keyword">match</span>(/(phone | <span class="hljs-type">pad</span> | <span class="hljs-type">pod</span> | <span class="hljs-type">iPhone</span> | <span class="hljs-type">iPod</span> | <span class="hljs-type">ios</span> | <span class="hljs-type">iPad</span> | <span class="hljs-type">Android</span> | <span class="hljs-type">Mobile</span> | <span class="hljs-type">BlackBerry</span> | <span class="hljs-type">IEMobile</span> | <span class="hljs-type">MogBrowser</span> | <span class="hljs-type">JUC</span> | <span class="hljs-type">Fennec</span> | <span class="hljs-type">wOSBrowser</span> | <span class="hljs-type">BrowserNG</span> | <span class="hljs-type">WebOS</span> | <span class="hljs-type">Symbian</span> | <span class="hljs-type">Windows</span> | <span class="hljs-type">Phone</span>) /i))) &#123;<br><br>          window.location.href = <span class="hljs-string">&quot;&quot;</span>; //手机 引号里面写手机端网页<br><br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>          window.location.href = <span class="hljs-string">&quot;&quot;</span>; //电脑 引号里面写pc端网页<br>      &#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>window.navigator</code> 的一些属性可以获取客户端的一些信息。</p>
+<ul>
+<li><p><code>userAgent</code>：系统，浏览器</p>
+</li>
+<li><p><code>platform</code>：浏览器支持的系统，win/mac/linux</p>
+</li>
+</ul>
+<p>举例：</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(navigator.userAgent);<br>   <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(navigator.platform);<br></code></pre></td></tr></table></figure>
+
+<h2 id="history对象"><a href="#history对象" class="headerlink" title="history对象"></a>history对象</h2><p>1、历史记录管理</p>
+<p>2、后退：</p>
+<ul>
+<li><p><code>history.back()</code></p>
+</li>
+<li><p><code>history.go(-1)</code>：0是刷新</p>
+</li>
+</ul>
+<p>3、前进：</p>
+<ul>
+<li><p><code>history.forward()</code></p>
+</li>
+<li><p><code>history.go(1)</code></p>
+</li>
+</ul>
+<p>用的不多，一般用于写OA系统,普通页面用不着，因为浏览器中已经自带了这些功能的按钮。</p>
+<p>代码案例:</p>
+<p>index:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;list.html&quot;</span>&gt;</span>点我去分页<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>前进<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">        <span class="hljs-keyword">var</span> btn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;button&#x27;</span>);</span><br><span class="language-javascript">        btn.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">            <span class="hljs-comment">// 前进功能</span></span><br><span class="language-javascript">            <span class="hljs-comment">// history.forward();</span></span><br><span class="language-javascript">            <span class="hljs-comment">//前进后退功能,1前进一个页面,-1后退一个页面</span></span><br><span class="language-javascript">            history.<span class="hljs-title function_">go</span>(<span class="hljs-number">1</span>);</span><br><span class="language-javascript">        &#125;)</span><br><span class="language-javascript">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>list:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;index.html&quot;</span>&gt;</span>点我去首页<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>后退<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">        <span class="hljs-keyword">var</span> btn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;button&#x27;</span>);</span><br><span class="language-javascript">        btn.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">            <span class="hljs-comment">// 后退功能</span></span><br><span class="language-javascript">            <span class="hljs-comment">// history.back();</span></span><br><span class="language-javascript">            <span class="hljs-comment">//前进后退功能,1前进一个页面,-1后退一个页面</span></span><br><span class="language-javascript">            history.<span class="hljs-title function_">go</span>(-<span class="hljs-number">1</span>);</span><br><span class="language-javascript">        &#125;)</span><br><span class="language-javascript">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="callback-amp-amp-callback"><a href="#callback-amp-amp-callback" class="headerlink" title="callback &amp;&amp; callback()"></a>callback &amp;&amp; callback()</h2><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scss">if (callback) &#123;<br>	<span class="hljs-built_in">callback</span>();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>可以写成</p>
+<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs isbl"><span class="hljs-variable">callback</span> &amp;&amp; <span class="hljs-function"><span class="hljs-title">callback</span>()</span><br></code></pre></td></tr></table></figure>
+<p>短路运算,高级运算:如果callback存在，则执行callback()函数。</p>
+<script src="https://utteranc.es/client.js"
+        repo="birpg/blog"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JavaScript/" class="category-chain-item">JavaScript</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/JavaScript/">#JavaScript</a>
+      
+        <a href="/tags/BOM/">#BOM</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>js-BOM篇</div>
+      <div>https://zhswchn.github.io/2019/10/16/js-BOM篇/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Zhchn</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2019年10月16日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/10/17/pc%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%89%B9%E6%95%88/" title="pc端网页特效">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">pc端网页特效</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/10/15/js-DOM%E7%AF%87-%E4%BA%8B%E4%BB%B6%E9%AB%98%E7%BA%A7/" title="js-DOM篇-事件高级">
+                        <span class="hidden-mobile">js-DOM篇-事件高级</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

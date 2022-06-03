@@ -1,0 +1,985 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.jpg">
+  <link rel="icon" href="/img/favicon.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Zhchn">
+  <meta name="keywords" content="前端,博客,JavaScript,html,html5,css,css3,vue">
+  
+    <meta name="description" content="本篇博客主要记录css部分，记录下来主要用于复习,巩固。涉及到精灵图、字体图标（iconfont）、flex布局（弹性盒）、媒体查询、过度、2D、3D效果以及css动画。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css篇-四">
+<meta property="og:url" content="https://zhswchn.github.io/2019/10/02/css%E7%AF%87-%E5%9B%9B/index.html">
+<meta property="og:site_name" content="Zhchn">
+<meta property="og:description" content="本篇博客主要记录css部分，记录下来主要用于复习,巩固。涉及到精灵图、字体图标（iconfont）、flex布局（弹性盒）、媒体查询、过度、2D、3D效果以及css动画。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2019/11/01/jiThf2zwpcLrm4n.png">
+<meta property="article:published_time" content="2019-10-02T13:37:27.000Z">
+<meta property="article:modified_time" content="2021-03-07T13:25:00.371Z">
+<meta property="article:author" content="Zhchn">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.loli.net/2019/11/01/jiThf2zwpcLrm4n.png">
+  
+  
+  
+  <title>css篇-四 - Zhchn</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhswchn.github.io","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>ZhouSWchn的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="css篇-四"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2019-10-02 21:37" pubdate>
+          2019年10月2日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          54 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">css篇-四</h1>
+            
+            <div class="markdown-body">
+              
+              <p>本篇博客主要记录css部分，记录下来主要用于复习,巩固。涉及到精灵图、字体图标（iconfont）、flex布局（弹性盒）、媒体查询、过度、2D、3D效果以及css动画。</p>
+<span id="more"></span>
+
+
+
+<h2 id="精灵图"><a href="#精灵图" class="headerlink" title="精灵图"></a>精灵图</h2><p>当用户访问一个网站时，需要向服务器发送请求，网页上的每张图像都要经过一次请求才能展现给用户。</p>
+<p>然而，一个网页中往往会应用很多小的背景图像作为修饰，当网页中的图像过多时，服务器就会频繁地接受和发送请求，这将大大降低页面的加载速度。为了有效地减少服务器接受和发送请求的次数，提高页面的加载速度，出现了CSS精灵技术（也称CSS Sprites、CSS雪碧）。</p>
+<p>简单地说，CSS精灵是一种处理网页背景图像的方式。它将一个页面涉及到的所有零星背景图像都集中到一张大图中去，然后将大图应用于网页，这样，当用户访问该页面时，只需向服务发送一次请求，网页中的背景图像即可全部展示出来。通常情况下，这个由很多小的背景图像合成的大图被称为精灵图，如下图所示就是一个精灵图。</p>
+<p><img src="https://raw.githubusercontent.com/birpg/image/master/sprite_fs%401x.png" srcset="/img/loading.gif" lazyload></p>
+<p>CSS 精灵其实是将网页中的一些背景图像整合到一张大图中（精灵图），然而，各个网页元素通常只需要精灵图中不同位置的某个小图，要想精确定位到精灵图中的某个小图，就需要使用CSS的<code>background-image</code>、<code>background-repeat</code>和<code>background-position</code>属性进行背景定位，其中最关键的是使用<code>background-position</code>属性精确地定位。</p>
+<h2 id="字体图标（iconfont"><a href="#字体图标（iconfont" class="headerlink" title="字体图标（iconfont)"></a>字体图标（iconfont)</h2><p>图片是有诸多优点的，但是缺点很明显，比如图片不但增加了总文件的大小，还增加了很多额外的”http请求”，这都会大大降低网页的性能的。更重要的是图片不能很好的进行“缩放”，因为图片放大和缩小会失真。 我们后面会学习移动端响应式，很多情况下希望我们的图标是可以缩放的。此时，一个非常重要的技术出现了，额不是出现了，是以前就有，是被从新”宠幸”啦。。 这就是字体图标（iconfont).</p>
+<h3 id="字体图标优点"><a href="#字体图标优点" class="headerlink" title="字体图标优点"></a>字体图标优点</h3><blockquote>
+<p>可以做出跟图片一样可以做的事情,改变透明度、旋转度，等..<br>但是本质其实是文字，可以很随意的改变颜色、产生阴影、透明效果等等…<br>本身体积更小，但携带的信息并没有削减。<br>几乎支持所有的浏览器<br>移动端设备必备良药</p>
+</blockquote>
+<h3 id="字体图标使用流程"><a href="#字体图标使用流程" class="headerlink" title="字体图标使用流程"></a>字体图标使用流程</h3><h4 id="上传生成字体包"><a href="#上传生成字体包" class="headerlink" title="上传生成字体包"></a>上传生成字体包</h4><p>UI设计人员给我们svg文件的时候，我们需要转换成我们页面能使用的字体文件， 而且需要生成的是兼容性的适合各个浏览器的。可以在以下网站下载需要的字体图标。<br>推荐网站：</p>
+<ul>
+<li><strong>上传推荐</strong> <a target="_blank" rel="noopener" href="http://icomoon.io/">http://icomoon.io</a></li>
+<li><strong>icomoon字库</strong> <a target="_blank" rel="noopener" href="http://www.iconfont.cn/">http://www.iconfont.cn/</a></li>
+<li><strong>阿里icon font字库</strong> <a target="_blank" rel="noopener" href="http://www.iconfont.cn/">http://www.iconfont.cn/</a></li>
+<li><strong>fontello</strong> <a target="_blank" rel="noopener" href="http://fontello.com/">http://fontello.com/</a></li>
+<li><strong>Font-Awesome</strong> <a target="_blank" rel="noopener" href="http://fortawesome.github.io/Font-Awesome/">http://fortawesome.github.io/Font-Awesome/</a></li>
+<li><strong>Glyphicon Halflings</strong> <a target="_blank" rel="noopener" href="http://glyphicons.com/">http://glyphicons.com/</a></li>
+<li><strong>Icons8</strong> <a target="_blank" rel="noopener" href="https://icons8.com/">https://icons8.com/</a></li>
+</ul>
+<h4 id="把字体引入到HTML"><a href="#把字体引入到HTML" class="headerlink" title="把字体引入到HTML"></a>把字体引入到HTML</h4><p>把下载的字体图标解压，将fonts文件夹放进项目根目录。在引入字体图标的项目下面生成的fontclass代码：</p>
+<pre><code class="hljs">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/CSS&quot; href=&quot;./iconfont.CSS&quot;&gt;
+</code></pre>
+<p>挑选相应图标并获取类名，应用于页面：</p>
+<pre><code class="hljs">&lt;i class=&quot;iconfont icon-xxx&quot;&gt;&lt;/i&gt;
+</code></pre>
+<h2 id="flex布局（弹性盒）"><a href="#flex布局（弹性盒）" class="headerlink" title="flex布局（弹性盒）"></a>flex布局（弹性盒）</h2><p>指定一个盒子为伸缩布局：<code>display: flex;</code></p>
+<p>flex布局有着很强的适应性，在响应式开发中能发挥极大作用。</p>
+<p>在flex中有两个概念：</p>
+<ul>
+<li>主轴：Flex容器的主轴主要用来配置Flex项目，默认是水平方向，从左向右。</li>
+<li>侧轴：与主轴垂直的轴称作侧轴，默认是垂直方向，从上往下。</li>
+</ul>
+<p>主轴和侧轴并不是固定不变的，通过flex-direction可以互换。</p>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><p>1.<code>flex-direction</code>属性：设置主轴方向。</p>
+<ul>
+<li><code>flex-direction: row;</code> 设置<strong>主轴方向</strong>，默认是水平方向。属性值可以是：<ul>
+<li><code>row</code> 水平方向（默认值）</li>
+<li><code>reverse-row</code> 反转</li>
+<li><code>column</code> 垂直方向</li>
+<li><code>reverse-column</code> 反转列</li>
+</ul>
+</li>
+</ul>
+<p>2.<code>justify-content</code>属性：设置子元素在主轴上的对齐方式。</p>
+<ul>
+<li><code>justify-content: flex-start;</code> 设置子元素在<strong>主轴上的对齐方式</strong>。属性值可以是：<ul>
+<li><code>flex-start</code> 从主轴的起点对齐（默认值）</li>
+<li><code>flex-end</code> 从主轴的终点对齐</li>
+<li><code>center</code> 居中对齐</li>
+<li><code>space-around</code> 在父盒子里平分</li>
+<li><code>space-between</code> 两端对齐 平分</li>
+</ul>
+</li>
+</ul>
+<p>3.<code>align-items</code>设置子元素在侧轴上的对齐方式。</p>
+<ul>
+<li><code>align-items:flex-start;</code> 设置子元素在<strong>侧轴上的对齐方式</strong>。属性值可以是：<ul>
+<li><code>flex-start</code> 从侧轴开始的方向对齐</li>
+<li><code>flex-end</code> 从侧轴结束的方向对齐</li>
+<li><code>baseline</code> 基线 默认同flex-start</li>
+<li><code>center</code> 中间对齐</li>
+<li><code>stretch</code> 拉伸</li>
+</ul>
+</li>
+</ul>
+<p>4.<code>flex-wrap</code>设置子元素是否换行。</p>
+<ul>
+<li><code>flex-wrap: wrap;</code> 子元素排不下会自动向下换行</li>
+</ul>
+<p>5.<code>align-content</code>设置弹性盒堆叠</p>
+<ul>
+<li><code>align-content: flex-start;</code>子元素从弹性盒的起始位置堆叠<ul>
+<li><code>flex-start</code>子元素从弹性盒的起始位置堆叠</li>
+<li><code>flex-end</code>子元素从弹性盒的结束位置堆叠</li>
+<li><code>center</code>子元素从弹性盒的中间位置堆叠</li>
+<li><code>space-between</code>子元素在弹性盒平均分布</li>
+<li><code>space-around</code>子元素在弹性盒平均分布，两端保留元素间距的一半空</li>
+<li><code>space-between</code>默认属性，和设置高度后的效果一致</li>
+</ul>
+</li>
+</ul>
+<h3 id="分配比例"><a href="#分配比例" class="headerlink" title="分配比例"></a>分配比例</h3><p>flex子项目在主轴的缩放比例，不指定flex属性，则不参与伸缩分配</p>
+<pre><code class="hljs">&lt;style type=&quot;text/css&quot;&gt;
+.box &#123;
+        width: 260px;
+        border: 1px #000 solid;
+        display: flex;        /* 父元素设为弹性盒 */
+    &#125;
+    .box1 &#123;
+        width: 80px;
+        background: #f00;
+        flex-grow: 1;    /* 父元素多出的空间，两个子元素按照1：1分配 */
+    &#125;
+    .box2 &#123;
+        width: 120px;
+        background: #0f0;
+        flex-grow: 1;    /* 父元素多出的空间，两个子元素按照1：1分配 */
+    &#125;
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;box&quot;&gt;
+    &lt;div class=&quot;box1&quot;&gt;
+        第一段文字
+    &lt;/div&gt;
+    &lt;div class=&quot;box2&quot;&gt;
+        第二段文字
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+
+
+
+li:nth-child(1) &#123;background: #f00;&#125;
+li:nth-child(2) &#123;background: #0f0;&#125;
+li:nth-child(3) &#123;
+    background: #00f;
+    flex-basis: 600px;        /* 按照1：1：6：1：1来重新分配父元素的600px宽度 */
+&#125;
+li:nth-child(4) &#123;background: #ff0;&#125;
+li:nth-child(5) &#123;background: #0ff;&#125;
+</code></pre>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p>order控制子项目的排列顺序，正序方式排序，从小到大</p>
+<pre><code class="hljs">&lt;style type=&quot;text/css&quot;&gt;
+    * &#123;
+        margin: 0;
+        padding: 0;
+    &#125;
+    ul li &#123;list-style: none;&#125;
+    ul &#123;
+        width: 800px;
+        background: #eee;
+        display: flex;
+        height: 100px;
+    &#125;
+    li &#123;
+        width: 100px;
+        background: #ff0;
+        margin-right: 20px;
+        font-size: 36px;
+    &#125;
+    li:nth-child(3),li:nth-child(5) &#123;order: 1;&#125;
+    li:nth-child(1) &#123;order: 2;&#125;
+    li:nth-child(4) &#123;order: -1;&#125;     /*默认0 数值小的排前面*/
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;ul&gt;
+    &lt;li&gt;1&lt;/li&gt;
+    &lt;li&gt;2&lt;/li&gt;
+    &lt;li&gt;3&lt;/li&gt;
+    &lt;li&gt;4&lt;/li&gt;
+    &lt;li&gt;5&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/body&gt;
+</code></pre>
+<h2 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h2><pre><code class="hljs">/* 网页宽度不同颜色不同 */
+/*all用于所有设备，print用于打印机和打印预览，scree用于电脑，平板，智能手机等。and多个连接到一起，not排除某个，only指定某个*/
+@media screen and (max-width:800px) &#123;
+    body &#123;background: #00f;&#125;
+&#125;
+
+@media screen and (min-width:800px) &#123;    /*从小到大写，更好*/
+    body &#123;background: #0f0;&#125;
+&#125;
+@media screen and (min-width:1200px) &#123;    /*小于等于1200px*/
+    body &#123;background: #f00;&#125;
+&#125;
+</code></pre>
+<h2 id="过渡"><a href="#过渡" class="headerlink" title="过渡"></a>过渡</h2><p>在CSS3里使用transition可以实现补间动画（过渡效果），并且当前元素只要有“属性”发生变化时即存在两种状态(我们用A和B代指），就可以实现平滑的过渡，为了方便演示采用hover切换两种状态，但是并不仅仅局限于hover状态来实现过渡。</p>
+<pre><code class="hljs">transition: 要过渡的属性  花费时间  运动曲线  延迟时间;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>transition</td>
+<td>简写属性，用于在一个属性中设置四个过渡属性。</td>
+</tr>
+<tr>
+<td>transition-property</td>
+<td>规定应用过渡的 CSS 属性的名称。 (所有属性用all)</td>
+</tr>
+<tr>
+<td>transition-duration</td>
+<td>定义过渡效果花费的时间。默认是 0。</td>
+</tr>
+<tr>
+<td>transition-timing-function</td>
+<td>规定过渡效果的时间曲线。默认是 “ease”。</td>
+</tr>
+<tr>
+<td>transition-delay</td>
+<td>规定过渡效果何时开始。默认是 0。</td>
+</tr>
+</tbody></table>
+<p>运动曲线：</p>
+<ul>
+<li><code>linear</code> 匀速</li>
+<li><code>ease</code> 逐渐慢下来</li>
+<li><code>ease-in</code> 加速</li>
+<li><code>ease-out</code> 减速 </li>
+<li><code>ease-in-out</code>  先加速后减速</li>
+</ul>
+<h2 id="2D效果"><a href="#2D效果" class="headerlink" title="2D效果"></a>2D效果</h2><h3 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h3><pre><code class="hljs">transform: translate(水平位移, 垂直位移);
+
+transform: translate(-50%, -50%);
+</code></pre>
+<p>参数解释：</p>
+<ul>
+<li>参数为百分比，相对于自身移动。</li>
+<li>正值：向右和向下。 负值：向左和向上。如果只写一个值，则表示水平移动。</li>
+</ul>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs maxima"><span class="hljs-built_in">transform</span>: <span class="hljs-built_in">translate</span>(10px,20px)	<span class="hljs-comment">/* 水平垂直移动 */</span><br><span class="hljs-built_in">transform</span>: translateX()	<span class="hljs-comment">/*水平移动*/</span><br><span class="hljs-built_in">transform</span>: translateY()  <span class="hljs-comment">/*垂直移动*/</span><br><span class="hljs-built_in">transform</span>: <span class="hljs-built_in">translate</span>(<span class="hljs-number">50</span><span class="hljs-symbol">%</span>) <span class="hljs-comment">/*是以自己宽度的50%，而不是父类*/</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h3><pre><code class="hljs">transform: scale(x, y);
+
+transform: scale(2, 0.5);
+</code></pre>
+<p>参数解释： x：表示水平方向的缩放倍数。y：表示垂直方向的缩放倍数。如果只写一个值就是等比例缩放。</p>
+<p>取值：大于1表示放大，小于1表示缩小。不能为百分比。</p>
+<h3 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h3><pre><code class="hljs">transform: rotate(角度);
+
+transform: rotate(45deg);
+</code></pre>
+<p>参数解释：正值 顺时针；负值：逆时针。</p>
+<h3 id="变形"><a href="#变形" class="headerlink" title="变形"></a>变形</h3><p>通过skew方法把元素水平方向上倾斜30度，处置方向保持不变。</p>
+<p>可以使元素按一定的角度进行倾斜，可为负值，第二个参数不写默认为0。</p>
+<pre><code class="hljs">transform: skew(30deg,20deg);
+/* transform: skewX()  
+transform: skewY() */
+</code></pre>
+<h3 id="更改原点"><a href="#更改原点" class="headerlink" title="更改原点"></a>更改原点</h3><p>transform-origin可以调整元素转换的原点, 默认以元素中心为原点</p>
+<pre><code class="hljs">transform-origin: left top;        /* 自定义左上角为原点
+</code></pre>
+<h2 id="3D效果"><a href="#3D效果" class="headerlink" title="3D效果"></a>3D效果</h2><h3 id="旋转-1"><a href="#旋转-1" class="headerlink" title="旋转"></a>旋转</h3><p>相对于2d多了个z轴，z轴垂直于浏览器的平面</p>
+<pre><code class="hljs">transform: rotateX(360deg);    //绕 X 轴旋转360度
+
+transform: rotateY(360deg);    //绕 Y 轴旋转360度
+
+transform: rotateZ(360deg);    //绕 Z 轴旋转360度
+</code></pre>
+<h3 id="移动-1"><a href="#移动-1" class="headerlink" title="移动"></a>移动</h3><pre><code class="hljs">transform: translateX(100px);    //沿着 X 轴移动
+
+transform: translateY(360px);    //沿着 Y 轴移动
+
+transform: translateZ(360px);    //沿着 Z 轴移动
+</code></pre>
+<h3 id="透视-perspective"><a href="#透视-perspective" class="headerlink" title="透视(perspective)"></a>透视(perspective)</h3><p>透视格式有两种写法：</p>
+<ul>
+<li>作为一个属性，设置给父元素，作用于所有3D转换的子元素</li>
+<li>作为 transform 属性的一个值，做用于元素自身。</li>
+</ul>
+<h3 id="3D呈现"><a href="#3D呈现" class="headerlink" title="3D呈现"></a>3D呈现</h3><p>3D元素构建是指某个图形是由多个元素构成的，可以给这些元素的<strong>父元素</strong>设置<code>transform-style: preserve-3d</code>来使其变成一个真正的3D图形。属性值可以如下：</p>
+<pre><code class="hljs">transform-style: preserve-3d;     //让 子盒子 位于三维空间里
+
+transform-style: flat;            //让子盒子位于此元素所在的平面内（子盒子被扁平化）
+</code></pre>
+<h2 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h2><p>动画是CSS3中具有颠覆性的特征，可通过设置<strong>多个节点</strong> 来精确控制一个或一组动画，常用来实现<strong>复杂</strong>的动画效果。</p>
+<h3 id="定义动画"><a href="#定义动画" class="headerlink" title="定义动画"></a>定义动画</h3><p>（1）通过@keyframes定义动画；</p>
+<p>（2）将这段动画通过百分比，分割成多个节点；然后各节点中分别定义各属性；</p>
+<p>（3）在指定元素里，通过 <code>animation</code> 属性调用动画。</p>
+<pre><code class="hljs">@keyframes 动画名称 &#123;
+    from&#123; 开始位置 &#125;  0%
+    to&#123;  结束  &#125;  100%
+&#125;
+&lt;!-- 调用 --&gt;
+animation:动画名称 动画时间 运动曲线  何时开始  播放次数  是否反方向;
+</code></pre>
+<p>animation属性:</p>
+<p><code>animation</code>: 定义的动画名称 持续时间  执行次数  是否反向  运动曲线 延迟执行。(infinite 表示无限次)</p>
+<p>(1）动画名称：</p>
+<p><code>animation-name: move;</code></p>
+<p>（2）执行一次动画的持续时间：</p>
+<p><code>animation-duration: 4s;</code></p>
+<p>备注：上面两个属性，是必选项，且顺序固定。</p>
+<p>（3）动画的执行次数：</p>
+<p><code>animation-iteration-count: 1;</code> </p>
+<p><code>iteration</code>的含义表示迭代，属性值<code>infinite</code>表示无数次。</p>
+<p>（3）动画的方向：</p>
+<p><code>animation-direction: alternate;</code></p>
+<p>属性值：normal 正常，alternate 反向。</p>
+<p>（4）动画延迟执行：</p>
+<p><code>animation-delay: 1s;</code></p>
+<p>（5）设置动画结束时，盒子的状态：</p>
+<p><code>animation-fill-mode: forwards;</code></p>
+<p>属性值： forwards：保持动画结束后的状态（默认），  backwards：动画结束后回到最初的状态。</p>
+<p>（6）运动曲线：</p>
+<p><code>animation-timing-function: ease-in;</code></p>
+<p>属性值可以是：linear   ease-in-out  steps()等。</p>
+<p><strong>注意</strong>，如果把属性值写成**<code> steps()</code><strong>，则表示动画</strong>不是连续执行**，而是间断地分成几步执行。<code>steps()</code>可以作出很多不连续地动画效果，比如时钟。</p>
+<script src="https://utteranc.es/client.js"
+        repo="birpg/blog"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/CSS/" class="category-chain-item">CSS</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/CSS/">#CSS</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>css篇-四</div>
+      <div>https://zhswchn.github.io/2019/10/02/css篇-四/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Zhchn</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2019年10月2日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/10/03/js%E7%AF%87%E4%B8%80/" title="js基础篇一">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">js基础篇一</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/10/02/css%E7%AF%87-%E4%B8%89/" title="css篇(三)">
+                        <span class="hidden-mobile">css篇(三)</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

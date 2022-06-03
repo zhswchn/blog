@@ -1,0 +1,845 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.jpg">
+  <link rel="icon" href="/img/favicon.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Zhchn">
+  <meta name="keywords" content="前端,博客,JavaScript,html,html5,css,css3,vue">
+  
+    <meta name="description" content="本篇为pc端网页特效笔记,记录下来主要用于复习,巩固。包括以下内容：三大系列、鼠标经过的区别、匀速动画、缓速动画、动画函数的封装、多个值之间移动、节流阀。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pc端网页特效">
+<meta property="og:url" content="https://zhswchn.github.io/2019/10/17/pc%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%89%B9%E6%95%88/index.html">
+<meta property="og:site_name" content="Zhchn">
+<meta property="og:description" content="本篇为pc端网页特效笔记,记录下来主要用于复习,巩固。包括以下内容：三大系列、鼠标经过的区别、匀速动画、缓速动画、动画函数的封装、多个值之间移动、节流阀。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2019/11/01/h1bHQ93kJvWl6d4.jpg">
+<meta property="article:published_time" content="2019-10-17T02:56:31.000Z">
+<meta property="article:modified_time" content="2021-03-07T13:28:22.882Z">
+<meta property="article:author" content="Zhchn">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.loli.net/2019/11/01/h1bHQ93kJvWl6d4.jpg">
+  
+  
+  
+  <title>pc端网页特效 - Zhchn</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhswchn.github.io","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>ZhouSWchn的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="pc端网页特效"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2019-10-17 10:56" pubdate>
+          2019年10月17日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          41 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">pc端网页特效</h1>
+            
+            <div class="markdown-body">
+              
+              <p>本篇为pc端网页特效笔记,记录下来主要用于复习,巩固。包括以下内容：三大系列、鼠标经过的区别、匀速动画、缓速动画、动画函数的封装、多个值之间移动、节流阀。</p>
+<span id="more"></span>
+
+<h2 id="offset系列"><a href="#offset系列" class="headerlink" title="offset系列"></a>offset系列</h2><blockquote>
+<p>offset的中文是：偏移，补偿，位移。</p>
+</blockquote>
+<p>js中有一套方便的<strong>获取元素尺寸</strong>的办法就是offset家族。offset家族包括：</p>
+<ul>
+<li><p><code>offsetWidth</code></p>
+</li>
+<li><p><code>offsetHight</code></p>
+</li>
+<li><p><code>offsetLeft</code></p>
+</li>
+<li><p><code>offsetTop</code></p>
+</li>
+<li><p><code>offsetParent</code></p>
+</li>
+</ul>
+<p><code>offsetWidth</code>: 得到元素的大小,宽度 是包含padding + border + width的<br><code>offsetHight</code>:得到元素的大小,高度 是包含padding + border + height的</p>
+<p>这两个属性，他们绑定在了所有的节点元素上。获取之后，只要调用这两个属性，我们就能够获取元素节点的宽和高。</p>
+<p><code>offsetLeft</code>:</p>
+<p>返回距离上级盒子（带有定位）如果没有父元素,或者父元素没有定位, 则以 body 为准, (数值不带单位),  从父亲的 padding 开始算，父亲的 border 不算。(数值不带单位)<br><code>offsetTop</code>: 可以得到元素的偏移位置的数值</p>
+<p><code>offsetParent</code>:  </p>
+<p>检测父系盒子中带有定位的<strong>父盒子节点</strong>。返回结果是该对象的父级（带有定位）。</p>
+<ul>
+<li><p>如果当前元素的父级元素，<strong>没有CSS定位</strong>（position为absolute、relative、fixed），那么offsetParent的返回结果为<strong>body</strong>。</p>
+</li>
+<li><p>如果当前元素的父级元素，<strong>有CSS定位</strong>（position为absolute、relative、fixed），那么offsetParent的返回结果为<strong>最近的</strong>那个父级元素。</p>
+</li>
+</ul>
+<p><code>parentNode</code>: 返回的是最近一级的父级元素,不管父级元素带不带定位</p>
+<h2 id="offset与style的区别"><a href="#offset与style的区别" class="headerlink" title="offset与style的区别"></a>offset与style的区别</h2><p><strong>offset:</strong><br>可以得到<strong>任意样式表</strong>中的样式值,且没有单位<br>包含padding border width<br>只读,不能赋值</p>
+<p><strong>style:</strong><br>只能得到<strong>行类样式表</strong>中的样式值,带有单位<br>不包含padding和border的值<br>可读写</p>
+<p>一般的做法是：<strong>用offsetLeft 和 offsetTop 获取值，用style.left 和 style.top 赋值</strong>（比较方便）</p>
+<ul>
+<li><p>style.left：只能获取行内式，获取的值可能为空，容易出现NaN。</p>
+</li>
+<li><p>offsetLeft：获取值特别方便，而且是现成的number，方便计算。它是只读的，不能赋值。</p>
+</li>
+</ul>
+<h2 id="client系列"><a href="#client系列" class="headerlink" title="client系列"></a>client系列</h2><ol>
+<li><code>clientWidth</code> 和 <code>clientHeight</code></li>
+</ol>
+<p>和<code>offsetWidth</code>最大区别就是<strong>不包含边框</strong><br>包含padding以及内容,不包含边框宽度,数值不带单位</p>
+<p>盒子调用时：</p>
+<ul>
+<li><p>clientWidth：获取盒子区域宽度（padding + width）。</p>
+</li>
+<li><p>clientHeight：获取盒子区域高度（padding + height）。</p>
+</li>
+</ul>
+<p>body/html调用时：</p>
+<ul>
+<li><p>clientWidth：获取网页可视区域宽度。</p>
+</li>
+<li><p>clientHeight：获取网页可视区域高度。</p>
+</li>
+</ul>
+<h3 id="clientX-和-clientY"><a href="#clientX-和-clientY" class="headerlink" title="clientX 和 clientY"></a>clientX 和 clientY</h3><p>event调用：</p>
+<ul>
+<li><p>clientX：鼠标距离可视区域左侧距离。</p>
+</li>
+<li><p>clientY：鼠标距离可视区域上侧距离。</p>
+</li>
+</ul>
+<ol start="2">
+<li><code>clientTop</code> 和 <code>clientLeft</code></li>
+</ol>
+<ul>
+<li><p>clientTop：盒子的上border。</p>
+</li>
+<li><p>clientLeft：盒子的左border。</p>
+</li>
+</ul>
+<h2 id="scroll系列"><a href="#scroll系列" class="headerlink" title="scroll系列"></a>scroll系列</h2><ol>
+<li><code>ScrollWidth</code> 和<code>scrollHeight</code></li>
+</ol>
+<p>获取盒子的宽高。调用者为节点元素。不包括 border和margin。如下：</p>
+<ul>
+<li><p>scrollWidth = width + padding;</p>
+</li>
+<li><p>scrollHeight = height + padding;</p>
+</li>
+</ul>
+<p>scrollHeight有一个特点：如果文字超出了盒子，高度为内容的高（包括超出的内容）；不超出，则是盒子本身高度。</p>
+<ol start="2">
+<li><code>scrollTop</code> 和 <code>scrollLeft</code></li>
+</ol>
+<p>网页被卷去的头部和左边的部分。</p>
+<p>比如说，一个网页往上滚动的时候，上面的部分自然被浏览器遮挡了，遮挡的高度就是<code>scrollTop</code>。</p>
+<p><code>scrollTop</code> 这个属性的写法要注意兼容性:</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-built_in">window</span>.pageYOffset || <span class="hljs-built_in">document</span>.body.scrollTop || <span class="hljs-built_in">document</span>.documentElement.scrollTop;<br></code></pre></td></tr></table></figure>
+
+<h2 id="三大系列总结"><a href="#三大系列总结" class="headerlink" title="三大系列总结"></a>三大系列总结</h2><ol>
+<li>offset系列用于获取元素位置</li>
+</ol>
+<p><code>offsetWidth</code>: 返回自身包括padding, 边框, 内容区的宽度, 不带单位</p>
+<ul>
+<li>offsetWidth  = width  + padding + border</li>
+</ul>
+<ol start="2">
+<li>client系列用于获取元素大小</li>
+</ol>
+<p><code>clientWidth</code>: 返回自身包括padding, 内容区的宽度, 不含边框, 不带单位</p>
+<ul>
+<li>clientWidth  = width  + padding</li>
+</ul>
+<ol start="3">
+<li>scroll系列用于获取滚动距离, 页面的滚动距离用window.pageXOffset获得</li>
+</ol>
+<p><code>scrollWidth</code>: 返回自身实际的宽度, 不含边框, 返回值不带单位</p>
+<ul>
+<li>scrollWidth   = 内容宽度（不包含border）</li>
+</ul>
+<h2 id="mouseover和mouseenter的区别-鼠标经过"><a href="#mouseover和mouseenter的区别-鼠标经过" class="headerlink" title="mouseover和mouseenter的区别(鼠标经过)"></a>mouseover和mouseenter的区别(鼠标经过)</h2><p><code>mouseover</code>鼠标经过自身盒子会触发,经过子盒子还会触发</p>
+<p><code>mouseenter</code>只会经过自身盒子触发,不会冒泡,搭配<code>mouseleave</code>鼠标离开 ,也不会冒泡</p>
+<h2 id="匀速动画"><a href="#匀速动画" class="headerlink" title="匀速动画"></a>匀速动画</h2><p>动画原理:</p>
+<ol>
+<li>获得盒子当前位置</li>
+<li>让盒子在当前位置加上1个移动距离</li>
+<li>利用定时器不断重复这个操作</li>
+<li>加一个结束定时器的条件</li>
+<li>注意此元素需要添加定位， 才能使用 element.style.left</li>
+</ol>
+<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs gml"><span class="hljs-keyword">var</span> <span class="hljs-keyword">div</span> = document.querySelector(<span class="hljs-string">&#x27;div&#x27;</span>);<br><span class="hljs-keyword">var</span> timer = setInterval(<span class="hljs-keyword">function</span>() &#123;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">div</span>.offsetLeft &gt;= <span class="hljs-number">400</span>) &#123;<br>        clearInterval(timer); <span class="hljs-comment">// 停止定时器</span><br>    &#125;<br>    <span class="hljs-keyword">div</span>.style.left = <span class="hljs-keyword">div</span>.offsetLeft + <span class="hljs-number">1</span> + <span class="hljs-string">&#x27;px&#x27;</span>; <span class="hljs-comment">// 边偏移加1像素</span><br>&#125;, <span class="hljs-number">10</span>); <span class="hljs-comment">// 每+1像素的间隔时间</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="动画函数封装"><a href="#动画函数封装" class="headerlink" title="动画函数封装"></a>动画函数封装</h2><p>简单动画函数封装 obj: 目标对象, target: 目标位置</p>
+<p>缺点: 性能不好,每次调用,var就会生成新的timer空间</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">animate</span>(<span class="hljs-params">obj, target</span>) &#123;<br>    <span class="hljs-keyword">var</span> timer = <span class="hljs-built_in">setInterval</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-keyword">if</span> (obj.<span class="hljs-property">offsetLeft</span> &gt;= target) &#123;<br>            <span class="hljs-built_in">clearInterval</span>(timer); <span class="hljs-comment">// 停止定时器</span><br>        &#125;<br>        obj.<span class="hljs-property">style</span>.<span class="hljs-property">left</span> = obj.<span class="hljs-property">offsetLeft</span> + <span class="hljs-number">1</span> + <span class="hljs-string">&#x27;px&#x27;</span>;<br>    &#125;, <span class="hljs-number">10</span>); <br>&#125;<br><span class="hljs-keyword">var</span> div = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;div&#x27;</span>);<br><span class="hljs-comment">// 调用函数</span><br><span class="hljs-title function_">animate</span>(div, <span class="hljs-number">100</span>);<br></code></pre></td></tr></table></figure>
+
+<p><strong>性能优化:</strong></p>
+<p>给不同的元素指定了不同的定时器,利用对象添加属性的方法:<br>var obj = {};<br>obj.name = ‘andy’;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">animate</span>(<span class="hljs-params">obj, target</span>) &#123;<br>	<span class="hljs-comment">// 让元素只有一个定时器,每点一次先清除以前的定时器,保留当前的定时器</span><br>	<span class="hljs-built_in">clearInterval</span>(obj.<span class="hljs-property">timer</span>);<br>	obj.<span class="hljs-property">timer</span> = <span class="hljs-built_in">setInterval</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>		<span class="hljs-keyword">if</span> (obj.<span class="hljs-property">offsetLeft</span> == target) &#123;<br>			<span class="hljs-built_in">clearInterval</span>(obj.<span class="hljs-property">timer</span>); <span class="hljs-comment">// 停止定时器</span><br>		&#125;<br>		obj.<span class="hljs-property">style</span>.<span class="hljs-property">left</span> = obj.<span class="hljs-property">offsetLeft</span> + <span class="hljs-number">1</span> + <span class="hljs-string">&#x27;px&#x27;</span>; <span class="hljs-comment">// 边偏移加1像素</span><br>	&#125;, <span class="hljs-number">10</span>); <span class="hljs-comment">// 每+1像素的间隔时间</span><br>&#125;<br><span class="hljs-keyword">var</span> div = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;div&#x27;</span>);<br><span class="hljs-comment">// 调用函数</span><br><span class="hljs-title function_">animate</span>(div, <span class="hljs-number">300</span>);<br></code></pre></td></tr></table></figure>
+
+<h2 id="缓动动画"><a href="#缓动动画" class="headerlink" title="缓动动画"></a>缓动动画</h2><p>思路：</p>
+<ol>
+<li>让盒子每次移动的距离慢慢变小， 速度就会慢慢落下来。</li>
+<li>核心算法：(目标值 - 现在的位置) / 10 做为每次移动的距离 步长</li>
+<li>停止的条件是： 让当前盒子位置等于目标位置就停止定时器</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">animate</span>(<span class="hljs-params">obj, target</span>) &#123;<br>    <span class="hljs-comment">// 先清除以前的定时器，只保留当前的一个定时器执行</span><br>    <span class="hljs-built_in">clearInterval</span>(obj.<span class="hljs-property">timer</span>);<br>    obj.<span class="hljs-property">timer</span> = <span class="hljs-built_in">setInterval</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-comment">// 步长值写到定时器的里面</span><br>        <span class="hljs-keyword">var</span> step = (target - obj.<span class="hljs-property">offsetLeft</span>) / <span class="hljs-number">10</span>;<br>        <span class="hljs-keyword">if</span> (obj.<span class="hljs-property">offsetLeft</span> == target) &#123;<br>            <span class="hljs-comment">// 停止动画 本质是停止定时器</span><br>            <span class="hljs-built_in">clearInterval</span>(obj.<span class="hljs-property">timer</span>);<br>        &#125;<br>        <span class="hljs-comment">// 把每次加1 这个步长值改为一个慢慢变小的值  步长公式：(目标值 - 现在的位置) / 10</span><br>        obj.<span class="hljs-property">style</span>.<span class="hljs-property">left</span> = obj.<span class="hljs-property">offsetLeft</span> + step + <span class="hljs-string">&#x27;px&#x27;</span>;<br>    &#125;, <span class="hljs-number">15</span>);<br>&#125;<br><span class="hljs-keyword">var</span> span = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;span&#x27;</span>);<br>        <span class="hljs-comment">// 调用函数</span><br>        <span class="hljs-title function_">animate</span>(span, <span class="hljs-number">500</span>);<br></code></pre></td></tr></table></figure>
+
+<p>匀速动画就是 盒子是当前的位置 +  固定的值<br>缓动动画就是  盒子当前的位置 + 变化的值(目标值 - 现在的位置) / 10）</p>
+<h2 id="多个值之间移动"><a href="#多个值之间移动" class="headerlink" title="多个值之间移动"></a>多个值之间移动</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css"></span><br><span class="language-css">        <span class="hljs-selector-tag">div</span> &#123;</span><br><span class="language-css">            <span class="hljs-attribute">position</span>: absolute;</span><br><span class="language-css">            <span class="hljs-attribute">width</span>: <span class="hljs-number">50px</span>;</span><br><span class="language-css">            <span class="hljs-attribute">height</span>: <span class="hljs-number">50px</span>;</span><br><span class="language-css">            <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#f00</span>;</span><br><span class="language-css">        &#125;</span><br><span class="language-css">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn500&quot;</span>&gt;</span>移动到500<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn1000&quot;</span>&gt;</span>移动到1000<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">        <span class="hljs-comment">// 动画一定要加定位!!!!</span></span><br><span class="language-javascript">        <span class="hljs-keyword">function</span> <span class="hljs-title function_">animate</span>(<span class="hljs-params">obj, target</span>) &#123;</span><br><span class="language-javascript">            <span class="hljs-built_in">clearInterval</span>(obj.<span class="hljs-property">timer</span>);</span><br><span class="language-javascript">            obj.<span class="hljs-property">timer</span> = <span class="hljs-built_in">setInterval</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">                <span class="hljs-comment">// 步长值写到定时器里面,步长值向上取整</span></span><br><span class="language-javascript">                <span class="hljs-comment">// var step = Math.ceil((target - obj.offsetLeft) / 10);</span></span><br><span class="language-javascript">                <span class="hljs-keyword">var</span> step = (target - obj.<span class="hljs-property">offsetLeft</span>) / <span class="hljs-number">10</span>;</span><br><span class="language-javascript">                step = step &gt; <span class="hljs-number">0</span> ? <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">ceil</span>(step) : <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(step);</span><br><span class="language-javascript">                <span class="hljs-keyword">if</span> (obj.<span class="hljs-property">offsetLeft</span> == target) &#123;</span><br><span class="language-javascript">                    <span class="hljs-built_in">clearInterval</span>(obj.<span class="hljs-property">timer</span>); <span class="hljs-comment">// 停止定时器</span></span><br><span class="language-javascript">                &#125;</span><br><span class="language-javascript">                <span class="hljs-comment">// 把每次移动的值改为步长公式</span></span><br><span class="language-javascript">                obj.<span class="hljs-property">style</span>.<span class="hljs-property">left</span> = obj.<span class="hljs-property">offsetLeft</span> + step + <span class="hljs-string">&#x27;px&#x27;</span>;</span><br><span class="language-javascript">            &#125;, <span class="hljs-number">15</span>);</span><br><span class="language-javascript">        &#125;</span><br><span class="language-javascript">        <span class="hljs-keyword">var</span> div = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;div&#x27;</span>);</span><br><span class="language-javascript"></span><br><span class="language-javascript">        <span class="hljs-keyword">var</span> btn500 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.btn500&#x27;</span>);</span><br><span class="language-javascript">        <span class="hljs-keyword">var</span> btn1000 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.btn1000&#x27;</span>);</span><br><span class="language-javascript"></span><br><span class="language-javascript">        btn500.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">            <span class="hljs-title function_">animate</span>(div, <span class="hljs-number">500</span>);</span><br><span class="language-javascript">        &#125;);</span><br><span class="language-javascript">        btn1000.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">            <span class="hljs-title function_">animate</span>(div, <span class="hljs-number">1000</span>);</span><br><span class="language-javascript">        &#125;);</span><br><span class="language-javascript">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+        repo="birpg/blog"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JavaScript/" class="category-chain-item">JavaScript</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/JavaScript/">#JavaScript</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>pc端网页特效</div>
+      <div>https://zhswchn.github.io/2019/10/17/pc端网页特效/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Zhchn</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2019年10月17日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/10/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%89%B9%E6%95%88/" title="移动端网页特效">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">移动端网页特效</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/10/16/js-BOM%E7%AF%87/" title="js-BOM篇">
+                        <span class="hidden-mobile">js-BOM篇</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

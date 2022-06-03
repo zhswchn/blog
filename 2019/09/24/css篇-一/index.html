@@ -1,0 +1,943 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.jpg">
+  <link rel="icon" href="/img/favicon.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Zhchn">
+  <meta name="keywords" content="前端,博客,JavaScript,html,html5,css,css3,vue">
+  
+    <meta name="description" content="本篇博客主要记录css部分，记录下来主要用于复习,巩固。涉及到css字体样式属性、文本属性、背景属性、css样式表、标签显示模式、基本选择器。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css篇(一)">
+<meta property="og:url" content="https://zhswchn.github.io/2019/09/24/css%E7%AF%87-%E4%B8%80/index.html">
+<meta property="og:site_name" content="Zhchn">
+<meta property="og:description" content="本篇博客主要记录css部分，记录下来主要用于复习,巩固。涉及到css字体样式属性、文本属性、背景属性、css样式表、标签显示模式、基本选择器。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2019/11/01/jiThf2zwpcLrm4n.png">
+<meta property="article:published_time" content="2019-09-24T13:40:01.000Z">
+<meta property="article:modified_time" content="2021-03-07T13:25:12.246Z">
+<meta property="article:author" content="Zhchn">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.loli.net/2019/11/01/jiThf2zwpcLrm4n.png">
+  
+  
+  
+  <title>css篇(一) - Zhchn</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhswchn.github.io","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>ZhouSWchn的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="css篇(一)"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2019-09-24 21:40" pubdate>
+          2019年9月24日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          54 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">css篇(一)</h1>
+            
+            <div class="markdown-body">
+              
+              <p>本篇博客主要记录css部分，记录下来主要用于复习,巩固。涉及到css字体样式属性、文本属性、背景属性、css样式表、标签显示模式、基本选择器。</p>
+<span id="more"></span>
+
+<h2 id="CSS概述"><a href="#CSS概述" class="headerlink" title="CSS概述"></a>CSS概述</h2><p>CSS(Cascading Style Sheets)</p>
+<p>CSS通常称为CSS样式表或层叠样式表（级联样式表），主要用于设置HTML页面中的文本内容（字体、大小、对齐方式等）、图片的外形（宽高、边框样式、边距等）以及版面的布局等外观显示样式。</p>
+<p>CSS以HTML为基础，提供了丰富的功能，如字体、颜色、背景的控制及整体排版等，而且还可以针对不同的浏览器设置不同的样式。</p>
+<h2 id="CSS样式"><a href="#CSS样式" class="headerlink" title="CSS样式"></a>CSS样式</h2><p>选择器 {<br>&emsp;&emsp;&emsp;&emsp;属性: 值;<br>&emsp;&emsp;&emsp;&emsp;属性: 值;<br>&emsp;&emsp;&emsp;}<br>比如：</p>
+<pre><code class="hljs">p &#123;
+color:red;    &lt;!-- 颜色:红色; --&gt;
+font-size:15px;    &lt;!-- 字体大小:15像素 --&gt;
+&#125;    
+</code></pre>
+<h2 id="CSS字体样式属性"><a href="#CSS字体样式属性" class="headerlink" title="CSS字体样式属性"></a>CSS字体样式属性</h2><h3 id="font-size：字号大小"><a href="#font-size：字号大小" class="headerlink" title="font-size：字号大小"></a>font-size：字号大小</h3><p>&emsp;&emsp;该属性用于设置字号，常用单位： px，em。其他单位如下：</p>
+<style>
+table th,td {
+    width: 600px;
+    text-align: center;
+}
+</style>
+<table>
+<thead>
+<tr>
+<th align="center">绝对单位</th>
+<th align="center">含义</th>
+<th align="center">相对单位</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">in</td>
+<td align="center">英寸</td>
+<td align="center">px</td>
+<td align="center">像素</td>
+</tr>
+<tr>
+<td align="center">cm</td>
+<td align="center">厘米</td>
+<td align="center">em</td>
+<td align="center">相对长度单位</td>
+</tr>
+<tr>
+<td align="center">mm</td>
+<td align="center">毫米</td>
+<td align="center">%</td>
+<td align="center">相对于周围文字百分比</td>
+</tr>
+<tr>
+<td align="center">pt</td>
+<td align="center">点/英镑</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">pc</td>
+<td align="center">皮卡</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p><strong>换算：1in = 2.54cm = 25.4 mm = 72pt  = 6pc</strong> </p>
+<h3 id="font-family：字体"><a href="#font-family：字体" class="headerlink" title="font-family：字体"></a>font-family：字体</h3><pre><code class="hljs">p &#123;font-family:Arial,&quot;微软雅黑&quot;,&quot;Times New Roman&quot;;&#125;
+</code></pre>
+<p>注意：</p>
+<ul>
+<li>尽量使用默认字体，但为了防止用户电脑里没有对应的字体，需要几个备选字体。</li>
+<li>英文字体必须要在前面，否则中文字体会覆盖英文字体。</li>
+<li>字体之间必须用英文状态的逗号隔开。</li>
+<li>中文字体要加引号，英文字体可以不加。</li>
+<li>如果字体名中包含空格、#、$等符号，则该字体必须加英文状态下的单引号或双引号，例如font-family: “Times New Roman”</li>
+</ul>
+<h3 id="font-style：字体风格"><a href="#font-style：字体风格" class="headerlink" title="font-style：字体风格"></a>font-style：字体风格</h3><p>属性：<br><code>normal</code>：默认值，不倾斜。<br><code>italic</code>：倾斜字体。<br><code>obilque</code>：倾斜字体。</p>
+<h3 id="font-weight：字体粗细"><a href="#font-weight：字体粗细" class="headerlink" title="font-weight：字体粗细"></a>font-weight：字体粗细</h3><p>属性：<br><code>normal</code>    默认值。定义标准的字符。<br><code>bold</code>    定义粗体字符。<br><code>bolder</code>    定义更粗的字符。<br><code>lighter</code>    定义更细的字符。<br>数字 400 等价于 normal，而 700 等价于 bold。  但是我们更喜欢用数字来表示。</p>
+<h3 id="font：综合写法"><a href="#font：综合写法" class="headerlink" title="font：综合写法"></a>font：综合写法</h3><pre><code class="hljs">选择器 &#123;font-style font-weight font-size/line-height font-family&#125;
+p &#123;italic bold 14px/24px &quot;微软雅黑&quot;&#125;
+</code></pre>
+<ul>
+<li><p>使用font属性时，必须按上面语法格式中的顺序书写，不能更换顺序，各个属性以空格隔开。</p>
+</li>
+<li><p>注意：其中不需要设置的属性可以省略（取默认值），但必须保留font-size和font-family属性，否则font属性将不起作用。</p>
+</li>
+</ul>
+<h2 id="文本属性"><a href="#文本属性" class="headerlink" title="文本属性"></a>文本属性</h2><h3 id="color：文本颜色"><a href="#color：文本颜色" class="headerlink" title="color：文本颜色"></a>color：文本颜色</h3><p>1.预定义的颜色值，如red，green，blue等。</p>
+<p>2.十六进制，如#FF0000，#FF6600，#29D794等。实际工作中，十六进制是最常用的定义颜色的方式，且#FF0FF可以缩写为#F0F。</p>
+<p>3.RGB代码，如红色可以表示为rgb(255,0,0)或rgb(100%,0%,0%)。</p>
+<p>需要注意的是，如果使用RGB代码的百分比颜色值，取值为0时也不能省略百分号，必须写为0%。</p>
+<p>在css3中新增了颜色半透明格式：<code>rgba(r, g, b, a )</code>.3是0.3，0可以不写.</p>
+<h3 id="text-shadow：文字阴影"><a href="#text-shadow：文字阴影" class="headerlink" title="text-shadow：文字阴影"></a>text-shadow：文字阴影</h3><p>text-shadow:水平位置 垂直位置 模糊距离 阴影颜色;<br>可以简写只写值：<code>text-shadow:2px 3px 4px rgba(0,0,0,.5);</code>前两项必写，后两项可选写。<br><code>h-shadow</code>水平阴影位置，允许负值。<br><code>v-shadow</code>垂直阴影位置，允许负值。<br><code>blur</code>阴影模糊距离。<br><code>color</code>阴影颜色。</p>
+<h3 id="line-height：行间距（行高）"><a href="#line-height：行间距（行高）" class="headerlink" title="line-height：行间距（行高）"></a>line-height：行间距（行高）</h3><p>ine-height属性用于设置行间距，就是行与行之间的距离，即字符的垂直间距，一般称为行高。line-height常用的属性值单位有三种，分别为像素px，相对值em和百分比%，实际工作中使用最多的是像素px</p>
+<h3 id="text-align：水平对齐方式"><a href="#text-align：水平对齐方式" class="headerlink" title="text-align：水平对齐方式"></a>text-align：水平对齐方式</h3><p><code>left</code>：左对齐（默认值）<br><code>right</code>：右对齐<br><code>center</code>：居中对齐</p>
+<h3 id="text-indent：首行缩进"><a href="#text-indent：首行缩进" class="headerlink" title="text-indent：首行缩进"></a>text-indent：首行缩进</h3><p>text-indent属性用于设置首行文本的缩进，其属性值可为不同单位的数值、em字符宽度的倍数、或相对于浏览器窗口宽度的百分比%，允许使用负值, 建议使用em作为设置单位。</p>
+<p>1em 就是一个字的宽度   如果是汉字的段落， 1em 就是一个汉字的宽度</p>
+<h3 id="letter-spacing：字间距"><a href="#letter-spacing：字间距" class="headerlink" title="letter-spacing：字间距"></a>letter-spacing：字间距</h3><p>letter-spacing属性用于定义字间距，所谓字间距就是【字符】与字符之间的空白。其属性值可为不同单位的数值，允许使用负值，默认为normal。</p>
+<h3 id="word-spacing-单词间距"><a href="#word-spacing-单词间距" class="headerlink" title="word-spacing:单词间距"></a>word-spacing:单词间距</h3><p>这个属性对中文字符无效，主要用于定义英文【单词】之间的间距，其属性值可为不同单位的数值，允许使用负值，默认为normal。</p>
+<h2 id="背景属性"><a href="#背景属性" class="headerlink" title="背景属性"></a>背景属性</h2><ul>
+<li><p><code>background-color:#ff99ff;</code>  设置元素的背景颜色。</p>
+</li>
+<li><p><code>background-image:url(images/2.gif);</code> 将图像设置为背景。</p>
+</li>
+<li><p><code>background-repeat: no-repeat;</code>  设置背景图片是否重复及如何重复，默认平铺满。（重要）</p>
+<ul>
+<li><code>no-repeat</code>不要平铺；</li>
+<li><code>repeat-x</code>横向平铺；</li>
+<li><code>repeat-y</code>纵向平铺。</li>
+</ul>
+</li>
+<li><p><code>background-position:center top;</code> 【向右偏移量 向下偏移量 】设置背景图片在当前容器中的位置。可以用像素描述，数值可以是负值，也可以用单词描述。</p>
+</li>
+<li><p><code>background-attachment:scroll;</code> 设置背景图片是否跟着滚动条一起移动。<br>属性值可以是：<code>scroll</code>（与fixed属性相反，默认属性）、<code>fixed</code>（背景就会被固定住，不会被滚动条滚走）。</p>
+</li>
+<li><p><code>background-attachment : scroll | fixed </code> scroll : 　背景图像是随对象内容滚动<br>fixed : 　背景图像固定 </p>
+</li>
+</ul>
+<p>设置或检索背景图像是随对象内容滚动还是固定的。</p>
+<p>背景简写：<strong>background:背景颜色 背景图片地址 背景平铺 背景滚动 背景位置；</strong></p>
+<h3 id="背景缩放"><a href="#背景缩放" class="headerlink" title="背景缩放"></a>背景缩放</h3><p><code>background-size: 300px 100px;</code><br>通过background-size设置背景图片的尺寸，就像我们设置img的尺寸一样，在移动Web开发中做屏幕适配应用非常广泛。</p>
+<p>其参数设置如下：</p>
+<p>a) 可以设置长度单位(px)或百分比（设置百分比时，参照盒子的宽高）</p>
+<p>b) 设置为cover时，会自动调整缩放比例，保证图片始终填充满背景区域，如有溢出部分则会被隐藏。我们平时用的cover 最多</p>
+<p>c) 设置为contain会自动调整缩放比例，保证图片始终完整显示在背景区域。</p>
+<h3 id="多背景"><a href="#多背景" class="headerlink" title="多背景"></a>多背景</h3><p>以逗号分隔可以设置多背景，可用于自适应布局  做法就是 用逗号隔开就好了。</p>
+<ul>
+<li><p>一个元素可以设置多重背景图像。 </p>
+</li>
+<li><p>每组属性间使用逗号分隔。 </p>
+</li>
+<li><p>如果设置的多重背景图之间存在着交集（即存在着重叠关系），前面的背景图会覆盖在后面的背景图之上。</p>
+</li>
+<li><p>为了避免背景色将图像盖住，背景色通常都定义在最后一组上，</p>
+</li>
+</ul>
+<h3 id="背景渐变"><a href="#背景渐变" class="headerlink" title="背景渐变"></a>背景渐变</h3><pre><code class="hljs">background: linear-gradient(渐变的起始位置,起始颜色,结束颜色 );    
+</code></pre>
+<p>举例：</p>
+<pre><code class="hljs">div &#123;
+        width: 300px;
+        height: 50px;
+        margin: 200px auto;
+        background: linear-gradient(left, #f00, #ff0);    /* 渐变的起始位置,起始颜色,结束颜色 */
+        background: -webkit-linear-gradient(left, #f00, #ff0);    /* 渐变有很大的兼容性问题,需要加浏览器前缀 */
+        background: -moz-linear-gradient(left, #f00, #ff0);
+    &#125;
+    section &#123;
+        width: 300px;
+        height: 50px;
+        margin: 100px auto;
+
+        /* 多段颜色渐变 */
+        background: -webkit-linear-gradient(left, #f00 0%, #ff0 20%, #fff 40%, #0f0 60%, #0ff 80%, #f0f 100%);
+    &#125;
+</code></pre>
+<h2 id="CSS样式表"><a href="#CSS样式表" class="headerlink" title="CSS样式表"></a>CSS样式表</h2><h3 id="内部样式表"><a href="#内部样式表" class="headerlink" title="内部样式表"></a>内部样式表</h3><p>又叫内嵌样式表，style标签一般位于head标签中title标签之后。</p>
+<pre><code class="hljs">&lt;head&gt;
+&lt;style type=&quot;text/CSS&quot;&gt;
+    选择器 &#123;
+    属性1:属性值1; 
+    属性2:属性值2; 
+    属性3:属性值3;
+    &#125;
+&lt;/style&gt;
+&lt;/head&gt;
+</code></pre>
+<h3 id="内联样式表"><a href="#内联样式表" class="headerlink" title="内联样式表"></a>内联样式表</h3><p>又叫行内样式表，在某个特定的标签里采用style属性，范围只针对此标签。</p>
+<pre><code class="hljs">&lt;标签名 style=&quot;属性1:属性值1; 属性2:属性值2; 属性3:属性值3;&quot;&gt; 内容 &lt;/标签名&gt;
+</code></pre>
+<h3 id="外部样式表"><a href="#外部样式表" class="headerlink" title="外部样式表"></a>外部样式表</h3><p>又叫链入式，是将所有的样式放在一个或多个以.CSS为扩展名的外部样式表文件中，通过link标签将外部样式表文件链接到HTML文档中。<br>在.CSS为扩展名的外部样式表文件中，直接写样式不用再加<code>&lt;style&gt;</code>标签。</p>
+<pre><code class="hljs">&lt;head&gt;
+  &lt;link href=&quot;CSS文件的路径&quot; type=&quot;text/CSS&quot; rel=&quot;stylesheet&quot; /&gt;
+&lt;/head&gt;
+</code></pre>
+<h3 id="样式优先级"><a href="#样式优先级" class="headerlink" title="样式优先级"></a>样式优先级</h3><p>内联样式表优先级最高，内部样式表与外部样式表的优先级与排列的顺序有关，排列最靠后的优先级别高。</p>
+<h2 id="标签显示模式（display）"><a href="#标签显示模式（display）" class="headerlink" title="标签显示模式（display）"></a>标签显示模式（display）</h2><h3 id="块级元素-block-level"><a href="#块级元素-block-level" class="headerlink" title="块级元素(block-level)"></a>块级元素(block-level)</h3><p>block每个块元素通常都会独自占据一整行或多整行，可以对其设置宽度、高度、对齐等属性，常用于网页布局和网页结构的搭建。</p>
+<p>常见的块元素有<code>&lt;h1&gt;~&lt;h6&gt;、&lt;p&gt;、&lt;div&gt;、&lt;ul&gt;、&lt;ol&gt;、&lt;li&gt;</code>等，其中<code>&lt;div&gt;</code>标签是最典型的块元素。</p>
+<p>块级元素的特点：</p>
+<p>（1）总是从新行开始</p>
+<p>（2）高度，行高、外边距以及内边距都可以控制。</p>
+<p>（3）宽度默认是容器的100%</p>
+<p>（4）可以容纳内联元素和其他块元素。</p>
+<h3 id="行类元素-inline-level"><a href="#行类元素-inline-level" class="headerlink" title="行类元素(inline-level)"></a>行类元素(inline-level)</h3><p>行内元素（内联元素）不占有独立的区域，仅仅靠自身的字体大小和图像尺寸来支撑结构，一般不可以设置宽度、高度、对齐等属性，常用于控制页面中文本的样式</p>
+<p>常见的行内元素有<code>&lt;a&gt;、&lt;strong&gt;、&lt;b&gt;、&lt;em&gt;、&lt;i&gt;、&lt;del&gt;、&lt;s&gt;、&lt;ins&gt;、&lt;u&gt;、&lt;span&gt;</code>等，其中<code>&lt;span&gt;</code>标签最典型的行内元素。</p>
+<p>行内元素的特点：</p>
+<p>（1）和相邻行内元素在一行上。</p>
+<p>（2）高、宽无效，但水平方向的padding和margin可以设置，垂直方向的无效。</p>
+<p>（3）默认宽度就是它本身内容的宽度。</p>
+<p>（4）行内元素只能容纳文本或则其他行内元素。（a特殊）</p>
+<p>注意：</p>
+<ol>
+<li>只有 文字才 能组成段落  因此 p  里面不能放块级元素，同理还有这些标签h1,h2,h3,h4,h5,h6,dt，他们都是文字类块级标签，里面不能放其他块级元素。</li>
+<li>链接里面不能再放链接。</li>
+</ol>
+<h3 id="块级元素和行内元素区别"><a href="#块级元素和行内元素区别" class="headerlink" title="块级元素和行内元素区别"></a>块级元素和行内元素区别</h3><p>块级元素的特点：<br>（1）总是从新行开始<br>（2）高度，行高、外边距以及内边距都可以控制。<br>（3）宽度默认是容器的100%<br>（4）可以容纳内联元素和其他块元素。</p>
+<p>行内元素的特点：<br>（1）和相邻行内元素在一行上。<br>（2）高、宽无效，但水平方向的padding和margin可以设置，垂直方向的无效。<br>（3）默认宽度就是它本身内容的宽度。<br>（4）行内元素只能容纳文本或则其他行内元素。</p>
+<h3 id="行内块元素-inline-block"><a href="#行内块元素-inline-block" class="headerlink" title="行内块元素(inline-block)"></a>行内块元素(inline-block)</h3><p>在行内元素中有几个特殊的标签:<code>&lt;img /&gt;、&lt;input /&gt;、&lt;td&gt;</code>，可以对它们设置宽高和对齐属性，有些资料可能会称它们为行内块元素。</p>
+<p>行内块元素的特点：<br>（1）和相邻行内元素（行内块）在一行上,但是之间会有空白缝隙。<br>（2）默认宽度就是它本身内容的宽度。<br>（3）高度，行高、外边距以及内边距都可以控制。</p>
+<h3 id="标签显示模式转换-display"><a href="#标签显示模式转换-display" class="headerlink" title="标签显示模式转换 display"></a>标签显示模式转换 display</h3><p>块转行内：<code>display:inline;</code></p>
+<p>行内转块：<code>display:block;</code></p>
+<p>块、行内元素转换为行内块： <code>display: inline-block;</code></p>
+<h2 id="CSS选择器"><a href="#CSS选择器" class="headerlink" title="CSS选择器"></a>CSS选择器</h2><h3 id="标签选择器（元素选择器）"><a href="#标签选择器（元素选择器）" class="headerlink" title="标签选择器（元素选择器）"></a>标签选择器（元素选择器）</h3><p>可以按照标签分类统一指定CSS样式，但是无法指定某个样式，不能设计差异化样式。<br>    标签名{<br>    属性1:属性值1;<br>    属性2:属性值2;<br>    属性3:属性值3;<br>    }</p>
+<h3 id="ID选择器"><a href="#ID选择器" class="headerlink" title="ID选择器"></a>ID选择器</h3><p>针对某一个特定的标签来使用，<strong>只能使用一次</strong>。css中的ID选择器以”#”来定义。<br><strong>HTML页面，不能出现相同的id，哪怕他们不是一个类型</strong><br>在标签中通过<code>id=”id名“ </code>来使用。<br><strong>尽可能的用class，除非极特殊的情况可以用id，因为js要用id属性得到标签，所以css尽量不要用id</strong>。</p>
+<pre><code class="hljs">#id名 &#123;
+属性1:属性值1; 
+属性2:属性值2; 
+属性3:属性值3; 
+&#125;
+</code></pre>
+<h3 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h3><p>类选择器使用“.”（英文点号）进行标识，后面紧跟类名。<br>在标签中通过<code>class = ”类名“</code>来使用。</p>
+<pre><code class="hljs">.类名 &#123;
+属性1:属性值1; 
+属性2:属性值2; 
+属性3:属性值3; 
+&#125;
+</code></pre>
+<p>和id非常相似，任何的标签都可以携带id属性和class属性。class属性的特点：</p>
+<ul>
+<li>特性1：类选择器可以被多种标签使用。</li>
+<li>特性2：同一个标签可以使用多个类选择器。用<strong>空格</strong>隔开。</li>
+</ul>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">&lt;div <span class="hljs-keyword">class</span>=&quot;<span class="hljs-symbol">fin</span> <span class="hljs-symbol">font20</span> <span class="hljs-symbol">cas</span>&quot;&gt;文本&lt;/<span class="hljs-symbol">div</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<p>注意：<br>（1）不要去试图用一个类名，把某个标签的所有样式写完。这个标签要多携带几个类，共同完成这个标签的样式。</p>
+<p>（2）每一个类要尽可能小，有“公共”的概念，能够让更多的标签使用。</p>
+<h3 id="通配符选择器"><a href="#通配符选择器" class="headerlink" title="通配符选择器"></a>通配符选择器</h3><p>通配符选择器用”*“号表示，他是所有选择器中作用范围最广的，能匹配页面中所有的元素。</p>
+<pre><code class="hljs">* &#123; 
+属性1:属性值1; 
+属性2:属性值2; 
+属性3:属性值3; 
+&#125;
+</code></pre>
+<p>比如：</p>
+<pre><code class="hljs">* &#123;
+margin: 0;                    /* 定义外边距*/
+padding: 0;                   /* 定义内边距*/
+&#125;
+</code></pre>
+<h3 id="其他选择器"><a href="#其他选择器" class="headerlink" title="其他选择器"></a>其他选择器</h3><pre><code class="hljs">&lt;style type=&quot;text/css&quot;&gt;
+/* 群组选择器/并集选择器 */
+h1,
+div, &#123;
+    width: 500px; 
+    height: 45px;
+&#125;
+/* 包含选择器/后代选择器 */
+.bao span &#123;
+    background: #f0f;
+&#125;
+/* 交集选择器 */
+h3.special &#123;    /* 没有空格，有空格的是后代选择器 */
+    color:red;
+&#125;
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;选择器&lt;/h1&gt;
+    &lt;div&gt;选择器&lt;/div&gt;
+    &lt;div class=&quot;bao&quot;&gt;
+        选择器选择器&lt;span&gt;包含选择器&lt;/span&gt;选择器选择器
+    &lt;/div&gt;
+    &lt;h3 class=&quot;special zhongyao&quot;&gt;标题1&lt;/h3&gt;
+    &lt;h3 class=&quot;special&quot;&gt;我也是标题&lt;/h3&gt;
+&lt;/body&gt;
+</code></pre>
+<script src="https://utteranc.es/client.js"
+        repo="birpg/blog"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/CSS/" class="category-chain-item">CSS</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/CSS/">#CSS</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>css篇(一)</div>
+      <div>https://zhswchn.github.io/2019/09/24/css篇-一/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Zhchn</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2019年9月24日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/10/01/css%E7%AF%87-%E4%BA%8C/" title="css篇(二)">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">css篇(二)</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/09/21/html%E7%AF%87/" title="html篇">
+                        <span class="hidden-mobile">html篇</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
