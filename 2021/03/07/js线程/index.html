@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.jpg">
-  <link rel="icon" href="/img/favicon.jpg">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/favicon.jpg">
+  <link rel="icon" href="/blog/img/favicon.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="JS线程众所周知js是单线程的，js引擎是单线程执行的， 可是浏览器是可以多线程的，js引擎只是浏览器的一个线程而已， 定时器、网络请求、浏览器渲染等等都是由不同的线程去完成的 比如: js引擎遇到setTimeout后会开启一个定时器线程， 然后继续向下执行，定时器线程会在指定时间后往任务队列插入一个任务，等所有的同步任务执行后，再去任务队列中去执行代码 浏览器线程：  GUI渲染线程 JS引擎">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js线程">
-<meta property="og:url" content="https://zhswchn.github.io/2021/03/07/js%E7%BA%BF%E7%A8%8B/index.html">
+<meta property="og:url" content="https://zhswchn.github.io/blog/2021/03/07/js%E7%BA%BF%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Zhchn">
 <meta property="og:description" content="JS线程众所周知js是单线程的，js引擎是单线程执行的， 可是浏览器是可以多线程的，js引擎只是浏览器的一个线程而已， 定时器、网络请求、浏览器渲染等等都是由不同的线程去完成的 比如: js引擎遇到setTimeout后会开启一个定时器线程， 然后继续向下执行，定时器线程会在指定时间后往任务队列插入一个任务，等所有的同步任务执行后，再去任务队列中去执行代码 浏览器线程：  GUI渲染线程 JS引擎">
 <meta property="og:locale" content="zh_CN">
@@ -57,12 +57,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/blog/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
   
 
 
@@ -71,15 +71,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhswchn.github.io","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"zhswchn.github.io","root":"/blog/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
 
   
 <meta name="generator" content="Hexo 5.4.2"></head>
@@ -94,7 +94,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/blog/">
       <strong>ZhouSWchn的博客</strong>
     </a>
 
@@ -113,7 +113,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/blog/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -125,7 +125,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -137,7 +137,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -149,7 +149,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -161,7 +161,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/blog/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -190,7 +190,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/bg.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/blog/img/bg.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -367,7 +367,7 @@
 </ol>
 <p>如此往复循环</p>
 <p><strong>注意: 只有主线程的同步代码都执行完了，才会去队列里看看还有啥要执行的， 主线程没执行完，队列里的只能等着</strong></p>
-<p><img src="https://i.loli.net/2020/09/06/5prCmZcFU1otwT4.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.loli.net/2020/09/06/5prCmZcFU1otwT4.png" srcset="/blog/img/loading.gif" lazyload></p>
 <p>所以<code>setTimeout</code>，<code>setInterval</code>的定时，不一定完全按照设想的时间的，因为主线程里的代码可能复杂到执行很久，所以会发生你定时3秒后执行，实际上是3.5秒后执行（主线程花费了0.5秒）</p>
 <h2 id="微任务-宏任务"><a href="#微任务-宏任务" class="headerlink" title="微任务 宏任务"></a>微任务 宏任务</h2><p>js中的任务分为两种类型:</p>
 <p>宏任务: js主线程中的 <code>定时器</code>，<code>事件绑定</code>，<code>网络请求</code></p>
@@ -441,7 +441,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/JavaScript/" class="category-chain-item">JavaScript</a>
+  <a href="/blog/categories/JavaScript/" class="category-chain-item">JavaScript</a>
   
   
 
@@ -456,7 +456,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/JavaScript/">#JavaScript</a>
+        <a href="/blog/tags/JavaScript/">#JavaScript</a>
       
     </div>
   
@@ -469,7 +469,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>js线程</div>
-      <div>https://zhswchn.github.io/2021/03/07/js线程/</div>
+      <div>https://zhswchn.github.io/blog/2021/03/07/js线程/</div>
     </div>
     <div class="license-meta">
       
@@ -511,7 +511,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/07/%E6%8B%B7%E8%B4%9D/" title="拷贝">
+                      <a href="/blog/2021/03/07/%E6%8B%B7%E8%B4%9D/" title="拷贝">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">拷贝</span>
                         <span class="visible-mobile">上一篇</span>
@@ -521,7 +521,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/07/03/Axios/" title="Axios">
+                      <a href="/blog/2020/07/03/Axios/" title="Axios">
                         <span class="hidden-mobile">Axios</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -647,8 +647,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -672,7 +672,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/blog/js/img-lazyload.js" ></script>
   
 
 
@@ -809,7 +809,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/blog/js/local-search.js" ></script>
 
 
 
@@ -817,7 +817,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/blog/js/boot.js" ></script>
 
 
   

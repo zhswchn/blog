@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.jpg">
-  <link rel="icon" href="/img/favicon.jpg">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/favicon.jpg">
+  <link rel="icon" href="/blog/img/favicon.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="利用构造函数创建对象ES6之前js中没有引入类的概念, 对象不是基于类创建的,而是用构造函数来定义对象和它们的特征  利用 new Object()创建对象  1var obj &#x3D; new Object();   利用对象字面量创建对象  1var obj2 &#x3D; &amp;#123;&amp;#125;;   利用构造函数创建对象  123456789function Star(uname, age) &amp;#123">
 <meta property="og:type" content="article">
 <meta property="og:title" content="构造函数和原型">
-<meta property="og:url" content="https://zhswchn.github.io/2019/11/02/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E5%8E%9F%E5%9E%8B/index.html">
+<meta property="og:url" content="https://zhswchn.github.io/blog/2019/11/02/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E5%8E%9F%E5%9E%8B/index.html">
 <meta property="og:site_name" content="Zhchn">
 <meta property="og:description" content="利用构造函数创建对象ES6之前js中没有引入类的概念, 对象不是基于类创建的,而是用构造函数来定义对象和它们的特征  利用 new Object()创建对象  1var obj &#x3D; new Object();   利用对象字面量创建对象  1var obj2 &#x3D; &amp;#123;&amp;#125;;   利用构造函数创建对象  123456789function Star(uname, age) &amp;#123">
 <meta property="og:locale" content="zh_CN">
@@ -57,12 +57,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/blog/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
   
 
 
@@ -71,15 +71,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhswchn.github.io","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"zhswchn.github.io","root":"/blog/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
 
   
 <meta name="generator" content="Hexo 5.4.2"></head>
@@ -94,7 +94,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/blog/">
       <strong>ZhouSWchn的博客</strong>
     </a>
 
@@ -113,7 +113,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/blog/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -125,7 +125,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -137,7 +137,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -149,7 +149,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -161,7 +161,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/blog/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -190,7 +190,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/bg.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/blog/img/bg.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -318,7 +318,7 @@
 <figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Star</span>(<span class="hljs-params">uname, age</span>) &#123;<br>          this.uname = uname;<br>          this.age = age;<br>      &#125;<br>      Star.prototype = &#123;<br>          <span class="hljs-attr">constructor</span>: Star,<br>          <span class="hljs-attr">sing</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>              <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&#x27;唱歌&#x27;</span>);<br>          &#125;,<br>          <span class="hljs-attr">movie</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>              <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&#x27;电影&#x27;</span>);<br><br>          &#125;<br>      &#125;<br>      <span class="hljs-keyword">var</span> ly = <span class="hljs-keyword">new</span> Star(<span class="hljs-string">&#x27;LY&#x27;</span>, <span class="hljs-number">23</span>);<br>      <span class="hljs-keyword">var</span> hs = <span class="hljs-keyword">new</span> Star(<span class="hljs-string">&#x27;HS&#x27;</span>, <span class="hljs-number">20</span>);<br>      <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(Star.prototype);<br>      <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(ly.__proto__);<br>      <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(Star.prototype.constructor);<br>      <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(ly.__proto__.constructor);<br></code></pre></td></tr></table></figure>
 
 <p>Star构造函数通过<code>Star.prototype</code>指向Star原型对象<br>Star原型对象通过<code>Star.prototype.constructor</code> 指回Star构造函数<br>可以通过构造函数创建实例对象ly ,实例对象ly可以通过<code>ly.__proto__</code>指向Star原型对象,也可以通过<code>ly.__proto__.constructor</code>指回Star构造函数</p>
-<h2 id="JavaScript的成员查找机制（规则）"><a href="#JavaScript的成员查找机制（规则）" class="headerlink" title="JavaScript的成员查找机制（规则）"></a>JavaScript的成员查找机制（规则）</h2><p><img src="https://i.loli.net/2019/11/02/HPXJiCFtsuAmVgk.png" srcset="/img/loading.gif" lazyload alt="原型链.png"></p>
+<h2 id="JavaScript的成员查找机制（规则）"><a href="#JavaScript的成员查找机制（规则）" class="headerlink" title="JavaScript的成员查找机制（规则）"></a>JavaScript的成员查找机制（规则）</h2><p><img src="https://i.loli.net/2019/11/02/HPXJiCFtsuAmVgk.png" srcset="/blog/img/loading.gif" lazyload alt="原型链.png"></p>
 <ul>
 <li>当访问一个对象的属性（包括方法）时，首先查找这个对象自身有没有该属性</li>
 <li>如果没有就查找它的原型（也就是__proto__指向的 prototype原型对象）.</li>
@@ -402,7 +402,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/JavaScript/" class="category-chain-item">JavaScript</a>
+  <a href="/blog/categories/JavaScript/" class="category-chain-item">JavaScript</a>
   
   
 
@@ -417,7 +417,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%8E%9F%E5%9E%8B/">#原型</a>
+        <a href="/blog/tags/%E5%8E%9F%E5%9E%8B/">#原型</a>
       
     </div>
   
@@ -430,7 +430,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>构造函数和原型</div>
-      <div>https://zhswchn.github.io/2019/11/02/构造函数和原型/</div>
+      <div>https://zhswchn.github.io/blog/2019/11/02/构造函数和原型/</div>
     </div>
     <div class="license-meta">
       
@@ -472,7 +472,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2019/11/02/%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" title="函数进阶">
+                      <a href="/blog/2019/11/02/%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" title="函数进阶">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">函数进阶</span>
                         <span class="visible-mobile">上一篇</span>
@@ -482,7 +482,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2019/11/02/JavaScript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" title="JavaScript面向对象">
+                      <a href="/blog/2019/11/02/JavaScript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" title="JavaScript面向对象">
                         <span class="hidden-mobile">JavaScript面向对象</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -608,8 +608,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -633,7 +633,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/blog/js/img-lazyload.js" ></script>
   
 
 
@@ -770,7 +770,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/blog/js/local-search.js" ></script>
 
 
 
@@ -778,7 +778,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/blog/js/boot.js" ></script>
 
 
   

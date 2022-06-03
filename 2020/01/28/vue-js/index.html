@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.jpg">
-  <link rel="icon" href="/img/favicon.jpg">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/favicon.jpg">
+  <link rel="icon" href="/blog/img/favicon.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="本篇记录Vue.js的内容">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue.js">
-<meta property="og:url" content="https://zhswchn.github.io/2020/01/28/vue-js/index.html">
+<meta property="og:url" content="https://zhswchn.github.io/blog/2020/01/28/vue-js/index.html">
 <meta property="og:site_name" content="Zhchn">
 <meta property="og:description" content="本篇记录Vue.js的内容">
 <meta property="og:locale" content="zh_CN">
@@ -57,12 +57,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/blog/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
   
 
 
@@ -71,15 +71,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhswchn.github.io","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"zhswchn.github.io","root":"/blog/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
 
   
 <meta name="generator" content="Hexo 5.4.2"></head>
@@ -94,7 +94,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/blog/">
       <strong>ZhouSWchn的博客</strong>
     </a>
 
@@ -113,7 +113,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/blog/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -125,7 +125,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -137,7 +137,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -149,7 +149,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -161,7 +161,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/blog/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -190,7 +190,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/bg.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/blog/img/bg.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -411,7 +411,7 @@
 <h3 id="修改响应式数据"><a href="#修改响应式数据" class="headerlink" title="修改响应式数据"></a>修改响应式数据</h3><p>修改响应式数据:<br><code>Vue.set(vm.items, indexOfItem, newValue)</code><br><code>vm.$set(vm.items, indexOfItem, newValue)</code><br>参数一: 要处理的数组名称<br>参数二: 要处理的数组的索引<br>参数三: 要处理的数组的值</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">&lt;div id=<span class="hljs-string">&quot;app&quot;</span>&gt;<br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;item in list&quot;</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span><br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;info.name&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;info.age&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123;info.gender&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>&lt;/div&gt;<br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">var</span> app = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-attr">data</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">            <span class="hljs-attr">list</span>: [<span class="hljs-string">&#x27;苹果&#x27;</span>, <span class="hljs-string">&#x27;香蕉&#x27;</span>, <span class="hljs-string">&#x27;梨子&#x27;</span>],</span></span><br><span class="language-javascript"><span class="language-xml">            <span class="hljs-attr">info</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;李四&#x27;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">                <span class="hljs-attr">age</span>: <span class="hljs-number">10</span></span></span><br><span class="language-javascript"><span class="language-xml">            &#125;</span></span><br><span class="language-javascript"><span class="language-xml">        &#125;</span></span><br><span class="language-javascript"><span class="language-xml">    &#125;)</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 结果一样, 只是语法不同</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">set</span>(app.<span class="hljs-property">list</span>, <span class="hljs-number">2</span>, <span class="hljs-string">&#x27;橙子&#x27;</span>)</span></span><br><span class="language-javascript"><span class="language-xml">    app.$set(app.<span class="hljs-property">list</span>, <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;橘子&#x27;</span>)</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">    app.$set(app.<span class="hljs-property">info</span>, <span class="hljs-string">&#x27;gender&#x27;</span>, <span class="hljs-string">&#x27;男&#x27;</span>)</span></span><br><span class="language-javascript"><span class="language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
 
-<p><img src="https://i.loli.net/2020/01/29/u3oi6hjOWX9f7mN.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<p><img src="https://i.loli.net/2020/01/29/u3oi6hjOWX9f7mN.png" srcset="/blog/img/loading.gif" lazyload alt="例子"></p>
 <h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>初始化显示 执行1次</p>
 <ol>
 <li><code>beforeCreate</code>在实例初始化之后，数据观测和事件配置之前被调用。</li>
@@ -459,7 +459,7 @@
 <h3 id="组件插槽"><a href="#组件插槽" class="headerlink" title="组件插槽"></a>组件插槽</h3><p>用的是同一个模板, 插槽内容为空, 显示模板默认内容</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">&lt;div id=<span class="hljs-string">&quot;app&quot;</span>&gt;<br>        &lt;!-- 插槽内容 --&gt;<br>        <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">alert-box</span>&gt;</span>有bug<span class="hljs-tag">&lt;/<span class="hljs-name">alert-box</span>&gt;</span></span><br>        <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">alert-box</span>&gt;</span>有一个警告<span class="hljs-tag">&lt;/<span class="hljs-name">alert-box</span>&gt;</span></span><br>        <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">alert-box</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">alert-box</span>&gt;</span></span><br>    &lt;/div&gt;<br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-comment">// 组件插槽 插槽位置</span></span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">component</span>(<span class="hljs-string">&#x27;alert-box&#x27;</span>, &#123;</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-attr">template</span>: <span class="hljs-string">`</span></span></span><br><span class="hljs-string"><span class="language-javascript"><span class="language-xml">        &lt;div&gt;</span></span></span><br><span class="hljs-string"><span class="language-javascript"><span class="language-xml">            &lt;strong&gt;ERROR:&lt;/strong&gt;</span></span></span><br><span class="hljs-string"><span class="language-javascript"><span class="language-xml">            &lt;slot&gt;默认内容&lt;/slot&gt;</span></span></span><br><span class="hljs-string"><span class="language-javascript"><span class="language-xml">        &lt;/div&gt;</span></span></span><br><span class="hljs-string"><span class="language-javascript"><span class="language-xml">        `</span></span></span><br><span class="language-javascript"><span class="language-xml">    &#125;)</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-keyword">var</span> app = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-attr">data</span>: &#123;</span></span><br><span class="language-javascript"><span class="language-xml">            </span></span><br><span class="language-javascript"><span class="language-xml">        &#125;</span></span><br><span class="language-javascript"><span class="language-xml">    &#125;)</span></span><br><span class="language-javascript"><span class="language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
 
-<p><img src="https://i.loli.net/2020/01/29/c1h8wYdOL4CVrZm.png" srcset="/img/loading.gif" lazyload alt="例图"></p>
+<p><img src="https://i.loli.net/2020/01/29/c1h8wYdOL4CVrZm.png" srcset="/blog/img/loading.gif" lazyload alt="例图"></p>
 <h3 id="具名的插槽"><a href="#具名的插槽" class="headerlink" title="具名的插槽"></a>具名的插槽</h3><p>具名插槽: 在模板中定义多个插槽,并命名, 还有一个默认不带名字的插槽,<br>使用的时候根据名称匹配, 没有匹配的就给默认的插槽.  名称标注在标签中只能标注一个<br>如果要使用多个标签用<code>template</code>(固定写法)</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">&lt;div id=<span class="hljs-string">&quot;app&quot;</span>&gt;<br>        <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">base-layout</span>&gt;</span></span><br><span class="language-xml">            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">&quot;header&quot;</span>&gt;</span>标题<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="language-xml">            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>主要内容<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="language-xml">            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">&quot;footer&quot;</span>&gt;</span>底部<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;/<span class="hljs-name">base-layout</span>&gt;</span></span><br>        <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>-------------<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>        <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">base-layout</span>&gt;</span></span><br><span class="language-xml">            <span class="hljs-comment">&lt;!-- template临时性包裹内容 --&gt;</span></span><br><span class="language-xml">            <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">&quot;header&quot;</span>&gt;</span></span><br><span class="language-xml">                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>标题1<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="language-xml">                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>标题2<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="language-xml">            <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span><br><span class="language-xml">            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>主要内容1<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="language-xml">            <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">&quot;footer&quot;</span>&gt;</span></span><br><span class="language-xml">                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>底部1<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="language-xml">                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>底部2<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="language-xml">            <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;/<span class="hljs-name">base-layout</span>&gt;</span></span><br>    &lt;/div&gt;<br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-handlebars"><span class="language-xml"></span></span></span><br><span class="language-xml"><span class="language-handlebars"><span class="language-xml">    // 具名插槽</span></span></span><br><span class="language-xml"><span class="language-handlebars"><span class="language-xml">    Vue.component(&#x27;base-layout&#x27;, &#123;</span></span></span><br><span class="language-xml"><span class="language-handlebars"><span class="language-xml">        template:`</span></span></span><br><span class="language-xml"><span class="language-handlebars"><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span></span></span><br><span class="language-xml"><span class="language-handlebars"><span class="language-xml">            <span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span></span></span></span><br><span class="language-xml"><span class="language-handlebars"><span class="language-xml">                <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;header&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span></span></span></span><br><span class="language-xml"><span class="language-handlebars"><span class="language-xml">            <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span></span></span></span><br><span class="language-xml"><span class="language-handlebars"><span class="language-xml">            <span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span></span></span></span><br><span class="language-xml"><span class="language-handlebars"><span class="language-xml">                <span class="hljs-tag">&lt;<span class="hljs-name">slot</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span></span></span></span><br><span class="language-xml"><span class="language-handlebars"><span class="language-xml">            <span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span></span></span></span><br><span class="language-xml"><span class="language-handlebars"><span class="language-xml">            <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span></span></span></span><br><span class="language-xml"><span class="language-handlebars"><span class="language-xml">                <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;footer&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span></span></span></span><br><span class="language-xml"><span class="language-handlebars"><span class="language-xml">            <span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span></span></span></span><br><span class="language-xml"><span class="language-handlebars"><span class="language-xml">        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span></span><br><span class="language-xml"><span class="language-handlebars"><span class="language-xml">        `</span></span></span><br><span class="language-xml"><span class="language-handlebars"><span class="language-xml">    &#125;)</span></span></span><br><span class="language-xml"><span class="language-handlebars"><span class="language-xml">    var app = new Vue(&#123;</span></span></span><br><span class="language-xml"><span class="language-handlebars"><span class="language-xml">        el: &#x27;#app&#x27;,</span></span></span><br><span class="language-xml"><span class="language-handlebars"><span class="language-xml">        data: &#123;</span></span></span><br><span class="language-xml"><span class="language-handlebars"><span class="language-xml">            </span></span></span><br><span class="language-xml"><span class="language-handlebars"><span class="language-xml">        &#125;</span></span></span><br><span class="language-xml"><span class="language-handlebars"><span class="language-xml">    &#125;)</span></span></span><br><span class="language-xml"><span class="language-handlebars"><span class="language-xml"></span></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
 
@@ -470,7 +470,7 @@
 
 
 
-<p><img src="https://i.loli.net/2020/01/29/SbN5O4lRBG6tCmW.png" srcset="/img/loading.gif" lazyload alt="例图"></p>
+<p><img src="https://i.loli.net/2020/01/29/SbN5O4lRBG6tCmW.png" srcset="/blog/img/loading.gif" lazyload alt="例图"></p>
 <h2 id="前后端交互"><a href="#前后端交互" class="headerlink" title="前后端交互"></a>前后端交互</h2><h3 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h3><p>promise基本用法:<br>实例化promise对象, 构造函数中传递函数, 该函数用于处理异步任务<br><code>resolve</code>和<code>reject</code>两个参数用于处理成功和失败两种情况,并通过<code>p.then</code>获取处理结果</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">&lt;script&gt;<br>        <span class="hljs-keyword">var</span> p = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">resolve, reject</span>) &#123;<br>            <span class="hljs-comment">// 异步任务</span><br>            <span class="hljs-built_in">setTimeout</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>                <span class="hljs-keyword">var</span> flag = <span class="hljs-literal">true</span><br>                <span class="hljs-keyword">if</span> (flag) &#123;<br>                    <span class="hljs-comment">// 正常情况</span><br>                    <span class="hljs-title function_">resolve</span>(<span class="hljs-string">&#x27;hello&#x27;</span>)<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    <span class="hljs-comment">// 异常情况</span><br>                    <span class="hljs-title function_">reject</span>(<span class="hljs-string">&#x27;出错了&#x27;</span>)<br>                &#125;<br>            &#125;, <span class="hljs-number">100</span>)<br>        &#125;)<br>        p.<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) &#123;<br>            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(data);<br><br>        &#125;, <span class="hljs-keyword">function</span> (<span class="hljs-params">info</span>) &#123;<br>            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(info);<br><br>        &#125;)<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
 
@@ -763,7 +763,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Vue-js/" class="category-chain-item">Vue.js</a>
+  <a href="/blog/categories/Vue-js/" class="category-chain-item">Vue.js</a>
   
   
 
@@ -778,7 +778,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Vue/">#Vue</a>
+        <a href="/blog/tags/Vue/">#Vue</a>
       
     </div>
   
@@ -791,7 +791,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>Vue.js</div>
-      <div>https://zhswchn.github.io/2020/01/28/vue-js/</div>
+      <div>https://zhswchn.github.io/blog/2020/01/28/vue-js/</div>
     </div>
     <div class="license-meta">
       
@@ -833,7 +833,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/01/30/webpack/" title="webpack">
+                      <a href="/blog/2020/01/30/webpack/" title="webpack">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">webpack</span>
                         <span class="visible-mobile">上一篇</span>
@@ -843,7 +843,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2019/11/17/node-js/" title="Node.js">
+                      <a href="/blog/2019/11/17/node-js/" title="Node.js">
                         <span class="hidden-mobile">Node.js</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -969,8 +969,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -994,7 +994,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/blog/js/img-lazyload.js" ></script>
   
 
 
@@ -1131,7 +1131,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/blog/js/local-search.js" ></script>
 
 
 
@@ -1139,7 +1139,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/blog/js/boot.js" ></script>
 
 
   

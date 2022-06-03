@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.jpg">
-  <link rel="icon" href="/img/favicon.jpg">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/favicon.jpg">
+  <link rel="icon" href="/blog/img/favicon.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="本篇博客主要记录css部分，记录下来主要用于复习,巩固。涉及到盒子模型、浮动、定位、z-index属性、元素的显示与隐藏、css高级技巧、溢出的文字隐藏。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css篇(三)">
-<meta property="og:url" content="https://zhswchn.github.io/2019/10/02/css%E7%AF%87-%E4%B8%89/index.html">
+<meta property="og:url" content="https://zhswchn.github.io/blog/2019/10/02/css%E7%AF%87-%E4%B8%89/index.html">
 <meta property="og:site_name" content="Zhchn">
 <meta property="og:description" content="本篇博客主要记录css部分，记录下来主要用于复习,巩固。涉及到盒子模型、浮动、定位、z-index属性、元素的显示与隐藏、css高级技巧、溢出的文字隐藏。">
 <meta property="og:locale" content="zh_CN">
@@ -57,12 +57,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/blog/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
   
 
 
@@ -71,15 +71,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhswchn.github.io","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"zhswchn.github.io","root":"/blog/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
 
   
 <meta name="generator" content="Hexo 5.4.2"></head>
@@ -94,7 +94,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/blog/">
       <strong>ZhouSWchn的博客</strong>
     </a>
 
@@ -113,7 +113,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/blog/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -125,7 +125,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -137,7 +137,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -149,7 +149,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -161,7 +161,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/blog/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -190,7 +190,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/bg.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/blog/img/bg.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -276,7 +276,7 @@
 <span id="more"></span>
 
 <h2 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>盒子模型就是把HTML页面中的元素看作是一个矩形的盒子，也就是一个盛装内容的容器。每个矩形都由元素的内容、内边距（padding）、边框（border）和外边距（margin）组成。<br>常见的盒子有<code>div</code>,<code>span</code>,<code>a</code>。图片、表单元素一律看作是文本，它们并不是盒子。这个很好理解，比如说，一张图片里并不能放东西，它自己就是自己的内容。<br>我们把网页元素比如文字图片等等，放入盒子里面，然后利用CSS摆放盒子的过程，就是网页布局。</p>
-<p><img src="https://raw.githubusercontent.com/birpg/image/master/bzhz.jpg" srcset="/img/loading.gif" lazyload><br><img src="https://raw.githubusercontent.com/birpg/image/master/iehz.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/birpg/image/master/bzhz.jpg" srcset="/blog/img/loading.gif" lazyload><br><img src="https://raw.githubusercontent.com/birpg/image/master/iehz.jpg" srcset="/blog/img/loading.gif" lazyload></p>
 <h3 id="内边距（padding）"><a href="#内边距（padding）" class="headerlink" title="内边距（padding）"></a>内边距（padding）</h3><p>padding属性用于设置内边距。  是指 边框与内容之间的距离。</p>
 <ul>
 <li><p>padding-top:上内边距</p>
@@ -711,7 +711,7 @@ text-overflow: ellipsis; /* 溢出文本显示为省略号*/
     
       <span class="category-chain">
         
-  <a href="/categories/CSS/" class="category-chain-item">CSS</a>
+  <a href="/blog/categories/CSS/" class="category-chain-item">CSS</a>
   
   
 
@@ -726,7 +726,7 @@ text-overflow: ellipsis; /* 溢出文本显示为省略号*/
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/CSS/">#CSS</a>
+        <a href="/blog/tags/CSS/">#CSS</a>
       
     </div>
   
@@ -739,7 +739,7 @@ text-overflow: ellipsis; /* 溢出文本显示为省略号*/
   <div class="license-box my-3">
     <div class="license-title">
       <div>css篇(三)</div>
-      <div>https://zhswchn.github.io/2019/10/02/css篇-三/</div>
+      <div>https://zhswchn.github.io/blog/2019/10/02/css篇-三/</div>
     </div>
     <div class="license-meta">
       
@@ -781,7 +781,7 @@ text-overflow: ellipsis; /* 溢出文本显示为省略号*/
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2019/10/02/css%E7%AF%87-%E5%9B%9B/" title="css篇-四">
+                      <a href="/blog/2019/10/02/css%E7%AF%87-%E5%9B%9B/" title="css篇-四">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">css篇-四</span>
                         <span class="visible-mobile">上一篇</span>
@@ -791,7 +791,7 @@ text-overflow: ellipsis; /* 溢出文本显示为省略号*/
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2019/10/01/css%E7%AF%87-%E4%BA%8C/" title="css篇(二)">
+                      <a href="/blog/2019/10/01/css%E7%AF%87-%E4%BA%8C/" title="css篇(二)">
                         <span class="hidden-mobile">css篇(二)</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -917,8 +917,8 @@ text-overflow: ellipsis; /* 溢出文本显示为省略号*/
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -942,7 +942,7 @@ text-overflow: ellipsis; /* 溢出文本显示为省略号*/
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/blog/js/img-lazyload.js" ></script>
   
 
 
@@ -1079,7 +1079,7 @@ text-overflow: ellipsis; /* 溢出文本显示为省略号*/
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/blog/js/local-search.js" ></script>
 
 
 
@@ -1087,7 +1087,7 @@ text-overflow: ellipsis; /* 溢出文本显示为省略号*/
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/blog/js/boot.js" ></script>
 
 
   
