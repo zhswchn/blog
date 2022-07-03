@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2019/11/01/h1bHQ93kJvWl6d4.jpg">
 <meta property="article:published_time" content="2021-05-24T11:57:45.000Z">
-<meta property="article:modified_time" content="2021-05-24T12:18:06.899Z">
+<meta property="article:modified_time" content="2022-07-03T11:54:56.560Z">
 <meta property="article:author" content="ZhouSWchn">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary_large_image">
@@ -275,7 +275,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2021年5月24日 晚上
+                    本文最后更新于：2022年7月3日 晚上
                   
                 
               </p>
@@ -289,13 +289,7 @@
 <p>使用Axios请求,在请求时要加<code>responseType: &quot;blob&quot;</code>,转换为<code>blob</code>对象</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// axios请求</span><br><span class="hljs-title function_">axios</span>(&#123;<br>    <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;/test/test.pdf&quot;</span>,<br>    <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;GET&quot;</span>,<br>    <span class="hljs-attr">responseType</span>: <span class="hljs-string">&quot;blob&quot;</span>,<br>  &#125;);<br><br><span class="hljs-comment">// 封装downLoad</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">downLoad</span>(<span class="hljs-params">file,fileName</span>) &#123;<br>  <span class="hljs-comment">// 如果后端返回的是文件流，可以使用Blob对象包装一下 blob = new Blob([file],&#123;type: &#x27;pdf&#x27;&#125;) type文件类型</span><br>  <span class="hljs-keyword">const</span> url = <span class="hljs-variable language_">window</span>.<span class="hljs-property">URL</span>.<span class="hljs-title function_">createObjectURL</span>(file);<br>  <span class="hljs-keyword">const</span> aLink = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;a&quot;</span>);<br>  aLink.<span class="hljs-property">style</span>.<span class="hljs-property">display</span> = <span class="hljs-string">&quot;none&quot;</span>;<br>  aLink.<span class="hljs-property">href</span> = url;<br>  aLink.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-string">&quot;download&quot;</span>, fileName); <span class="hljs-comment">// 这里可以给下载的文件命名</span><br>  aLink.<span class="hljs-title function_">click</span>();<br>  <span class="hljs-variable language_">window</span>.<span class="hljs-property">URL</span>.<span class="hljs-title function_">revokeObjectURL</span>(url);<br>&#125;<br><br>...<br><span class="hljs-comment">// 使用</span><br><span class="hljs-keyword">import</span> downLoad <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@/utils/downLoad&quot;</span>;<br><span class="hljs-comment">// 后端返回的下载地址</span><br><span class="hljs-variable language_">this</span>.<span class="hljs-property">$api</span>.<span class="hljs-title function_">getData</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> <span class="hljs-title function_">downLoad</span>(res.<span class="hljs-property">data</span>,<span class="hljs-string">&#x27;test&#x27;</span>));<br></code></pre></td></tr></table></figure>
 
-<script src="https://utteranc.es/client.js"
-        repo="birpg/blog"
-        issue-term="pathname"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
+
               
             </div>
             <hr/>

@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2021/03/07/lKo3R46dAh8PmBi.png">
 <meta property="article:published_time" content="2021-03-07T14:03:00.000Z">
-<meta property="article:modified_time" content="2021-03-07T15:39:45.943Z">
+<meta property="article:modified_time" content="2022-07-03T11:54:56.402Z">
 <meta property="article:author" content="ZhouSWchn">
 <meta property="article:tag" content="ES3&#x2F;5">
 <meta name="twitter:card" content="summary_large_image">
@@ -275,7 +275,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2021年3月7日 晚上
+                    本文最后更新于：2022年7月3日 晚上
                   
                 
               </p>
@@ -396,13 +396,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">objectCopy</span>(<span class="hljs-params">obj</span>) &#123;<br>  <span class="hljs-keyword">function</span> <span class="hljs-title function_">Fun</span>(<span class="hljs-params"></span>) &#123;&#125;<br>  <span class="hljs-title class_">Fun</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> = obj<br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Fun</span>()<br>&#125;<br><br><span class="hljs-keyword">let</span> person = &#123;<br>  <span class="hljs-attr">name</span>:<span class="hljs-string">&#x27;zs&#x27;</span>,<br>  <span class="hljs-attr">age</span>:<span class="hljs-number">123</span>,<br>  <span class="hljs-attr">friends</span>:[<span class="hljs-string">&#x27;lis&#x27;</span>,<span class="hljs-string">&#x27;whw&#x27;</span>,<span class="hljs-string">&#x27;mal&#x27;</span>],<br>  <span class="hljs-attr">sayName</span>:<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span>);<br>  &#125;<br>&#125;<br><br><span class="hljs-keyword">let</span> person1 = <span class="hljs-title function_">objectCopy</span>(person)<br><br>person1.<span class="hljs-property">name</span> = <span class="hljs-string">&#x27;ss&#x27;</span><br>person1.<span class="hljs-property">friends</span>.<span class="hljs-title function_">push</span>(<span class="hljs-string">&#x27;ll&#x27;</span>)<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(person1.<span class="hljs-property">friends</span>); <span class="hljs-comment">// [ &#x27;lis&#x27;, &#x27;whw&#x27;, &#x27;mal&#x27;, &#x27;ll&#x27; ]</span><br>person1.<span class="hljs-title function_">sayName</span>() <span class="hljs-comment">// ss</span><br><br></code></pre></td></tr></table></figure>
 
 <p>父类方法的复用</p>
-<script src="https://utteranc.es/client.js"
-        repo="birpg/blog"
-        issue-term="pathname"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
+
               
             </div>
             <hr/>

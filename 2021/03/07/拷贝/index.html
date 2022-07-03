@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2021/03/07/SRyDCZK6g3w1Xv5.png">
 <meta property="article:published_time" content="2021-03-07T13:50:00.000Z">
-<meta property="article:modified_time" content="2021-03-07T13:55:36.347Z">
+<meta property="article:modified_time" content="2022-07-03T11:54:56.573Z">
 <meta property="article:author" content="ZhouSWchn">
 <meta property="article:tag" content="深拷贝">
 <meta property="article:tag" content="浅拷贝">
@@ -276,7 +276,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2021年3月7日 晚上
+                    本文最后更新于：2022年7月3日 晚上
                   
                 
               </p>
@@ -313,13 +313,7 @@
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">isObject</span>(<span class="hljs-params">target</span>) &#123;<br>  <span class="hljs-keyword">const</span> type = <span class="hljs-keyword">typeof</span> target<br>  <span class="hljs-keyword">return</span> target !== <span class="hljs-literal">null</span> &amp;&amp; (type === <span class="hljs-string">&#x27;object&#x27;</span> || type === <span class="hljs-string">&#x27;function&#x27;</span>)<br>&#125;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">deepClone</span>(<span class="hljs-params">target</span>) &#123;<br>  <span class="hljs-keyword">if</span> (!<span class="hljs-title function_">isObject</span>(target)) <span class="hljs-keyword">return</span> target <span class="hljs-comment">// 拷贝基本数据类型</span><br><br>  <span class="hljs-keyword">let</span> cloneTarget = <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">isArray</span>(target) ? [] :&#123;&#125;<br>  <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>(target).<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">key</span>=&gt;</span> &#123;<br>    cloneTarget[key] = <span class="hljs-title function_">deepClone</span>(target[key]) <span class="hljs-comment">// 递归拷贝属性</span><br>  &#125;)<br>  <span class="hljs-keyword">return</span> cloneTarget<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<script src="https://utteranc.es/client.js"
-        repo="birpg/blog"
-        issue-term="pathname"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
+
               
             </div>
             <hr/>
