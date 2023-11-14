@@ -16,16 +16,16 @@
   <meta name="author" content="ZhouSWchn">
   <meta name="keywords" content="前端,博客,JavaScript,html,html5,css,css3,vue">
   
-    <meta name="description" content="记录Axios请求方法">
+    <meta name="description" content="记录 Axios 请求方法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Axios">
 <meta property="og:url" content="https://zhswchn.github.io/blog/2020/07/03/Axios/index.html">
 <meta property="og:site_name" content="ZhouSWchn">
-<meta property="og:description" content="记录Axios请求方法">
+<meta property="og:description" content="记录 Axios 请求方法">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2020/07/05/QCv2IfmG1eDKsc3.png">
 <meta property="article:published_time" content="2020-07-03T03:58:08.000Z">
-<meta property="article:modified_time" content="2022-07-03T11:54:58.091Z">
+<meta property="article:modified_time" content="2022-07-03T13:01:40.368Z">
 <meta property="article:author" content="ZhouSWchn">
 <meta property="article:tag" content="Axios">
 <meta name="twitter:card" content="summary_large_image">
@@ -73,7 +73,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhswchn.github.io","root":"/blog/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
+    var CONFIG = {"hostname":"zhswchn.github.io","root":"/blog/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/blog/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -82,9 +82,11 @@
   </script>
   <script  src="/blog/js/utils.js" ></script>
   <script  src="/blog/js/color-schema.js" ></script>
+  
+
 
   
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 7.0.0"></head>
 
 
 <body>
@@ -117,7 +119,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/">
                 <i class="iconfont icon-home-fill"></i>
-                首页
+                <span>首页</span>
               </a>
             </li>
           
@@ -129,7 +131,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                归档
+                <span>归档</span>
               </a>
             </li>
           
@@ -141,7 +143,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                分类
+                <span>分类</span>
               </a>
             </li>
           
@@ -153,7 +155,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                标签
+                <span>标签</span>
               </a>
             </li>
           
@@ -165,7 +167,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                关于
+                <span>关于</span>
               </a>
             </li>
           
@@ -173,15 +175,16 @@
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+              <i class="iconfont icon-search"></i>
             </a>
           </li>
           
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
           </li>
         
       </ul>
@@ -269,8 +272,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">Axios</h1>
+            <h1 id="seo-header">Axios</h1>
             
               <p class="note note-info">
                 
@@ -280,51 +282,53 @@
                 
               </p>
             
-            <div class="markdown-body">
-              
-              <p>记录Axios请求方法</p>
+            
+              <div class="markdown-body">
+                
+                <p>记录 Axios 请求方法</p>
 <span id="more"></span>
 
-<h2 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h2><p><strong>方法一:</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">getTodos</span>(<span class="hljs-params"></span>)&#123;<br>	<span class="hljs-title function_">axios</span>(&#123;<br>        <span class="hljs-attr">method</span>:<span class="hljs-string">&#x27;get&#x27;</span>,<br>        <span class="hljs-attr">url</span>:<span class="hljs-string">&#x27;http://jsonplaceholder.typicode.com/todos&#x27;</span>,<br>        <span class="hljs-attr">params</span>:&#123;<br>            <span class="hljs-comment">// 限制5条数据</span><br>            <span class="hljs-attr">_limit</span>:<span class="hljs-number">5</span><br>        &#125;<br>    &#125;)<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-title function_">showOutput</span>(res))<br>    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err))<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="GET-请求"><a href="#GET-请求" class="headerlink" title="GET 请求"></a>GET 请求</h2><p><strong>方法一:</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">getTodos</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-title function_">axios</span>(&#123;<br>    <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;get&#x27;</span>,<br>    <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;http://jsonplaceholder.typicode.com/todos&#x27;</span>,<br>    <span class="hljs-attr">params</span>: &#123;<br>      <span class="hljs-comment">// 限制5条数据</span><br>      <span class="hljs-attr">_limit</span>: <span class="hljs-number">5</span>,<br>    &#125;,<br>  &#125;)<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-title function_">showOutput</span>(res))<br>    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err))<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p><strong>方法二:</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">getTodos</span>(<span class="hljs-params"></span>)&#123;<br>  axios<br>    .<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;http://jsonplaceholder.typicode.com/todos?_limit=5&#x27;</span>,<br>      &#123;<br>        <span class="hljs-comment">// 请求5秒钟,5秒后不请求了</span><br>        <span class="hljs-attr">timeout</span>: <span class="hljs-number">5000</span><br>      &#125;)<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-title function_">showOutput</span>(res))<br>    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err))<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">getTodos</span>(<span class="hljs-params"></span>) &#123;<br>  axios<br>    .<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;http://jsonplaceholder.typicode.com/todos?_limit=5&#x27;</span>, &#123;<br>      <span class="hljs-comment">// 请求5秒钟,5秒后不请求了</span><br>      <span class="hljs-attr">timeout</span>: <span class="hljs-number">5000</span>,<br>    &#125;)<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-title function_">showOutput</span>(res))<br>    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err))<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="POST-请求"><a href="#POST-请求" class="headerlink" title="POST 请求"></a>POST 请求</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">addTodo</span>(<span class="hljs-params"></span>)&#123;<br>  axios<br>    .<span class="hljs-title function_">post</span>(<span class="hljs-string">&#x27;http://jsonplaceholder.typicode.com/todos&#x27;</span>,<br>      &#123;<br>        <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Axios请求解析&#x27;</span><br>      &#125;)<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-title function_">showOutput</span>(res))<br>    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err))<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="POST-请求"><a href="#POST-请求" class="headerlink" title="POST 请求"></a>POST 请求</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">addTodo</span>(<span class="hljs-params"></span>) &#123;<br>  axios<br>    .<span class="hljs-title function_">post</span>(<span class="hljs-string">&#x27;http://jsonplaceholder.typicode.com/todos&#x27;</span>, &#123;<br>      <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Axios请求解析&#x27;</span>,<br>    &#125;)<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-title function_">showOutput</span>(res))<br>    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err))<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="PUT-PATCH请求"><a href="#PUT-PATCH请求" class="headerlink" title="PUT/PATCH请求"></a>PUT/PATCH请求</h2><p><code>put</code>显示更新的数据，<code>patch</code>都会显示出来</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">updateTodo</span> () &#123;<br>  axios<br>    .<span class="hljs-title function_">patch</span>(<span class="hljs-string">&#x27;http://jsonplaceholder.typicode.com/todos/1&#x27;</span>,<br>      &#123;<br>        <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Axios请求解析&#x27;</span>,<br>        <span class="hljs-attr">completed</span>: <span class="hljs-literal">true</span><br>      &#125;)<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-title function_">showOutput</span>(res))<br>    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err))<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="PUT-PATCH-请求"><a href="#PUT-PATCH-请求" class="headerlink" title="PUT&#x2F;PATCH 请求"></a>PUT&#x2F;PATCH 请求</h2><p><code>put</code>显示更新的数据，<code>patch</code>都会显示出来</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">updateTodo</span>(<span class="hljs-params"></span>) &#123;<br>  axios<br>    .<span class="hljs-title function_">patch</span>(<span class="hljs-string">&#x27;http://jsonplaceholder.typicode.com/todos/1&#x27;</span>, &#123;<br>      <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Axios请求解析&#x27;</span>,<br>      <span class="hljs-attr">completed</span>: <span class="hljs-literal">true</span>,<br>    &#125;)<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-title function_">showOutput</span>(res))<br>    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err))<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="DELETE请求"><a href="#DELETE请求" class="headerlink" title="DELETE请求"></a>DELETE请求</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">removeTodo</span> () &#123;<br>  axios<br>    .<span class="hljs-title function_">delete</span>(<span class="hljs-string">&#x27;http://jsonplaceholder.typicode.com/todos/1&#x27;</span>)<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-title function_">showOutput</span>(res))<br>    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err))<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="DELETE-请求"><a href="#DELETE-请求" class="headerlink" title="DELETE 请求"></a>DELETE 请求</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">removeTodo</span>(<span class="hljs-params"></span>) &#123;<br>  axios<br>    .<span class="hljs-title function_">delete</span>(<span class="hljs-string">&#x27;http://jsonplaceholder.typicode.com/todos/1&#x27;</span>)<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-title function_">showOutput</span>(res))<br>    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err))<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="批量请求数据"><a href="#批量请求数据" class="headerlink" title="批量请求数据"></a>批量请求数据</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">getData</span> () &#123;<br>  axios<br>    .<span class="hljs-title function_">all</span>([<br>      axios.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;http://jsonplaceholder.typicode.com/todos?_limit=5&#x27;</span>),<br>      axios.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;http://jsonplaceholder.typicode.com/posts?_limit=5&#x27;</span>)<br>    ])<br>    <span class="hljs-comment">// .then(res =&gt; showOutput(res[1]))</span><br>    <span class="hljs-comment">// 请求分发,按需返回</span><br>    .<span class="hljs-title function_">then</span>(axios.<span class="hljs-title function_">spread</span>(<span class="hljs-function">(<span class="hljs-params">todos,posts</span>) =&gt;</span> <span class="hljs-title function_">showOutput</span>(todos)))<br>    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err))<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="批量请求数据"><a href="#批量请求数据" class="headerlink" title="批量请求数据"></a>批量请求数据</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">getData</span>(<span class="hljs-params"></span>) &#123;<br>  axios<br>    .<span class="hljs-title function_">all</span>([<br>      axios.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;http://jsonplaceholder.typicode.com/todos?_limit=5&#x27;</span>),<br>      axios.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;http://jsonplaceholder.typicode.com/posts?_limit=5&#x27;</span>),<br>    ])<br>    <span class="hljs-comment">// .then(res =&gt; showOutput(res[1]))</span><br>    <span class="hljs-comment">// 请求分发,按需返回</span><br>    .<span class="hljs-title function_">then</span>(axios.<span class="hljs-title function_">spread</span>(<span class="hljs-function">(<span class="hljs-params">todos, posts</span>) =&gt;</span> <span class="hljs-title function_">showOutput</span>(todos)))<br>    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err))<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="自定义请求头"><a href="#自定义请求头" class="headerlink" title="自定义请求头"></a>自定义请求头</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">customHeaders</span> () &#123;<br>    <span class="hljs-keyword">const</span> config = &#123;<br>        <span class="hljs-attr">headers</span>: &#123;<br>            <span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;application/json/json&#x27;</span>,<br>            <span class="hljs-title class_">Authorization</span>: <span class="hljs-string">&#x27;sometoken&#x27;</span><br>        &#125;<br>    &#125;<br>    axios.<span class="hljs-title function_">post</span>(<span class="hljs-string">&#x27;http://jsonplaceholder.typicode.com/todos&#x27;</span>,<br>               &#123;<br>        <span class="hljs-attr">title</span>:<span class="hljs-string">&#x27;Axios请求&#x27;</span>,<br>        <span class="hljs-attr">completed</span>: <span class="hljs-literal">true</span><br>    &#125;,<br>     config<br>    )<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-title function_">showOutput</span>(res))<br>    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err))<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="自定义请求头"><a href="#自定义请求头" class="headerlink" title="自定义请求头"></a>自定义请求头</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">customHeaders</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> config = &#123;<br>    <span class="hljs-attr">headers</span>: &#123;<br>      <span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;application/json/json&#x27;</span>,<br>      <span class="hljs-title class_">Authorization</span>: <span class="hljs-string">&#x27;sometoken&#x27;</span>,<br>    &#125;,<br>  &#125;<br>  axios<br>    .<span class="hljs-title function_">post</span>(<br>      <span class="hljs-string">&#x27;http://jsonplaceholder.typicode.com/todos&#x27;</span>,<br>      &#123;<br>        <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Axios请求&#x27;</span>,<br>        <span class="hljs-attr">completed</span>: <span class="hljs-literal">true</span>,<br>      &#125;,<br>      config<br>    )<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-title function_">showOutput</span>(res))<br>    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err))<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="TRANSFORMING-请求-amp-响应-对响应的数据进行转换"><a href="#TRANSFORMING-请求-amp-响应-对响应的数据进行转换" class="headerlink" title="TRANSFORMING 请求 &amp; 响应 对响应的数据进行转换"></a>TRANSFORMING 请求 &amp; 响应 对响应的数据进行转换</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">transformResponse</span> () &#123;<br>  <span class="hljs-keyword">const</span> options = &#123;<br>    <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;post&#x27;</span>,<br>    <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;http://jsonplaceholder.typicode.com/todos&#x27;</span>,<br>    <span class="hljs-attr">data</span>: &#123;<br>      <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;hello world&#x27;</span><br>    &#125;,<br>    <span class="hljs-attr">transformResponse</span>: axios.<span class="hljs-property">defaults</span>.<span class="hljs-property">transformResponse</span>.<span class="hljs-title function_">concat</span>(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> &#123;<br>      data.<span class="hljs-property">title</span> = data.<span class="hljs-property">title</span>.<span class="hljs-title function_">toUpperCase</span>()<br>      <span class="hljs-keyword">return</span> data<br>    &#125;)<br>  &#125;<br>  <span class="hljs-title function_">axios</span>(options)<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-title function_">showOutput</span>(res))<br>    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err))<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="TRANSFORMING-请求-响应-对响应的数据进行转换"><a href="#TRANSFORMING-请求-响应-对响应的数据进行转换" class="headerlink" title="TRANSFORMING 请求 &amp; 响应 对响应的数据进行转换"></a>TRANSFORMING 请求 &amp; 响应 对响应的数据进行转换</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">transformResponse</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> options = &#123;<br>    <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;post&#x27;</span>,<br>    <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;http://jsonplaceholder.typicode.com/todos&#x27;</span>,<br>    <span class="hljs-attr">data</span>: &#123;<br>      <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;hello world&#x27;</span>,<br>    &#125;,<br>    <span class="hljs-attr">transformResponse</span>: axios.<span class="hljs-property">defaults</span>.<span class="hljs-property">transformResponse</span>.<span class="hljs-title function_">concat</span>(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> &#123;<br>      data.<span class="hljs-property">title</span> = data.<span class="hljs-property">title</span>.<span class="hljs-title function_">toUpperCase</span>()<br>      <span class="hljs-keyword">return</span> data<br>    &#125;),<br>  &#125;<br>  <span class="hljs-title function_">axios</span>(options)<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-title function_">showOutput</span>(res))<br>    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err))<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="ERROR-处理"><a href="#ERROR-处理" class="headerlink" title="ERROR 处理"></a>ERROR 处理</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">errorHandling</span> () &#123;<br>  axios<br>    .<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;http://jsonplaceholder.typicode.com/todoss&#x27;</span>)<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-title function_">showOutput</span>(res))<br>    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> &#123;<br>      <span class="hljs-keyword">if</span> (err.<span class="hljs-property">response</span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err.<span class="hljs-property">response</span>.<span class="hljs-property">data</span>)<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err.<span class="hljs-property">response</span>.<span class="hljs-property">status</span>)<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err.<span class="hljs-property">response</span>.<span class="hljs-property">headers</span>)<br><br>        <span class="hljs-keyword">if</span> (err.<span class="hljs-property">response</span>.<span class="hljs-property">status</span> === <span class="hljs-number">404</span>) &#123;<br>          <span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;客户端请求出现问题&#x27;</span>)<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (err.<span class="hljs-property">response</span>.<span class="hljs-property">status</span> &gt;= <span class="hljs-number">500</span>) &#123;<br>          <span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;服务端接口出现问题&#x27;</span>)<br>        &#125;<br>      &#125;<br>    &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="ERROR-处理"><a href="#ERROR-处理" class="headerlink" title="ERROR 处理"></a>ERROR 处理</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">errorHandling</span>(<span class="hljs-params"></span>) &#123;<br>  axios<br>    .<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;http://jsonplaceholder.typicode.com/todoss&#x27;</span>)<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-title function_">showOutput</span>(res))<br>    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> &#123;<br>      <span class="hljs-keyword">if</span> (err.<span class="hljs-property">response</span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err.<span class="hljs-property">response</span>.<span class="hljs-property">data</span>)<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err.<span class="hljs-property">response</span>.<span class="hljs-property">status</span>)<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err.<span class="hljs-property">response</span>.<span class="hljs-property">headers</span>)<br><br>        <span class="hljs-keyword">if</span> (err.<span class="hljs-property">response</span>.<span class="hljs-property">status</span> === <span class="hljs-number">404</span>) &#123;<br>          <span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;客户端请求出现问题&#x27;</span>)<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (err.<span class="hljs-property">response</span>.<span class="hljs-property">status</span> &gt;= <span class="hljs-number">500</span>) &#123;<br>          <span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;服务端接口出现问题&#x27;</span>)<br>        &#125;<br>      &#125;<br>    &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="CANCEL-TOKEN"><a href="#CANCEL-TOKEN" class="headerlink" title="CANCEL TOKEN"></a>CANCEL TOKEN</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">cancelToken</span> () &#123;<br><br>  <span class="hljs-keyword">const</span> source = axios.<span class="hljs-property">CancelToken</span>.<span class="hljs-title function_">source</span>()<br><br>  axios<br>    .<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;http://jsonplaceholder.typicode.com/todos&#x27;</span>,<br>      &#123;<br>        <span class="hljs-attr">cancelToken</span>: source.<span class="hljs-property">token</span><br>      &#125;)<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-title function_">showOutput</span>(res))<br>    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">thrown</span> =&gt;</span> &#123;<br>      <span class="hljs-keyword">if</span> (axios.<span class="hljs-title function_">isCancel</span>(thrown)) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;request canceled&#x27;</span>, thrown.<span class="hljs-property">message</span>);<br>      &#125;<br>    &#125;)<br>  <span class="hljs-keyword">if</span> (<span class="hljs-literal">true</span>) &#123;<br>    source.<span class="hljs-title function_">cancel</span>(<span class="hljs-string">&#x27;请求取消&#x27;</span>)<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="CANCEL-TOKEN"><a href="#CANCEL-TOKEN" class="headerlink" title="CANCEL TOKEN"></a>CANCEL TOKEN</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">cancelToken</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> source = axios.<span class="hljs-property">CancelToken</span>.<span class="hljs-title function_">source</span>()<br><br>  axios<br>    .<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;http://jsonplaceholder.typicode.com/todos&#x27;</span>, &#123;<br>      <span class="hljs-attr">cancelToken</span>: source.<span class="hljs-property">token</span>,<br>    &#125;)<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-title function_">showOutput</span>(res))<br>    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">thrown</span> =&gt;</span> &#123;<br>      <span class="hljs-keyword">if</span> (axios.<span class="hljs-title function_">isCancel</span>(thrown)) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;request canceled&#x27;</span>, thrown.<span class="hljs-property">message</span>)<br>      &#125;<br>    &#125;)<br>  <span class="hljs-keyword">if</span> (<span class="hljs-literal">true</span>) &#123;<br>    source.<span class="hljs-title function_">cancel</span>(<span class="hljs-string">&#x27;请求取消&#x27;</span>)<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="请求拦截"><a href="#请求拦截" class="headerlink" title="请求拦截"></a>请求拦截</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js">axios.<span class="hljs-property">interceptors</span>.<span class="hljs-property">request</span>.<span class="hljs-title function_">use</span>(<br> <span class="hljs-function"><span class="hljs-params">config</span> =&gt;</span> &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<br>   <span class="hljs-string">`<span class="hljs-subst">$&#123;config.method.toUpperCase()&#125;</span> request sent to</span><br><span class="hljs-string">   <span class="hljs-subst">$&#123;config.url&#125;</span> at <span class="hljs-subst">$&#123;<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().toLocaleString()&#125;</span>`</span><br>  )<br>  <span class="hljs-keyword">return</span> config<br> &#125;,<br> <span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">reject</span>(error)<br> &#125;<br>)<br></code></pre></td></tr></table></figure>
+<h2 id="请求拦截"><a href="#请求拦截" class="headerlink" title="请求拦截"></a>请求拦截</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js">axios.<span class="hljs-property">interceptors</span>.<span class="hljs-property">request</span>.<span class="hljs-title function_">use</span>(<br>  <span class="hljs-function"><span class="hljs-params">config</span> =&gt;</span> &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<br>      <span class="hljs-string">`<span class="hljs-subst">$&#123;config.method.toUpperCase()&#125;</span> request sent to</span><br><span class="hljs-string">    <span class="hljs-subst">$&#123;config.url&#125;</span> at <span class="hljs-subst">$&#123;<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().toLocaleString()&#125;</span>`</span><br>    )<br>    <span class="hljs-keyword">return</span> config<br>  &#125;,<br>  <span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">reject</span>(error)<br>  &#125;<br>)<br></code></pre></td></tr></table></figure>
 
-<h2 id="响应拦截"><a href="#响应拦截" class="headerlink" title="响应拦截"></a>响应拦截</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js">axios.<span class="hljs-property">interceptors</span>.<span class="hljs-property">response</span>.<span class="hljs-title function_">use</span>(<br> <span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<br>   <span class="hljs-string">`<span class="hljs-subst">$&#123;res.config.method.toUpperCase()&#125;</span> response sent to</span><br><span class="hljs-string">   <span class="hljs-subst">$&#123;res.config.url&#125;</span> at <span class="hljs-subst">$&#123;<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().toLocaleString()&#125;</span>`</span><br>  )<br>  <span class="hljs-keyword">return</span> res<br> &#125;,<br> <span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">reject</span>(error)<br> &#125;<br>)<br></code></pre></td></tr></table></figure>
+<h2 id="响应拦截"><a href="#响应拦截" class="headerlink" title="响应拦截"></a>响应拦截</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js">axios.<span class="hljs-property">interceptors</span>.<span class="hljs-property">response</span>.<span class="hljs-title function_">use</span>(<br>  <span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<br>      <span class="hljs-string">`<span class="hljs-subst">$&#123;res.config.method.toUpperCase()&#125;</span> response sent to</span><br><span class="hljs-string">    <span class="hljs-subst">$&#123;res.config.url&#125;</span> at <span class="hljs-subst">$&#123;<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().toLocaleString()&#125;</span>`</span><br>    )<br>    <span class="hljs-keyword">return</span> res<br>  &#125;,<br>  <span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">reject</span>(error)<br>  &#125;<br>)<br></code></pre></td></tr></table></figure>
 
-<h2 id="AXIOS-实例化"><a href="#AXIOS-实例化" class="headerlink" title="AXIOS 实例化"></a>AXIOS 实例化</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> axiosInstance = axios.<span class="hljs-title function_">create</span>(&#123;<br> <span class="hljs-attr">baseURL</span>: <span class="hljs-string">&#x27;http://jsonplaceholder.typicode.com&#x27;</span><br>&#125;)<br>axiosInstance<br> <span class="hljs-comment">// .get(&#x27;/todos?_limit=5&#x27;)</span><br> .<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;/comments?_limit=5&#x27;</span>)<br> .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-title function_">showOutput</span>(res))<br> .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err))  <br></code></pre></td></tr></table></figure>
+<h2 id="AXIOS-实例化"><a href="#AXIOS-实例化" class="headerlink" title="AXIOS 实例化"></a>AXIOS 实例化</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> axiosInstance = axios.<span class="hljs-title function_">create</span>(&#123;<br>  <span class="hljs-attr">baseURL</span>: <span class="hljs-string">&#x27;http://jsonplaceholder.typicode.com&#x27;</span>,<br>&#125;)<br>axiosInstance<br>  <span class="hljs-comment">// .get(&#x27;/todos?_limit=5&#x27;)</span><br>  .<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;/comments?_limit=5&#x27;</span>)<br>  .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-title function_">showOutput</span>(res))<br>  .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err))<br></code></pre></td></tr></table></figure>
 
-<h2 id="query和params"><a href="#query和params" class="headerlink" title="query和params"></a>query和params</h2><p><strong>query</strong></p>
+<h2 id="query-和-params"><a href="#query-和-params" class="headerlink" title="query 和 params"></a>query 和 params</h2><p><strong>query</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 传参</span><br><span class="hljs-variable language_">this</span>.<span class="hljs-property">$router</span>.<span class="hljs-title function_">push</span>(&#123;<br>    <span class="hljs-attr">path</span>:<span class="hljs-string">&#x27;/index&#x27;</span><br>    <span class="hljs-attr">query</span>: &#123;<br>		<span class="hljs-attr">name</span>:<span class="hljs-string">&#x27;zs&#x27;</span><br>	&#125;<br>&#125;)<br><br><span class="hljs-comment">// 接收</span><br><span class="hljs-variable language_">this</span>.<span class="hljs-property">$route</span>.<span class="hljs-property">query</span>.<span class="hljs-property">name</span><br></code></pre></td></tr></table></figure>
 
 <p><strong>params</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 传参</span><br><span class="hljs-variable language_">this</span>.<span class="hljs-property">$router</span>.<span class="hljs-title function_">push</span>(&#123;<br>    <span class="hljs-attr">name</span>:<span class="hljs-string">&#x27;路径名称&#x27;</span><br>    <span class="hljs-attr">params</span>: &#123;<br>		<span class="hljs-attr">id</span>:<span class="hljs-string">&#x27;123&#x27;</span><br>	&#125;<br>&#125;)<br><br><span class="hljs-comment">// 接收</span><br><span class="hljs-variable language_">this</span>.<span class="hljs-property">$route</span>.<span class="hljs-property">params</span>.<span class="hljs-property">id</span><br></code></pre></td></tr></table></figure>
 
-<p><code>query</code>相当于get请求，跳转时可在地址栏看到请求参数</p>
-<p><code>params</code>相当于post请求，参数不在地址栏里</p>
+<p><code>query</code>相当于 get 请求，跳转时可在地址栏看到请求参数</p>
+<p><code>params</code>相当于 post 请求，参数不在地址栏里</p>
 
-              
-            </div>
+                
+              </div>
+            
             <hr/>
             <div>
               <div class="post-metas my-3">
@@ -354,7 +358,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/blog/tags/Axios/">#Axios</a>
+        <a href="/blog/tags/Axios/" class="print-no-link">#Axios</a>
       
     </div>
   
@@ -383,50 +387,29 @@
         </div>
       
       
-      <div class="license-meta-item">
-        <div>许可协议</div>
-        <div>
-          
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
             
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
             
-              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-              <span class="hint--top hint--rounded" aria-label="BY - 署名">
-                <i class="iconfont icon-by"></i>
-              </span>
-              </a>
-            
-          
+          </div>
         </div>
-      </div>
+      
     </div>
     <div class="license-icon iconfont"></div>
   </div>
 
 
 
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/blog/2021/03/07/js%E7%BA%BF%E7%A8%8B/" title="js线程">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">js线程</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/blog/2020/02/18/vue%E6%BF%80%E6%B4%BB%E8%8F%9C%E5%8D%95/" title="vue激活菜单问题">
-                        <span class="hidden-mobile">vue激活菜单问题</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
               
             </div>
 
@@ -440,7 +423,10 @@
       
   <aside class="sidebar" style="margin-left: -1rem">
     <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -474,6 +460,7 @@
 
 
   
+
 
 
 
@@ -591,8 +578,6 @@
 
 
 
-
-
   
     <script  src="/blog/js/img-lazyload.js" ></script>
   
@@ -608,94 +593,41 @@
     var boardCtn = jQuery('#board-ctn');
     var boardTop = boardCtn.offset().top;
 
-    window.tocbot.init({
+    window.tocbot.init(Object.assign({
       tocSelector     : '#toc-body',
       contentSelector : '.markdown-body',
-      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
       linkClass       : 'tocbot-link',
       activeLinkClass : 'tocbot-active-link',
       listClass       : 'tocbot-list',
       isCollapsedClass: 'tocbot-is-collapsed',
       collapsibleClass: 'tocbot-is-collapsible',
-      collapseDepth   : CONFIG.toc.collapseDepth || 0,
       scrollSmooth    : true,
-      headingsOffset  : -boardTop
-    });
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
     if (toc.find('.toc-list-item').length > 0) {
       toc.css('visibility', 'visible');
     }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
   });
 </script>
 
 
-  <script>
-  (function() {
-    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
-    var enableCopy = CONFIG.copy_btn;
-    if (!enableLang && !enableCopy) {
-      return;
-    }
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
 
-    function getBgClass(ele) {
-      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
-    }
-
-    var copyTmpl = '';
-    copyTmpl += '<div class="code-widget">';
-    copyTmpl += 'LANG';
-    copyTmpl += '</div>';
-    jQuery('.markdown-body pre').each(function() {
-      var $pre = jQuery(this);
-      if ($pre.find('code.mermaid').length > 0) {
-        return;
-      }
-      if ($pre.find('span.line').length > 0) {
-        return;
-      }
-
-      var lang = '';
-
-      if (enableLang) {
-        lang = CONFIG.code_language.default;
-        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
-          lang = $pre[0].children[0].classList[1];
-        } else if ($pre[0].getAttribute('data-language')) {
-          lang = $pre[0].getAttribute('data-language');
-        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
-          lang = $pre[0].children[0].classList[1];
-          $pre.parent().addClass('code-wrapper');
-        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
-          $pre.wrap('<div class="code-wrapper"></div>');
-        }
-        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
-      }
-      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
-        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
-
-      if (enableCopy) {
-        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
-          var clipboard = new window.ClipboardJS('.copy-btn', {
-            target: function(trigger) {
-              var nodes = trigger.parentNode.childNodes;
-              for (var i = 0; i < nodes.length; i++) {
-                if (nodes[i].tagName === 'CODE') {
-                  return nodes[i];
-                }
-              }
-            }
-          });
-          clipboard.on('success', function(e) {
-            e.clearSelection();
-            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
-            setTimeout(function() {
-              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
-            }, 2000);
-          });
-        });
-      }
-    });
-  })();
-</script>
+  <script>Fluid.plugins.codeWidget();</script>
 
 
   
@@ -717,6 +649,21 @@
       window.anchors.options.class = 'anchorjs-link-left';
     }
     window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
   });
 </script>
 

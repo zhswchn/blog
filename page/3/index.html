@@ -63,7 +63,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhswchn.github.io","root":"/blog/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
+    var CONFIG = {"hostname":"zhswchn.github.io","root":"/blog/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/blog/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -72,9 +72,11 @@
   </script>
   <script  src="/blog/js/utils.js" ></script>
   <script  src="/blog/js/color-schema.js" ></script>
+  
+
 
   
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 7.0.0"></head>
 
 
 <body>
@@ -107,7 +109,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/">
                 <i class="iconfont icon-home-fill"></i>
-                首页
+                <span>首页</span>
               </a>
             </li>
           
@@ -119,7 +121,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                归档
+                <span>归档</span>
               </a>
             </li>
           
@@ -131,7 +133,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                分类
+                <span>分类</span>
               </a>
             </li>
           
@@ -143,7 +145,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                标签
+                <span>标签</span>
               </a>
             </li>
           
@@ -155,7 +157,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                关于
+                <span>关于</span>
               </a>
             </li>
           
@@ -163,15 +165,16 @@
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+              <i class="iconfont icon-search"></i>
             </a>
           </li>
           
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
           </li>
         
       </ul>
@@ -224,85 +227,18 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/blog/2019/11/02/JavaScript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" target="_self">
-          <img src="https://i.loli.net/2019/11/02/DvZaYbJIkdj8RN2.png" srcset="/blog/img/loading.gif" lazyload alt="JavaScript面向对象">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/blog/2019/11/02/JavaScript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" target="_self">
-          JavaScript面向对象
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt " href="/blog/2019/11/02/JavaScript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" target="_self">
-        <div>
-          面向对象编程面向过程:就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候再一个一个的依次调用就可以了。 面向对象:是把事物分解成为一个个对象，然后由对象之间分工与合作。 面向对象是以对象功能来划分问题,而不是步骤, 在面向对象程序开发思想中，每一个对象都是功能中心，具有明确分工 面向对象编程具有灵活、代码可复用、容易维护和开发的优点，更适合多人合作的大型软件项目。 面向对
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2019-11-02 13:52" pubdate>
-              2019-11-02
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/blog/categories/JavaScript/" class="category-chain-item">JavaScript</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/blog/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">#面向对象</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/blog/2019/11/01/jQuery/" target="_self">
           <img src="https://i.loli.net/2019/11/01/BARkxWap29tiqMG.jpg" srcset="/blog/img/loading.gif" lazyload alt="jQuery">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/blog/2019/11/01/jQuery/" target="_self">
           jQuery
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt " href="/blog/2019/11/01/jQuery/" target="_self">
@@ -364,12 +300,12 @@
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/blog/2019/10/17/%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8/" target="_self">
           本地存储
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt " href="/blog/2019/10/17/%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8/" target="_self">
@@ -433,12 +369,12 @@
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/blog/2019/10/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%89%B9%E6%95%88/" target="_self">
           移动端网页特效
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt " href="/blog/2019/10/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%89%B9%E6%95%88/" target="_self">
@@ -502,12 +438,12 @@
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/blog/2019/10/17/pc%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%89%B9%E6%95%88/" target="_self">
           pc端网页特效
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt " href="/blog/2019/10/17/pc%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%89%B9%E6%95%88/" target="_self">
@@ -569,12 +505,12 @@
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/blog/2019/10/16/js-BOM%E7%AF%87/" target="_self">
           js-BOM篇
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt " href="/blog/2019/10/16/js-BOM%E7%AF%87/" target="_self">
@@ -638,12 +574,12 @@
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/blog/2019/10/15/js-DOM%E7%AF%87-%E4%BA%8B%E4%BB%B6%E9%AB%98%E7%BA%A7/" target="_self">
           js-DOM篇-事件高级
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt " href="/blog/2019/10/15/js-DOM%E7%AF%87-%E4%BA%8B%E4%BB%B6%E9%AB%98%E7%BA%A7/" target="_self">
@@ -707,12 +643,12 @@
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/blog/2019/10/09/CSS%E4%B8%89%E8%A7%92/" target="_self">
           用border做个小三角
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt " href="/blog/2019/10/09/CSS%E4%B8%89%E8%A7%92/" target="_self">
@@ -774,12 +710,12 @@
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/blog/2019/10/07/js-DOM%E7%AF%87-%E8%8A%82%E7%82%B9%E6%93%8D%E4%BD%9C/" target="_self">
           js-DOM篇-节点操作
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt " href="/blog/2019/10/07/js-DOM%E7%AF%87-%E8%8A%82%E7%82%B9%E6%93%8D%E4%BD%9C/" target="_self">
@@ -843,12 +779,12 @@
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/blog/2019/10/06/js-DOM%E7%AF%87-%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/" target="_self">
           js-DOM篇-操作元素
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt " href="/blog/2019/10/06/js-DOM%E7%AF%87-%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/" target="_self">
@@ -895,6 +831,73 @@
               <a href="/blog/tags/JavaScript/">#JavaScript</a>
             
               <a href="/blog/tags/DOM/">#DOM</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/2019/10/05/js%E7%AF%87%E4%B8%89/" target="_self">
+          <img src="https://i.loli.net/2019/11/02/N4hFlYaEL8DQvZS.jpg" srcset="/blog/img/loading.gif" lazyload alt="js基础篇三">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/blog/2019/10/05/js%E7%AF%87%E4%B8%89/" target="_self">
+          js基础篇三
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/blog/2019/10/05/js%E7%AF%87%E4%B8%89/" target="_self">
+        <div>
+          本篇为js基础笔记,记录下来主要用于复习,巩固。包括以下内容：数组添加删除元素、数组遍、函数、方法、作用域、预解析、作用域链
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-10-05 17:48" pubdate>
+              2019-10-05
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/blog/categories/JavaScript/" class="category-chain-item">JavaScript</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/JavaScript/">#JavaScript</a>
             
           </div>
         
@@ -1024,8 +1027,6 @@
       
     })(window, document);
   </script>
-
-
 
 
 

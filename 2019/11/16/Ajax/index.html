@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2019/11/17/sitP4ewYBqCSm3o.png">
 <meta property="article:published_time" content="2019-11-16T08:23:07.000Z">
-<meta property="article:modified_time" content="2022-07-03T11:54:56.344Z">
+<meta property="article:modified_time" content="2022-07-03T12:53:25.813Z">
 <meta property="article:author" content="ZhouSWchn">
 <meta property="article:tag" content="Ajax">
 <meta name="twitter:card" content="summary_large_image">
@@ -73,7 +73,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhswchn.github.io","root":"/blog/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
+    var CONFIG = {"hostname":"zhswchn.github.io","root":"/blog/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/blog/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -82,9 +82,11 @@
   </script>
   <script  src="/blog/js/utils.js" ></script>
   <script  src="/blog/js/color-schema.js" ></script>
+  
+
 
   
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 7.0.0"></head>
 
 
 <body>
@@ -117,7 +119,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/">
                 <i class="iconfont icon-home-fill"></i>
-                首页
+                <span>首页</span>
               </a>
             </li>
           
@@ -129,7 +131,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                归档
+                <span>归档</span>
               </a>
             </li>
           
@@ -141,7 +143,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                分类
+                <span>分类</span>
               </a>
             </li>
           
@@ -153,7 +155,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                标签
+                <span>标签</span>
               </a>
             </li>
           
@@ -165,7 +167,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                关于
+                <span>关于</span>
               </a>
             </li>
           
@@ -173,15 +175,16 @@
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+              <i class="iconfont icon-search"></i>
             </a>
           </li>
           
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
           </li>
         
       </ul>
@@ -269,8 +272,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">Ajax</h1>
+            <h1 id="seo-header">Ajax</h1>
             
               <p class="note note-info">
                 
@@ -280,12 +282,13 @@
                 
               </p>
             
-            <div class="markdown-body">
-              
-              <p>本篇内容为服务器架构, 类型, php常见语法, get, post, Ajax, xml, json等内容</p>
+            
+              <div class="markdown-body">
+                
+                <p>本篇内容为服务器架构, 类型, php常见语法, get, post, Ajax, xml, json等内容</p>
 <span id="more"></span>
 
-<h1 id="服务器-php和Ajax"><a href="#服务器-php和Ajax" class="headerlink" title="服务器,php和Ajax"></a>服务器,php和Ajax</h1><h2 id="C-S架构和B-S架构"><a href="#C-S架构和B-S架构" class="headerlink" title="C/S架构和B/S架构"></a>C/S架构和B/S架构</h2><h3 id="C-S架构"><a href="#C-S架构" class="headerlink" title="C/S架构"></a>C/S架构</h3><p>是Client/Server这两个单词的首字母，指的是客户端，服务器。</p>
+<h1 id="服务器-php和Ajax"><a href="#服务器-php和Ajax" class="headerlink" title="服务器,php和Ajax"></a>服务器,php和Ajax</h1><h2 id="C-S架构和B-S架构"><a href="#C-S架构和B-S架构" class="headerlink" title="C&#x2F;S架构和B&#x2F;S架构"></a>C&#x2F;S架构和B&#x2F;S架构</h2><h3 id="C-S架构"><a href="#C-S架构" class="headerlink" title="C&#x2F;S架构"></a>C&#x2F;S架构</h3><p>是Client&#x2F;Server这两个单词的首字母，指的是客户端，服务器。</p>
 <p>优点:</p>
 <ul>
 <li><p>性能较高：可以将一部分的计算工作放在客户端上,这样服务器只需要处理数据即可。</p>
@@ -300,8 +303,8 @@
 <li><p>不同设备访问：如果使用其他的电脑，没有安装客户端的话就无法登陆软件。</p>
 </li>
 </ul>
-<h3 id="B-S架构"><a href="#B-S架构" class="headerlink" title="B/S架构"></a>B/S架构</h3><p>是Browser/Server的这两个单词的首字母。指的是浏览器、服务器，是WEB兴起之后的一种架构。</p>
-<p>现在所有的网站都是B/S架构，较为常见的例子有百度、知乎、网易云音乐Web等等，只需要通过浏览器即可使用.</p>
+<h3 id="B-S架构"><a href="#B-S架构" class="headerlink" title="B&#x2F;S架构"></a>B&#x2F;S架构</h3><p>是Browser&#x2F;Server的这两个单词的首字母。指的是浏览器、服务器，是WEB兴起之后的一种架构。</p>
+<p>现在所有的网站都是B&#x2F;S架构，较为常见的例子有百度、知乎、网易云音乐Web等等，只需要通过浏览器即可使用.</p>
 <p>优点：</p>
 <ul>
 <li><p>更新简洁：如果需要更新内容了,对开发人员而言需要更改服务器的内容，对用户而言只需要刷新浏览器即可。</p>
@@ -360,7 +363,7 @@
 <li>HTTP 服务器：Apache（免费、开源）、Nginx、IIS（微软的.net服务器）、Tomcat（java编程的服务器）、NodeJS 等。</li>
 </ul>
 <p>安装WampServer搭建HTTP服务, WampServer集成了windows + Apache + Mysql + PHP。直接安装可一步到位</p>
-<h2 id="php常见语法"><a href="#php常见语法" class="headerlink" title="php常见语法"></a>php常见语法</h2><p>注释跟js一模一样: // </p>
+<h2 id="php常见语法"><a href="#php常见语法" class="headerlink" title="php常见语法"></a>php常见语法</h2><p>注释跟js一模一样: &#x2F;&#x2F; </p>
 <p>数据类型: 字符串,整数,浮点数,布尔,数组,对象,null</p>
 <p>单引号内部内容只做字符串, 双引号内部会解析php和html代码</p>
 <p>php代码以 . 拼接</p>
@@ -392,7 +395,7 @@
 
 <ol start="5">
 <li><p>分支循环语句</p>
-<p>if/switch/三元/for/while</p>
+<p>if&#x2F;switch&#x2F;三元&#x2F;for&#x2F;while</p>
 </li>
 </ol>
 <p>if</p>
@@ -456,7 +459,7 @@
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-comment">// 获取上传文件对应的字典</span><br><span class="hljs-variable">$fileInfo</span> = <span class="hljs-variable">$_FILES</span>[<span class="hljs-string">&quot;upFile&quot;</span>];<br><br><span class="hljs-comment">// 获取上传文件的名称 </span><br><span class="hljs-variable">$fileName</span> = <span class="hljs-variable">$fileInfo</span>[<span class="hljs-string">&quot;name&quot;</span>];<br><br><span class="hljs-comment">// 获取上传文件的临时路径</span><br><span class="hljs-variable">$filePath</span> = <span class="hljs-variable">$fileInfo</span>[<span class="hljs-string">&quot;tmp_name&quot;</span>];<br><br><span class="hljs-comment">// 移动文件</span><br><span class="hljs-title function_ invoke__">move_uploaded_file</span>(<span class="hljs-variable">$filePath</span>, <span class="hljs-string">&quot;../img/&quot;</span>.<span class="hljs-variable">$fileName</span>);<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p>默认情况下服务器对上传文件大小有限制,需要修改php.ini文件</p>
-<p><code>file_uploads = on</code>              是否允许上传文件On/Of 默认是On<br><code>upload_max_filesize= 2048M</code>      上传文件的最大限制<br><code>post_max_size_2048M</code>            通过Post提交的最多数据<br><code>max_execution_time= 30000</code>       脚本最长的执行时间 单位为秒<br><code>max_Input_time- 30000</code>           接收提交的数据的时间限制 单位为秒<br><code>memory limit- 2048M</code>             最大的内存消耗</p>
+<p><code>file_uploads = on</code>              是否允许上传文件On&#x2F;Of 默认是On<br><code>upload_max_filesize= 2048M</code>      上传文件的最大限制<br><code>post_max_size_2048M</code>            通过Post提交的最多数据<br><code>max_execution_time= 30000</code>       脚本最长的执行时间 单位为秒<br><code>max_Input_time- 30000</code>           接收提交的数据的时间限制 单位为秒<br><code>memory limit- 2048M</code>             最大的内存消耗</p>
 <h2 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h2><h3 id="同步和异步"><a href="#同步和异步" class="headerlink" title="同步和异步"></a>同步和异步</h3><ul>
 <li>同步: 必须等待前面的任务完成才能继续完成后面的</li>
 <li>异步: 做当前任务时可以去做其他任务</li>
@@ -467,7 +470,7 @@
 <p>Ajax不是新技术, 而是对现有技术的结合, Ajax的核心对象是js对象:XMLHttpRequest</p>
 <h3 id="发送Ajax请求的五个步骤"><a href="#发送Ajax请求的五个步骤" class="headerlink" title="发送Ajax请求的五个步骤:"></a>发送Ajax请求的五个步骤:</h3><p>一个完整的HTTP请求需要的是：</p>
 <ul>
-<li><p>请求的网址、请求方法get/post。</p>
+<li><p>请求的网址、请求方法get&#x2F;post。</p>
 </li>
 <li><p>提交请求的内容数据、请求主体等。</p>
 </li>
@@ -590,9 +593,9 @@
 </li>
 </ul>
 <p>示例:</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-comment">// 对象</span><br><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;fox&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;age&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;18&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;sex&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;true&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;car&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-keyword">null</span><br><span class="hljs-punctuation">&#125;</span><br><br><span class="hljs-comment">// 数组</span><br><span class="hljs-punctuation">[</span><br>  <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;小小胡&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;age&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;1&quot;</span><br>  <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;小二胡&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;age&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;2&quot;</span><br>  <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-comment">// 对象</span><br><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;fox&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;age&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;18&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;sex&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;true&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;car&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-literal"><span class="hljs-keyword">null</span></span><br><span class="hljs-punctuation">&#125;</span><br><br><span class="hljs-comment">// 数组</span><br><span class="hljs-punctuation">[</span><br>  <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;小小胡&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;age&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;1&quot;</span><br>  <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;小二胡&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;age&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;2&quot;</span><br>  <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="JavaScript中：json-字符串-lt-–-gt-js-对象"><a href="#JavaScript中：json-字符串-lt-–-gt-js-对象" class="headerlink" title="JavaScript中：json 字符串 &lt;–&gt; js 对象"></a>JavaScript中：json 字符串 &lt;–&gt; js 对象</h3><p>基本上，所有的语言都有<strong>将 json 字符串转化为该语言对象</strong>的语法。</p>
+<h3 id="JavaScript中：json-字符串-js-对象"><a href="#JavaScript中：json-字符串-js-对象" class="headerlink" title="JavaScript中：json 字符串 &lt;–&gt; js 对象"></a>JavaScript中：json 字符串 &lt;–&gt; js 对象</h3><p>基本上，所有的语言都有<strong>将 json 字符串转化为该语言对象</strong>的语法。</p>
 <p>比如在 js中：</p>
 <ul>
 <li>JSON.parse()：将JSON字符串转化为 js 对象。例如：</li>
@@ -604,7 +607,7 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> <span class="hljs-title class_">Obj</span> = &#123;<br>  <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;fox&quot;</span>,<br>  <span class="hljs-attr">age</span>: <span class="hljs-number">18</span>,<br>  <span class="hljs-attr">skill</span>: <span class="hljs-string">&quot;撩妹&quot;</span><br>&#125;;<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Obj</span>);<br><br><span class="hljs-comment">// 将 js 对象格式化为 JSON 字符串</span><br><span class="hljs-keyword">var</span> jsonStr = <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(<span class="hljs-title class_">Obj</span>);<br></code></pre></td></tr></table></figure>
 
-<h3 id="PHP中：json-字符串-lt-–-gt-js-对象"><a href="#PHP中：json-字符串-lt-–-gt-js-对象" class="headerlink" title="PHP中：json 字符串 &lt;–&gt; js 对象"></a>PHP中：json 字符串 &lt;–&gt; js 对象</h3><ul>
+<h3 id="PHP中：json-字符串-js-对象"><a href="#PHP中：json-字符串-js-对象" class="headerlink" title="PHP中：json 字符串 &lt;–&gt; js 对象"></a>PHP中：json 字符串 &lt;–&gt; js 对象</h3><ul>
 <li><p>**json_decode()**方法：将<code>json</code>字符串转化为变量。</p>
 </li>
 <li><p>**json_encode()**方法：将变量转化为<code>json</code>字符串。</p>
@@ -641,7 +644,7 @@
 
 <h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><p>cookie: 会话跟踪技术 客户端<br>session: 会话跟踪技术 服务端</p>
 <p><strong>cookie作用</strong>:<br>将网页中的数据保存在浏览器中 (默认不保存任何数据)</p>
-<p><strong>生命周期</strong>:<br>默认情况下是一次会话(浏览器关闭后销毁)<br>如果通过expires=设置了过期时间, 并且过期时间,没有过期,那么关闭浏览器再打开还是存在<br>如果通过expires=设置了过期时间, 并且过期时间过期了,那么会立即删除数据</p>
+<p><strong>生命周期</strong>:<br>默认情况下是一次会话(浏览器关闭后销毁)<br>如果通过expires&#x3D;设置了过期时间, 并且过期时间,没有过期,那么关闭浏览器再打开还是存在<br>如果通过expires&#x3D;设置了过期时间, 并且过期时间过期了,那么会立即删除数据</p>
 <p><strong>注意点</strong>:<br>cookie不能一次性设置多条数据, 只能一条一条设置<br>cookie有大小和个数限制,大小:4kb, 个数:20~50</p>
 <p><strong>作用范围</strong><br>同一浏览器同一路径<br><code>document.cookie = &quot;name=zs;path=/;domain=127.0.0.1;&quot;;</code><br><code>path=/; </code>保存到根路径, 这样所有的子路径都能访问<br><code>domain=127.0.0.1;</code> 指定根域名后,二级域名不同也能访问</p>
 <h3 id="cookie封装"><a href="#cookie封装" class="headerlink" title="cookie封装"></a>cookie封装</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;zh-CN&quot;</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;ie=edge&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Document<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">        <span class="hljs-title function_">addCookie</span>(<span class="hljs-string">&quot;gender&quot;</span>, <span class="hljs-string">&quot;male&quot;</span>);</span><br><span class="language-javascript">        <span class="hljs-title function_">addCookie</span>(<span class="hljs-string">&quot;score&quot;</span>, <span class="hljs-string">&quot;99&quot;</span>, <span class="hljs-number">1</span>, <span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-string">&quot;127.0.0.1&quot;</span>);</span><br><span class="language-javascript"></span><br><span class="language-javascript">        <span class="hljs-keyword">function</span> <span class="hljs-title function_">addCookie</span>(<span class="hljs-params">key, value, day, path, domain</span>) &#123;</span><br><span class="language-javascript">            <span class="hljs-comment">// 1. 处理默认保存路径</span></span><br><span class="language-javascript">            <span class="hljs-keyword">var</span> index = <span class="hljs-variable language_">window</span>.<span class="hljs-property">location</span>.<span class="hljs-property">pathname</span>.<span class="hljs-title function_">lastIndexOf</span>(<span class="hljs-string">&quot;/&quot;</span>);</span><br><span class="language-javascript">            <span class="hljs-keyword">var</span> currentPath = <span class="hljs-variable language_">window</span>.<span class="hljs-property">location</span>.<span class="hljs-property">pathname</span>.<span class="hljs-title function_">slice</span>(<span class="hljs-number">0</span>, index);</span><br><span class="language-javascript">            path = path || currentPath;</span><br><span class="language-javascript"></span><br><span class="language-javascript">            <span class="hljs-comment">// 2. 处理默认保存的domain</span></span><br><span class="language-javascript">            domain = domain || <span class="hljs-variable language_">document</span>.<span class="hljs-property">domain</span>;</span><br><span class="language-javascript"></span><br><span class="language-javascript">            <span class="hljs-comment">// 3. 处理默认过期时间</span></span><br><span class="language-javascript">            <span class="hljs-keyword">if</span> (day) &#123;</span><br><span class="language-javascript">                <span class="hljs-keyword">var</span> date = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>();</span><br><span class="language-javascript">                date.<span class="hljs-title function_">setDate</span>(date.<span class="hljs-title function_">getDate</span>() + day);</span><br><span class="language-javascript">                <span class="hljs-variable language_">document</span>.<span class="hljs-property">cookie</span> = key + <span class="hljs-string">&quot;=&quot;</span> + value + <span class="hljs-string">&quot;;expires=&quot;</span> + date.<span class="hljs-title function_">toUTCString</span>() + <span class="hljs-string">&quot;;path=&quot;</span> + path +</span><br><span class="language-javascript">                    <span class="hljs-string">&quot;;domain=&quot;</span> + domain + <span class="hljs-string">&quot;;&quot;</span>;</span><br><span class="language-javascript">            &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="language-javascript">                <span class="hljs-variable language_">document</span>.<span class="hljs-property">cookie</span> = key + <span class="hljs-string">&quot;=&quot;</span> + value + <span class="hljs-string">&quot;;path=&quot;</span> + path + <span class="hljs-string">&quot;;domain=&quot;</span> + domain + <span class="hljs-string">&quot;;&quot;</span>;</span><br><span class="language-javascript">            &#125;</span><br><span class="language-javascript">        &#125;</span><br><span class="language-javascript">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
@@ -728,8 +731,9 @@
 
 
 
-              
-            </div>
+                
+              </div>
+            
             <hr/>
             <div>
               <div class="post-metas my-3">
@@ -759,7 +763,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/blog/tags/Ajax/">#Ajax</a>
+        <a href="/blog/tags/Ajax/" class="print-no-link">#Ajax</a>
       
     </div>
   
@@ -788,21 +792,23 @@
         </div>
       
       
-      <div class="license-meta-item">
-        <div>许可协议</div>
-        <div>
-          
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
             
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
             
-              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-              <span class="hint--top hint--rounded" aria-label="BY - 署名">
-                <i class="iconfont icon-by"></i>
-              </span>
-              </a>
-            
-          
+          </div>
         </div>
-      </div>
+      
     </div>
     <div class="license-icon iconfont"></div>
   </div>
@@ -845,7 +851,10 @@
       
   <aside class="sidebar" style="margin-left: -1rem">
     <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -879,6 +888,7 @@
 
 
   
+
 
 
 
@@ -996,8 +1006,6 @@
 
 
 
-
-
   
     <script  src="/blog/js/img-lazyload.js" ></script>
   
@@ -1013,94 +1021,41 @@
     var boardCtn = jQuery('#board-ctn');
     var boardTop = boardCtn.offset().top;
 
-    window.tocbot.init({
+    window.tocbot.init(Object.assign({
       tocSelector     : '#toc-body',
       contentSelector : '.markdown-body',
-      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
       linkClass       : 'tocbot-link',
       activeLinkClass : 'tocbot-active-link',
       listClass       : 'tocbot-list',
       isCollapsedClass: 'tocbot-is-collapsed',
       collapsibleClass: 'tocbot-is-collapsible',
-      collapseDepth   : CONFIG.toc.collapseDepth || 0,
       scrollSmooth    : true,
-      headingsOffset  : -boardTop
-    });
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
     if (toc.find('.toc-list-item').length > 0) {
       toc.css('visibility', 'visible');
     }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
   });
 </script>
 
 
-  <script>
-  (function() {
-    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
-    var enableCopy = CONFIG.copy_btn;
-    if (!enableLang && !enableCopy) {
-      return;
-    }
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
 
-    function getBgClass(ele) {
-      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
-    }
-
-    var copyTmpl = '';
-    copyTmpl += '<div class="code-widget">';
-    copyTmpl += 'LANG';
-    copyTmpl += '</div>';
-    jQuery('.markdown-body pre').each(function() {
-      var $pre = jQuery(this);
-      if ($pre.find('code.mermaid').length > 0) {
-        return;
-      }
-      if ($pre.find('span.line').length > 0) {
-        return;
-      }
-
-      var lang = '';
-
-      if (enableLang) {
-        lang = CONFIG.code_language.default;
-        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
-          lang = $pre[0].children[0].classList[1];
-        } else if ($pre[0].getAttribute('data-language')) {
-          lang = $pre[0].getAttribute('data-language');
-        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
-          lang = $pre[0].children[0].classList[1];
-          $pre.parent().addClass('code-wrapper');
-        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
-          $pre.wrap('<div class="code-wrapper"></div>');
-        }
-        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
-      }
-      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
-        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
-
-      if (enableCopy) {
-        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
-          var clipboard = new window.ClipboardJS('.copy-btn', {
-            target: function(trigger) {
-              var nodes = trigger.parentNode.childNodes;
-              for (var i = 0; i < nodes.length; i++) {
-                if (nodes[i].tagName === 'CODE') {
-                  return nodes[i];
-                }
-              }
-            }
-          });
-          clipboard.on('success', function(e) {
-            e.clearSelection();
-            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
-            setTimeout(function() {
-              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
-            }, 2000);
-          });
-        });
-      }
-    });
-  })();
-</script>
+  <script>Fluid.plugins.codeWidget();</script>
 
 
   
@@ -1122,6 +1077,21 @@
       window.anchors.options.class = 'anchorjs-link-left';
     }
     window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
   });
 </script>
 

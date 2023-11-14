@@ -73,7 +73,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhswchn.github.io","root":"/blog/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
+    var CONFIG = {"hostname":"zhswchn.github.io","root":"/blog/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/blog/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -82,9 +82,11 @@
   </script>
   <script  src="/blog/js/utils.js" ></script>
   <script  src="/blog/js/color-schema.js" ></script>
+  
+
 
   
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 7.0.0"></head>
 
 
 <body>
@@ -117,7 +119,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/">
                 <i class="iconfont icon-home-fill"></i>
-                首页
+                <span>首页</span>
               </a>
             </li>
           
@@ -129,7 +131,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                归档
+                <span>归档</span>
               </a>
             </li>
           
@@ -141,7 +143,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                分类
+                <span>分类</span>
               </a>
             </li>
           
@@ -153,7 +155,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                标签
+                <span>标签</span>
               </a>
             </li>
           
@@ -165,7 +167,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/blog/about/">
                 <i class="iconfont icon-user-fill"></i>
-                关于
+                <span>关于</span>
               </a>
             </li>
           
@@ -173,15 +175,16 @@
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+              <i class="iconfont icon-search"></i>
             </a>
           </li>
           
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
           </li>
         
       </ul>
@@ -232,7 +235,7 @@
         
         
         
-          96 分钟
+          98 分钟
         
       </span>
     
@@ -269,8 +272,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">js基础篇一</h1>
+            <h1 id="seo-header">js基础篇一</h1>
             
               <p class="note note-info">
                 
@@ -280,9 +282,10 @@
                 
               </p>
             
-            <div class="markdown-body">
-              
-              <p>本篇为js基础笔记,记录下来主要用于复习,巩固。包括以下内容：JavaScript书写位置、注释、输出输入语句、变量和赋值、标识符、变量的数据类型、变量的数据转换、其他进制的数字、运算符、流程控制语句和循环语句。</p>
+            
+              <div class="markdown-body">
+                
+                <p>本篇为js基础笔记,记录下来主要用于复习,巩固。包括以下内容：JavaScript书写位置、注释、输出输入语句、变量和赋值、标识符、变量的数据类型、变量的数据转换、其他进制的数字、运算符、流程控制语句和循环语句。</p>
 <span id="more"></span>
 
 <h2 id="JavaScript书写位置"><a href="#JavaScript书写位置" class="headerlink" title="JavaScript书写位置"></a>JavaScript书写位置</h2><p><strong>行内式</strong></p>
@@ -428,7 +431,7 @@ var a = prompt(&quot;请输入一个数字&quot;);   // 必须用一个变量，
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> a = <span class="hljs-number">0.1</span> + <span class="hljs-number">0.2</span>;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);  <span class="hljs-comment">//打印结果：0.30000000000000004</span><br></code></pre></td></tr></table></figure>
 
 <p>上方代码中，打印结果并不是0.3，而是0.30000000000000004。</p>
-<p>我们知道，所有的运算都要转换成二进制去计算，然而，二进制是无法精确表示1/10的。因此存在小数的计算不精确的问题。</p>
+<p>我们知道，所有的运算都要转换成二进制去计算，然而，二进制是无法精确表示1&#x2F;10的。因此存在小数的计算不精确的问题。</p>
 <h3 id="布尔值：Boolean"><a href="#布尔值：Boolean" class="headerlink" title="布尔值：Boolean"></a>布尔值：Boolean</h3><p>true 和 fase。主要用来做逻辑判断。</p>
 <p>布尔值直接使用就可以了，千万不要加上引号。</p>
 <h3 id="null和undefined"><a href="#null和undefined" class="headerlink" title="null和undefined"></a>null和undefined</h3><h4 id="null：空值"><a href="#null：空值" class="headerlink" title="null：空值"></a><code>null</code>：空值</h4><p>专门用来表示一个为空的<strong>对象</strong>（例如：<code>var a = null</code>）。注意，专门用来表示<strong>空对象</strong>。</p>
@@ -443,8 +446,8 @@ var a = prompt(&quot;请输入一个数字&quot;);   // 必须用一个变量，
 <li>Undefined类型的值只有一个，就是undefind</li>
 <li>使用 type of 检查一个undefined时，会返回undefined。</li>
 </ul>
-<p>null和undefined有最大的相似性。看看null == undefined的结果(true)也就更加能说明这点。</p>
-<p>但是null === undefined的结果(false)。它们虽然相似，但还是有区别的，其中一个区别是：和数字运算时，10 + null结果为：10；10 + undefined结果为：NaN。</p>
+<p>null和undefined有最大的相似性。看看null &#x3D;&#x3D; undefined的结果(true)也就更加能说明这点。</p>
+<p>但是null &#x3D;&#x3D;&#x3D; undefined的结果(false)。它们虽然相似，但还是有区别的，其中一个区别是：和数字运算时，10 + null结果为：10；10 + undefined结果为：NaN。</p>
 <ul>
 <li>任何数据类型和undefined运算都是NaN;</li>
 <li>任何值和null运算，null可看做0运算。</li>
@@ -457,7 +460,7 @@ var a = prompt(&quot;请输入一个数字&quot;);   // 必须用一个变量，
 
 <p><strong>总结</strong>：如果加号两边<strong>都是</strong>数值，此时是加。否则，就是连字符（用来连接字符串）。</p>
 <h3 id="隐式转换"><a href="#隐式转换" class="headerlink" title="隐式转换"></a>隐式转换</h3><p>我们知道，<code>&quot;2&quot;+1</code>得到的结果其实是字符串，但是<code>&quot;2&quot;-1</code>得到的结果却是数值1，这是因为计算机自动帮我们进行了“<strong>隐式转换</strong>”。</p>
-<p>也就是说，<code>-</code>、<code>*</code>、<code>/</code>、`%``这几个符号会自动进行隐式转换。</p>
+<p>也就是说，<code>-</code>、<code>*</code>、<code>/</code>、&#96;%&#96;&#96;这几个符号会自动进行隐式转换。</p>
 <p>虽然程序可以对<code>-</code>、<code>*</code>、<code>/</code>、<code>%</code>这几个符号自动进行“隐式转换”；但是最好自己完成转换，方便程序的可读性。</p>
 <h2 id="变量数据类型转换"><a href="#变量数据类型转换" class="headerlink" title="变量数据类型转换"></a>变量数据类型转换</h2><h3 id="转换为数字型"><a href="#转换为数字型" class="headerlink" title="转换为数字型"></a>转换为数字型</h3><ol>
 <li><p>parseInt(变量)字符型转换为数字型,只能是整数</p>
@@ -500,7 +503,7 @@ var a = prompt(&quot;请输入一个数字&quot;);   // 必须用一个变量，
 <li>结果为：NaN</li>
 </ul>
 <ol start="4">
-<li><p>算数运算 - * / 隐式转换</p>
+<li><p>算数运算 - * &#x2F; 隐式转换</p>
 <pre><code class="hljs"> console.log(&#39;12&#39; - 0); // 12
  console.log(&#39;123&#39; - &#39;120&#39;); // 3
  console.log(&#39;123&#39; * 1); // 123
@@ -586,9 +589,9 @@ var a = prompt(&quot;请输入一个数字&quot;);   // 必须用一个变量，
 
 <h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><p>逻辑运算符有三个：</p>
 <ul>
-<li><code>&amp;&amp;</code>      与（且）：两个都为真，结果才为真。</li>
-<li><code>||</code>    或：只要有一个是真，结果就是真。</li>
-<li><code>!</code>    非：对一个布尔值进行取反。</li>
+<li><code>&amp;&amp;</code> 	 与（且）：两个都为真，结果才为真。</li>
+<li><code>||</code>	或：只要有一个是真，结果就是真。</li>
+<li><code>!</code>	非：对一个布尔值进行取反。</li>
 </ul>
 <p><strong>注意事项</strong></p>
 <p>（1）能参与逻辑运算的，都是布尔值。</p>
@@ -613,16 +616,16 @@ var a = prompt(&quot;请输入一个数字&quot;);   // 必须用一个变量，
 <h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><p>可以将符号右侧的值赋值给符号左侧的变量。</p>
 <p>举例：</p>
 <ul>
-<li><code>+=</code>。a += 5 等价于 a = a + 5</li>
-<li><code>-=</code>。a -= 5 等价于 a = a - 5</li>
-<li><code>*=</code>。a *= 5 等价于 a = a * 5</li>
-<li><code>/=</code>。a /= 5 等价于 a = a / 5</li>
-<li><code>%=</code>。a %= 5 等价于 a = a % 5</li>
+<li><code>+=</code>。a +&#x3D; 5 等价于 a &#x3D; a + 5</li>
+<li><code>-=</code>。a -&#x3D; 5 等价于 a &#x3D; a - 5</li>
+<li><code>*=</code>。a *&#x3D; 5 等价于 a &#x3D; a * 5</li>
+<li><code>/=</code>。a &#x2F;&#x3D; 5 等价于 a &#x3D; a &#x2F; 5</li>
+<li><code>%=</code>。a %&#x3D; 5 等价于 a &#x3D; a % 5</li>
 </ul>
 <h3 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h3><p>通过关系运算符可以比较两个值之间的大小关系，如果关系成立它会返回true，如果关系不成立则返回false。</p>
 <p><strong>关系运算符，得到的结果都是布尔值：要么是true，要么是false</strong>。</p>
 <blockquote>
-<p>   大于号<br>    &lt;    小于号<br>=     大于或等于<br>    &lt;=  小于或等于<br>    ==     等于<br>    === 全等于<br>    !=    不等于<br>    !== 不全等于</p>
+<p>大于号<br>    &lt;	小于号<br>&#x3D; 	大于或等于<br>    &lt;&#x3D;  小于或等于<br>    &#x3D;&#x3D; 	等于<br>    &#x3D;&#x3D;&#x3D; 全等于<br>    !&#x3D;	不等于<br>    !&#x3D;&#x3D; 不全等于</p>
 </blockquote>
 <p>（1）对于非数值进行比较时，会将其转换为数字然后再比较。</p>
 <p>（2）特殊情况：如果符号两侧的值都是字符串时，<strong>不会</strong>将其转换为数字进行比较。比较两个字符串时，比较的是字符串的<strong>Unicode编码</strong>。</p>
@@ -682,15 +685,15 @@ var a = prompt(&quot;请输入一个数字&quot;);   // 必须用一个变量，
 <h3 id="选择结构"><a href="#选择结构" class="headerlink" title="选择结构"></a>选择结构</h3><h4 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h4><p><strong>if语句只执行其中一个</strong></p>
 <p>1、条件判断语句</p>
 <p>条件成立才执行。如果条件不成立，那就什么都不做</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-keyword">if</span> (条件表达式) &#123;<br>		<span class="hljs-regexp">//</span> 执行语句 条件为真就执行<br>	&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs gcode"><span class="hljs-keyword">if</span> <span class="hljs-comment">(条件表达式)</span> &#123;<br>		<span class="hljs-comment">// 执行语句 条件为真就执行</span><br>	&#125;<br></code></pre></td></tr></table></figure>
 
 <p>2、条件分支语句</p>
 <p>如果 条件表达式为真,那么执行语句1  else否则  执行语句2</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-keyword">if</span> (条件表达式) &#123;<br>		<span class="hljs-regexp">//</span> 执行语句<span class="hljs-number">1</span><br><br>	&#125; <span class="hljs-keyword">else</span> &#123;<br>		<span class="hljs-regexp">//</span> 执行语句<span class="hljs-number">2</span><br><br>	&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs actionscript"><span class="hljs-keyword">if</span> (条件表达式) &#123;<br>		<span class="hljs-comment">// 执行语句1</span><br><br>	&#125; <span class="hljs-keyword">else</span> &#123;<br>		<span class="hljs-comment">// 执行语句2</span><br><br>	&#125;<br></code></pre></td></tr></table></figure>
 
 <p>3、多分支的if语句</p>
 <p>多分支语句 多选 1 的过程<br>满足条件表达式1,就执行语句1 执行后退出整个if 分支语句<br>不满足条件表达式1,就判断条件表达式2,满足就执行语句2,以此类推<br>如果都不成立,则执行else里最后的语句        </p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-keyword">if</span> (条件表达式<span class="hljs-number">1</span>) &#123;<br>          <span class="hljs-regexp">//</span>语句<span class="hljs-number">1</span>;<br>      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (条件表达式<span class="hljs-number">2</span>) &#123;<br>          <span class="hljs-regexp">//</span>语句<span class="hljs-number">2</span>;<br>      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (条件表达式<span class="hljs-number">3</span>) &#123;<br>          <span class="hljs-regexp">//</span>语句<span class="hljs-number">3</span>;<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>          <span class="hljs-regexp">//</span>最后的语句;<br>      &#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs aspectj"><span class="hljs-keyword">if</span> (条件表达式<span class="hljs-number">1</span>) &#123;<br>          <span class="hljs-comment">//语句1;</span><br>      &#125; <span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span> <span class="hljs-params">(条件表达式<span class="hljs-number">2</span>)</span> </span>&#123;<br>          <span class="hljs-comment">//语句2;</span><br>      &#125; <span class="hljs-function"><span class="hljs-keyword">else</span> <span class="hljs-title">if</span> <span class="hljs-params">(条件表达式<span class="hljs-number">3</span>)</span> </span>&#123;<br>          <span class="hljs-comment">//语句3;</span><br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>          <span class="hljs-comment">//最后的语句;</span><br>      &#125;<br></code></pre></td></tr></table></figure>
 
 <h3 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h3><p>（1）首先，计算出表达式的值，和case依次比较，一旦有对应的值，就会执行相应的语句，在执行的过程中，遇到break就会结束。</p>
 <p>（2）然后，如果所有的case都和表达式的值不匹配，就会执行default语句体部分。</p>
@@ -712,10 +715,10 @@ var a = prompt(&quot;请输入一个数字&quot;);   // 必须用一个变量，
 <p>可以把里面的循环看作是外面循环的语句<br>外层循环1 次,里面循环全部</p>
 <figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">3</span>; i++) &#123;<br>    <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&#x27;外面循环第&#x27;</span> + i + <span class="hljs-string">&#x27;次&#x27;</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> j = <span class="hljs-number">1</span>; j &lt;= <span class="hljs-number">3</span>; j++) &#123;<br>        <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&#x27;里面循环第&#x27;</span> + j + <span class="hljs-string">&#x27;次&#x27;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h3><p>当表达式为true时,执行循环体,否则退出循环</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-keyword">while</span> (条件表达式) &#123;<br>    <span class="hljs-regexp">//</span>循环体<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs gcode"><span class="hljs-keyword">while</span> <span class="hljs-comment">(条件表达式)</span> &#123;<br>    <span class="hljs-comment">//循环体</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h4 id="do…while循环"><a href="#do…while循环" class="headerlink" title="do…while循环"></a>do…while循环</h4><p>先执行一次循环体,  再去判断表达式,  do while至少会执行1次</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-keyword">do</span> &#123;<br>循环体    <span class="hljs-regexp">//</span> 条件表达式为true时重复执行<br>&#125; <span class="hljs-keyword">while</span> (条件表达式);<br></code></pre></td></tr></table></figure>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs gcode"><span class="hljs-keyword">do</span> &#123;<br>循环体    <span class="hljs-comment">// 条件表达式为true时重复执行</span><br>&#125; <span class="hljs-keyword">while</span> <span class="hljs-comment">(条件表达式)</span>;<br></code></pre></td></tr></table></figure>
 
 <h3 id="break-和-continue"><a href="#break-和-continue" class="headerlink" title="break 和 continue"></a>break 和 continue</h3><h4 id="break"><a href="#break" class="headerlink" title="break"></a>break</h4><ul>
 <li>break可以用来退出switch语句或<strong>整个</strong>循环语句（循环语句包括for、while。不包括if。if里不能用 break 和 continue，否则会报错）。</li>
@@ -729,8 +732,9 @@ var a = prompt(&quot;请输入一个数字&quot;);   // 必须用一个变量，
 <li>同样，continue默认只会离他<strong>最近</strong>的循环起作用。</li>
 </ul>
 
-              
-            </div>
+                
+              </div>
+            
             <hr/>
             <div>
               <div class="post-metas my-3">
@@ -760,7 +764,7 @@ var a = prompt(&quot;请输入一个数字&quot;);   // 必须用一个变量，
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/blog/tags/JavaScript/">#JavaScript</a>
+        <a href="/blog/tags/JavaScript/" class="print-no-link">#JavaScript</a>
       
     </div>
   
@@ -789,21 +793,23 @@ var a = prompt(&quot;请输入一个数字&quot;);   // 必须用一个变量，
         </div>
       
       
-      <div class="license-meta-item">
-        <div>许可协议</div>
-        <div>
-          
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
             
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
             
-              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-              <span class="hint--top hint--rounded" aria-label="BY - 署名">
-                <i class="iconfont icon-by"></i>
-              </span>
-              </a>
-            
-          
+          </div>
         </div>
-      </div>
+      
     </div>
     <div class="license-icon iconfont"></div>
   </div>
@@ -846,7 +852,10 @@ var a = prompt(&quot;请输入一个数字&quot;);   // 必须用一个变量，
       
   <aside class="sidebar" style="margin-left: -1rem">
     <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -880,6 +889,7 @@ var a = prompt(&quot;请输入一个数字&quot;);   // 必须用一个变量，
 
 
   
+
 
 
 
@@ -997,8 +1007,6 @@ var a = prompt(&quot;请输入一个数字&quot;);   // 必须用一个变量，
 
 
 
-
-
   
     <script  src="/blog/js/img-lazyload.js" ></script>
   
@@ -1014,94 +1022,41 @@ var a = prompt(&quot;请输入一个数字&quot;);   // 必须用一个变量，
     var boardCtn = jQuery('#board-ctn');
     var boardTop = boardCtn.offset().top;
 
-    window.tocbot.init({
+    window.tocbot.init(Object.assign({
       tocSelector     : '#toc-body',
       contentSelector : '.markdown-body',
-      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
       linkClass       : 'tocbot-link',
       activeLinkClass : 'tocbot-active-link',
       listClass       : 'tocbot-list',
       isCollapsedClass: 'tocbot-is-collapsed',
       collapsibleClass: 'tocbot-is-collapsible',
-      collapseDepth   : CONFIG.toc.collapseDepth || 0,
       scrollSmooth    : true,
-      headingsOffset  : -boardTop
-    });
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
     if (toc.find('.toc-list-item').length > 0) {
       toc.css('visibility', 'visible');
     }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
   });
 </script>
 
 
-  <script>
-  (function() {
-    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
-    var enableCopy = CONFIG.copy_btn;
-    if (!enableLang && !enableCopy) {
-      return;
-    }
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
 
-    function getBgClass(ele) {
-      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
-    }
-
-    var copyTmpl = '';
-    copyTmpl += '<div class="code-widget">';
-    copyTmpl += 'LANG';
-    copyTmpl += '</div>';
-    jQuery('.markdown-body pre').each(function() {
-      var $pre = jQuery(this);
-      if ($pre.find('code.mermaid').length > 0) {
-        return;
-      }
-      if ($pre.find('span.line').length > 0) {
-        return;
-      }
-
-      var lang = '';
-
-      if (enableLang) {
-        lang = CONFIG.code_language.default;
-        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
-          lang = $pre[0].children[0].classList[1];
-        } else if ($pre[0].getAttribute('data-language')) {
-          lang = $pre[0].getAttribute('data-language');
-        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
-          lang = $pre[0].children[0].classList[1];
-          $pre.parent().addClass('code-wrapper');
-        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
-          $pre.wrap('<div class="code-wrapper"></div>');
-        }
-        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
-      }
-      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
-        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
-
-      if (enableCopy) {
-        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
-          var clipboard = new window.ClipboardJS('.copy-btn', {
-            target: function(trigger) {
-              var nodes = trigger.parentNode.childNodes;
-              for (var i = 0; i < nodes.length; i++) {
-                if (nodes[i].tagName === 'CODE') {
-                  return nodes[i];
-                }
-              }
-            }
-          });
-          clipboard.on('success', function(e) {
-            e.clearSelection();
-            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
-            setTimeout(function() {
-              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
-            }, 2000);
-          });
-        });
-      }
-    });
-  })();
-</script>
+  <script>Fluid.plugins.codeWidget();</script>
 
 
   
@@ -1123,6 +1078,21 @@ var a = prompt(&quot;请输入一个数字&quot;);   // 必须用一个变量，
       window.anchors.options.class = 'anchorjs-link-left';
     }
     window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
   });
 </script>
 
